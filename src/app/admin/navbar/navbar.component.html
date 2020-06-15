@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">    
+    <a class="navbar-brand btn" [routerLink]="['/']">
+        <img src="assets/virami.png" style="height: 2rem;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link btn" [routerLink]="['/panel']">Panel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" (click)='authService.SignOut()'>Salir</a>
+        </li>
+      </ul>  -->
+      <a class="nav-link btn ml-auto" [routerLink]="['/']">Panel</a>
+      <a class="nav-link btn" [routerLink]="['/new']">Nuevo</a>
+      <a *ngIf="save==2" class="nav-link btn" (click)='authService.SignOut()'>Salir </a>
+      <span *ngIf="this.authService.userName" class="nav-link btn" style="color: #28a745;">({{this.authService.userName}}) </span>           
+    </div>
+  </nav>
+

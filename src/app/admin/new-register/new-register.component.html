@@ -1,0 +1,38 @@
+<app-navbar [save]="save"></app-navbar>
+<div class="container pt-5">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-12 col-md-8">
+            <div class="card">
+                <div class="card-body" [formGroup]="myForm">
+                    <p class="card-title h6" style="text-align: center;">NUEVO CLIENTE</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="card-subtitle"> Fecha: {{fecha}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="nombre" placeholder="Nombre del cliente **">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="tel" placeholder="Teléfono o Celular **">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="curp" placeholder="CURP">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="credito" placeholder="Crédito">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="mcredito" placeholder="Monto del crédito">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control mb-2" formControlName="observaciones" placeholder="Observaciones">
+                        </li>
+                        <li class="list-group-item">
+                            <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/']" [disabled]="!myForm.valid">Guardar</button>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
