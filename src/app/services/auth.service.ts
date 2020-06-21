@@ -45,6 +45,7 @@ export class AuthService {
         });
       }).catch((error) => {
         this.toastr.error('Intente otra vez!');
+        this.router.navigate(['login']);
       });
   }
 

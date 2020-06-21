@@ -36,7 +36,8 @@ export class NewRegisterComponent implements OnInit {
       mcredito: [''],
       observaciones: [''],
       estado: ['Proceso'],
-      llamadas: []
+      llamadas: [],
+      nCalls: [0]
     });
   }
 

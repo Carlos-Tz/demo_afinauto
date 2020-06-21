@@ -1,0 +1,78 @@
+<app-navbar [save]="save"></app-navbar>
+<div class="container pt-2">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-12 col-md-8">
+            <div class="card">
+                <div class="card-body" [formGroup]="myForm">
+                    <p class="card-title h6" style="text-align: center;">DATOS DEL CLIENTE</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="card-subtitle"> Fecha: {{myForm.value.fecha}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del cliente **">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="tel" placeholder="Teléfono o Celular **">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="curp" placeholder="CURP">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="credito" placeholder="Crédito">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="mcredito" placeholder="Monto del crédito">
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="observaciones" placeholder="Observaciones">
+                        </li>
+                        <li class="list-group-item">
+                            <p>Llamadas:</p>
+                                <app-btn-call *ngFor="let c of calls; let j=index;"
+                                                [call]="c">
+                                </app-btn-call>
+                            <button class="btn btn-outline-info btn-block mt-2" (click)="showDialog()">Nueva Llamada</button>
+                            <ng-container #vc></ng-container>
+                            <ng-template #modalC>
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <app-new-call
+                                                        [folio]="folio"
+                                                        [closeDialog]="closeDialog">
+                                            </app-new-call>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </ng-template>
+
+                            <!-- <ng-template #modalCall let-modal class="modal-dialog modal-dialog-centered">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        <span>title</span>
+                                    </h4>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p> <span>msg</span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+
+                                </div>
+                            </ng-template>  -->
+
+                        </li>
+                        <li class="list-group-item">
+                            <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/']" [disabled]="!myForm.valid">Guardar</button>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -3,7 +3,10 @@
     <div class="row justify-content-sm-center">
       <div class="col-sm-10 col-md-6">
         <div class="card border-info">
-          <div class="card-header"><h4>Loading...</h4></div>
+          <div class="card-header">
+            <h4 *ngIf="!authService.isLoggedIn">Cargando...</h4>
+            <h4 *ngIf="authService.isLoggedIn">Continuar</h4>
+          </div>
           <div class="card-body">
             <div class="row">              
               <div class="col-md-12">

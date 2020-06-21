@@ -1,0 +1,8 @@
+@media (max-width: 520px) {
+    .show-h {
+      display: none;
+    }
+    .pad-l {
+        padding-left: 24px;
+    }
+}

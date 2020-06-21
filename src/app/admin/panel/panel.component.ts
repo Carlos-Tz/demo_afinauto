@@ -24,6 +24,7 @@ export class PanelComponent implements OnInit, AfterViewInit {
     'fecha',
     'nombre',
     'tel',
+    'nCalls',
     'action'
   ];
   constructor(
@@ -34,13 +35,12 @@ export class PanelComponent implements OnInit, AfterViewInit {
     this.api.GetFormsList().snapshotChanges().subscribe(data => {
       this.Form = [];
       data.forEach(item => {
-        let f = item.payload.toJSON();
+        const f = item.payload.toJSON();
         f['$key'] = item.key;
         this.Form.push(f as Form);
       });
       if (this.Form.length > 0) {
         this.data = true;
-        console.log(this.Form);        
         this.dataSource.data = this.Form.slice();
        /*  this.dataSource.sort = this.sort; */
       }

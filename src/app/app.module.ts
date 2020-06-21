@@ -26,6 +26,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SpinnerComponent } from './admin/spinner/spinner.component';
+import { EditRegisterComponent } from './admin/edit-register/edit-register.component';
+import { BtnCallComponent } from './admin/edit-register/btn-call/btn-call.component';
+import { NewCallComponent } from './admin/edit-register/new-call/new-call.component';
+import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { SpinnerComponent } from './admin/spinner/spinner.component';
     PanelComponent,
     RegisterComponent,
     VerifyEmailComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    EditRegisterComponent,
+    BtnCallComponent,
+    NewCallComponent,
+    EditCallComponent
   ],
   imports: [
     BrowserModule,

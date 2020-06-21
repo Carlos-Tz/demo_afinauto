@@ -9,5 +9,6 @@ export interface Form {
     observaciones: string;
     estado: string;
     llamadas: Call[];
+    nCalls: number;
 }
 
