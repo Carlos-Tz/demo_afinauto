@@ -16,17 +16,24 @@ export class CalendarComponent implements OnInit {
   constructor() {
     this.eventData = [
       {
-        title: 'event1',
-        start: moment()
+        title: 'event1 dshjh jhdjs jhdjs jdhjhjhdj sjhj',
+        start: '2020-07-19',
+        color: 'purple'
       },
       {
         title: 'event2',
-        start: moment(),
-        end: moment().add(2, 'days')
+        start: '2020-07-23',
+        color: 'red'
+      },
+      {
+        title: 'event2 -as',
+        start: '2020-07-23',
+        color: 'orange'
       },
       {
         title: 'my event',
-        start: '2020-07-07'
+        start: '2020-07-07',
+        description: 'yes'
       }
     ];
     this.calendarOptions = {
@@ -37,7 +44,7 @@ export class CalendarComponent implements OnInit {
       },
       editable: true,
       selectable: true,
-      events: this.eventData
+      events: this.eventData    
     };
     /* titleFormat: 'MMM D YYYY',
     firstDay: 1, */
