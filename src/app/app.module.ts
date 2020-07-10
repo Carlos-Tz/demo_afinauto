@@ -30,6 +30,15 @@ import { EditRegisterComponent } from './admin/edit-register/edit-register.compo
 import { BtnCallComponent } from './admin/edit-register/btn-call/btn-call.component';
 import { NewCallComponent } from './admin/edit-register/new-call/new-call.component';
 import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction';
+import { CalendarComponent } from './admin/calendar/calendar.component'; // a plugin
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -45,7 +54,8 @@ import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.com
     EditRegisterComponent,
     BtnCallComponent,
     NewCallComponent,
-    EditCallComponent
+    EditCallComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +73,8 @@ import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.com
     MatSortModule,
     MatTableModule,
     MatFormFieldModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
