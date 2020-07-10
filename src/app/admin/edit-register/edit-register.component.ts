@@ -17,7 +17,9 @@ export class EditRegisterComponent implements OnInit {
   calls: Call[];
   folio = 0;
   @ViewChild('modalC') modalC: TemplateRef<any>;
+  @ViewChild('modalC2') modalC2: TemplateRef<any>;
   @ViewChild('vc', {read: ViewContainerRef}) vc: ViewContainerRef;
+  @ViewChild('vc2', {read: ViewContainerRef}) vc2: ViewContainerRef;
   backdrop: any;
   constructor(
     private fb: FormBuilder,
@@ -84,6 +86,21 @@ export class EditRegisterComponent implements OnInit {
 
   closeDialog = () => {
     this.vc.clear();
+    document.body.removeChild(this.backdrop);
+  }
+  showDialog2(){
+    const view = this.modalC2.createEmbeddedView(null);
+    this.vc2.insert(view);
+    this.modalC2.elementRef.nativeElement.previousElementSibling.classList.remove('fade');
+    this.modalC2.elementRef.nativeElement.previousElementSibling.classList.add('modal-open');
+    this.modalC2.elementRef.nativeElement.previousElementSibling.style.display = 'block';
+    this.backdrop = document.createElement('DIV');
+    this.backdrop.className = 'modal-backdrop';
+    document.body.appendChild(this.backdrop);
+  }
+
+  closeDialog2 = () => {
+    this.vc2.clear();
     document.body.removeChild(this.backdrop);
   }
 }

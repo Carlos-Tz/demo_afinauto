@@ -32,7 +32,14 @@
                                 <app-btn-call *ngFor="let c of calls; let j=index;"
                                                 [call]="c">
                                 </app-btn-call>
-                            <button class="btn btn-outline-info btn-block mt-2" (click)="showDialog()">Nueva Llamada</button>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <button class="btn btn-outline-info btn-block mt-2" (click)="showDialog()">Nueva Llamada</button>                                    
+                                </div>    
+                                <div class="col-sm-12 col-md-6">
+                                    <button class="btn btn-outline-dark btn-block mt-2" (click)="showDialog2()">Nueva Cita</button>
+                                </div>                            
+                            </div>
                             <ng-container #vc></ng-container>
                             <ng-template #modalC>
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -42,6 +49,19 @@
                                                         [folio]="folio"
                                                         [closeDialog]="closeDialog">
                                             </app-new-call>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </ng-template>
+                            <ng-container #vc2></ng-container>
+                            <ng-template #modalC2>
+                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <app-new-cita
+                                                        [myForm]="myForm.value"
+                                                        [closeDialog]="closeDialog2">
+                                            </app-new-cita>
                                         </div>
                                     </div>
                                 </div>   

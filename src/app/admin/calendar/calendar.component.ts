@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
-import * as moment from 'moment';
+/* import * as moment from 'moment'; */
+import { ApiService } from 'src/app/services/api.service';
+import { Cita } from 'src/app/models/cita';
 
 @Component({
   selector: 'app-calendar',
@@ -10,32 +12,24 @@ import * as moment from 'moment';
 export class CalendarComponent implements OnInit {
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
-  @Input() eventData: any[];
+  @ViewChild('modalE2') modalE2: TemplateRef<any>;
+  @ViewChild('vcE2', {read: ViewContainerRef}) vcE2: ViewContainerRef;
+  backdrop: any;
+  /* @Input() eventData: any[]; */
   calendarOptions: CalendarOptions;
+  citas: Cita[];
+  cita: any;
 
-  constructor() {
-    this.eventData = [
+  constructor(
+    public Api: ApiService,
+  ) {
+    /* this.eventData = [
       {
         title: 'event1 dshjh jhdjs jhdjs jdhjhjhdj sjhj',
         start: '2020-07-19',
         color: 'purple'
-      },
-      {
-        title: 'event2',
-        start: '2020-07-23',
-        color: 'red'
-      },
-      {
-        title: 'event2 -as',
-        start: '2020-07-23',
-        color: 'orange'
-      },
-      {
-        title: 'my event',
-        start: '2020-07-07',
-        description: 'yes'
       }
-    ];
+    ]; */
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       locale: 'es',
@@ -44,15 +38,47 @@ export class CalendarComponent implements OnInit {
       },
       editable: true,
       selectable: true,
-      events: this.eventData    
+      eventClick: (info) => {
+        this.cita = info.event;
+        /* console.log(this.cita.extendedProps + 'ddddd' + this.cita.startStr ); */
+        this.showDialog();
+      }
     };
-    /* titleFormat: 'MMM D YYYY',
-    firstDay: 1, */
   }
 
 
-  ngOnInit(): void {
-    console.log(moment().date());
+  ngOnInit(): void {    
+    this.Api.GetCita().snapshotChanges().subscribe(re => {
+      this.citas = [];
+      re.forEach(item => {
+        const cita = item.payload.toJSON();
+        cita['$key'] = item.key;
+        this.citas.push(cita as Cita);
+      });
+      if (this.citas) {
+        this.calendarOptions.events = this.citas;
+      }
+    });
+  }
+  showDialog(){
+    const view = this.modalE2.createEmbeddedView(null);
+    this.vcE2.insert(view);
+    this.modalE2.elementRef.nativeElement.previousElementSibling.classList.remove('fade');
+    this.modalE2.elementRef.nativeElement.previousElementSibling.classList.add('modal-open');
+    this.modalE2.elementRef.nativeElement.previousElementSibling.style.display = 'block';
+    this.backdrop = document.createElement('DIV');
+    this.backdrop.className = 'modal-backdrop';
+    document.body.appendChild(this.backdrop);
   }
 
+  closeDialog = () => {
+    this.vcE2.clear();
+    document.body.removeChild(this.backdrop);
+  }
+
+  deleteData(key: string) {
+    console.log('elminado');
+    this.closeDialog;
+    this.Api.DeleteCita(key);
+  }
 }

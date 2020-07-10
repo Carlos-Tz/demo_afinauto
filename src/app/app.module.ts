@@ -33,7 +33,8 @@ import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.com
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction';
-import { CalendarComponent } from './admin/calendar/calendar.component'; // a plugin
+import { CalendarComponent } from './admin/calendar/calendar.component';
+import { NewCitaComponent } from './admin/new-cita/new-cita.component'; // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -55,7 +56,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     BtnCallComponent,
     NewCallComponent,
     EditCallComponent,
-    CalendarComponent
+    CalendarComponent,
+    NewCitaComponent
   ],
   imports: [
     BrowserModule,
