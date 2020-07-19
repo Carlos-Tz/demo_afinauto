@@ -15,7 +15,6 @@ export class CalendarComponent implements OnInit {
   @ViewChild('modalE2') modalE2: TemplateRef<any>;
   @ViewChild('vcE2', {read: ViewContainerRef}) vcE2: ViewContainerRef;
   backdrop: any;
-  /* @Input() eventData: any[]; */
   calendarOptions: CalendarOptions;
   citas: Cita[];
   cita: any;
@@ -23,13 +22,6 @@ export class CalendarComponent implements OnInit {
   constructor(
     public Api: ApiService,
   ) {
-    /* this.eventData = [
-      {
-        title: 'event1 dshjh jhdjs jhdjs jdhjhjhdj sjhj',
-        start: '2020-07-19',
-        color: 'purple'
-      }
-    ]; */
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       locale: 'es',
@@ -77,8 +69,8 @@ export class CalendarComponent implements OnInit {
   }
 
   deleteData(key: string) {
-    console.log('elminado');
-    this.closeDialog;
+    /* console.log('elminado'); */
+    this.closeDialog();
     this.Api.DeleteCita(key);
   }
 }

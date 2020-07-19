@@ -34,7 +34,9 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // the main connecto
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction';
 import { CalendarComponent } from './admin/calendar/calendar.component';
-import { NewCitaComponent } from './admin/new-cita/new-cita.component'; // a plugin
+import { NewCitaComponent } from './admin/new-cita/new-cita.component';
+import { PhotosComponent } from './admin/photos/photos.component';
+import { CasaComponent } from './admin/photos/casa/casa.component'; // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -57,7 +59,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NewCallComponent,
     EditCallComponent,
     CalendarComponent,
-    NewCitaComponent
+    NewCitaComponent,
+    PhotosComponent,
+    CasaComponent
   ],
   imports: [
     BrowserModule,

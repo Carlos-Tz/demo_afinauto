@@ -8,6 +8,7 @@ import { SecureInnerPagesGuard } from './services/secure-inner-pages.guard';
 import { SpinnerComponent } from './admin/spinner/spinner.component';
 import { EditRegisterComponent } from './admin/edit-register/edit-register.component';
 import { CalendarComponent } from './admin/calendar/calendar.component';
+import { PhotosComponent } from './admin/photos/photos.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'spinner', component: SpinnerComponent},
   {path: 'new', component: NewRegisterComponent, canActivate: [AuthGuard]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  {path: 'photos', component: PhotosComponent, canActivate: [AuthGuard]},
   {path: 'edit/:key', component: EditRegisterComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
  /*  {path: 'resetPass', component: ResetPassComponent, canActivate: [SecureInnerPagesGuard]} */
