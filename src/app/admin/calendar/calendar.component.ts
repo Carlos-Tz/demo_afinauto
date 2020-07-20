@@ -10,7 +10,7 @@ import { Cita } from 'src/app/models/cita';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-
+  save = 2;
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   @ViewChild('modalE2') modalE2: TemplateRef<any>;
   @ViewChild('vcE2', {read: ViewContainerRef}) vcE2: ViewContainerRef;

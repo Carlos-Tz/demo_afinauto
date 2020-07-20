@@ -36,7 +36,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { CalendarComponent } from './admin/calendar/calendar.component';
 import { NewCitaComponent } from './admin/new-cita/new-cita.component';
 import { PhotosComponent } from './admin/photos/photos.component';
-import { CasaComponent } from './admin/photos/casa/casa.component'; // a plugin
+import { CasaComponent } from './admin/photos/casa/casa.component';
+import { NewCasaComponent } from './admin/new-casa/new-casa.component'; // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -61,7 +62,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalendarComponent,
     NewCitaComponent,
     PhotosComponent,
-    CasaComponent
+    CasaComponent,
+    NewCasaComponent
   ],
   imports: [
     BrowserModule,

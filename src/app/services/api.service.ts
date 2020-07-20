@@ -3,6 +3,7 @@ import { AngularFireList, AngularFireObject, AngularFireDatabase } from '@angula
 import { Form } from '../models/form';
 import { Call } from '../models/call';
 import { Cita } from '../models/cita';
+import { Casa } from '../models/casa';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class ApiService {
   citaObject: AngularFireObject<any>;
   public callList: AngularFireList<any>;
   public citaList: AngularFireList<any>;
+  public casasList: AngularFireList<any>;
   public callObject: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) { }
 
@@ -64,12 +66,21 @@ export class ApiService {
   async AddCita(cita: any) {
       this.citaList.push(cita as Cita);
   }
+  async AddCasa(casa: any) {
+      this.casasList.push(casa as Casa);
+  }
 
   GetCita() {
     this.citaList = this.db.list('virami/citas', ref =>
       ref.orderByChild('id_')
     );
     return this.citaList;
+  }
+  GetCasas() {
+    this.casasList = this.db.list('virami/casas', ref =>
+      ref.orderByChild('id_')
+    );
+    return this.casasList;
   }
 
   GetCurrentCall(key: string, key2: string) {
