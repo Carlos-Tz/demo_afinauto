@@ -38,6 +38,9 @@ import { NewCitaComponent } from './admin/new-cita/new-cita.component';
 import { PhotosComponent } from './admin/photos/photos.component';
 import { CasaComponent } from './admin/photos/casa/casa.component';
 import { NewCasaComponent } from './admin/new-casa/new-casa.component'; // a plugin
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { MainComponent } from './admin/main/main.component';
+import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -63,7 +66,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NewCitaComponent,
     PhotosComponent,
     CasaComponent,
-    NewCasaComponent
+    NewCasaComponent,
+    MainComponent,
+    EditCasaComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatTableModule,
     MatFormFieldModule,
     ToastrModule.forRoot(),
-    FullCalendarModule
+    FullCalendarModule,
+    Ng2ImgMaxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

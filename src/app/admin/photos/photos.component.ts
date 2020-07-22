@@ -27,7 +27,6 @@ export class PhotosComponent implements OnInit {
         casa['$key'] = item.key;
         this.casas.push(casa as Casa);
       });
-      console.log(casas);
     });
   }
 

@@ -1,7 +1,7 @@
 <app-navbar [save]="save"></app-navbar>
 <div class="pt-2">
     <div class="row justify-content-sm-center">
-        <div class="col sm-12 md-8">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -15,10 +15,11 @@
                                 Propiedad </button>
                         </div>
                     </div>
-                    <div class="container">
-                        {{casas}}
-                        <app-casa *ngFor="let c of casas; let j=index;" [casa]="c">
-                        </app-casa>
+                    <div class="container mt-2">
+                        <div class="row">                            
+                            <app-casa *ngFor="let c of casas; let j=index;" [casa]="c" class="col-sm-4 col-md-3">
+                            </app-casa>                        
+                        </div>                      
                     </div>
                     <ng-container #vc></ng-container>
                     <ng-template #modalC>

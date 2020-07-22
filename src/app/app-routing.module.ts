@@ -9,11 +9,13 @@ import { SpinnerComponent } from './admin/spinner/spinner.component';
 import { EditRegisterComponent } from './admin/edit-register/edit-register.component';
 import { CalendarComponent } from './admin/calendar/calendar.component';
 import { PhotosComponent } from './admin/photos/photos.component';
+import { MainComponent } from './admin/main/main.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: PanelComponent, canActivate: [AuthGuard]},
+  {path: '', component: MainComponent},
+  {path: 'panel', component: PanelComponent, canActivate: [AuthGuard]},
   {path: 'spinner', component: SpinnerComponent},
   {path: 'new', component: NewRegisterComponent, canActivate: [AuthGuard]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
