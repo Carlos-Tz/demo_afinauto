@@ -11,13 +11,13 @@
                             </p>
                         </div>
                         <div class="col-sm-12 col-md-3 offset-md-3">
-                            <button class="btn btn-outline-info btn-block" (click)="showDialog()">Nueva
+                            <button class="btn btn-outline-success btn-block" (click)="showDialog()">Nueva
                                 Propiedad </button>
                         </div>
                     </div>
                     <div class="container mt-2">
                         <div class="row">                            
-                            <app-casa *ngFor="let c of casas; let j=index;" [casa]="c" class="col-sm-4 col-md-3">
+                            <app-casa *ngFor="let c of casas; let j=index;" [casa]="c" class="col-sm-4 col-md-3 mb-2">
                             </app-casa>                        
                         </div>                      
                     </div>

@@ -1,0 +1,17 @@
+html, body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}
+.back {
+    background-image: url('../../../assets/casa1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+#b_t {
+    position: absolute;
+    left: 47%;
+    bottom: 20px;
+}

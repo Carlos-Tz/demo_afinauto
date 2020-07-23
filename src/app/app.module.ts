@@ -11,6 +11,7 @@ import { PanelComponent } from './admin/panel/panel.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { VerifyEmailComponent } from './admin/verify-email/verify-email.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireModule } from '@angular/fire';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -88,7 +89,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatFormFieldModule,
     ToastrModule.forRoot(),
     FullCalendarModule,
-    Ng2ImgMaxModule
+    Ng2ImgMaxModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ export class ApiService {
   public citaList: AngularFireList<any>;
   public casasList: AngularFireList<any>;
   public callObject: AngularFireObject<any>;
+  public casaObject: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) { }
 
   AddForm(form: object) {
@@ -87,8 +88,15 @@ export class ApiService {
     this.callObject = this.db.object('virami/client-list/' + key + '/llamadas/' + key2);
     return this.callObject;
   }
+  GetCurrentCasa(key: string) {
+    this.casaObject = this.db.object('virami/casas/' + key);
+    return this.casaObject;
+  }
 
   UpdateCall(call: Call) {
     this.callObject.update(call);
+  }
+  UpdateCasa(casa: Casa) {
+    this.casaObject.update(casa);
   }
 }
