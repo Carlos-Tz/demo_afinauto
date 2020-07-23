@@ -31,14 +31,14 @@ import { EditRegisterComponent } from './admin/edit-register/edit-register.compo
 import { BtnCallComponent } from './admin/edit-register/btn-call/btn-call.component';
 import { NewCallComponent } from './admin/edit-register/new-call/new-call.component';
 import { EditCallComponent } from './admin/edit-register/edit-call/edit-call.component';
-import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { CalendarComponent } from './admin/calendar/calendar.component';
 import { NewCitaComponent } from './admin/new-cita/new-cita.component';
 import { PhotosComponent } from './admin/photos/photos.component';
 import { CasaComponent } from './admin/photos/casa/casa.component';
-import { NewCasaComponent } from './admin/new-casa/new-casa.component'; // a plugin
+import { NewCasaComponent } from './admin/new-casa/new-casa.component';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { MainComponent } from './admin/main/main.component';
 import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
