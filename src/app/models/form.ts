@@ -7,7 +7,7 @@ export interface Form {
     credito: string;
     mcredito: string;
     observaciones: string;
-    estado: string;
+    estado: boolean;
     llamadas: Call[];
     nCalls: number;
 }

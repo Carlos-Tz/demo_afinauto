@@ -42,6 +42,7 @@ import { NewCasaComponent } from './admin/new-casa/new-casa.component';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { MainComponent } from './admin/main/main.component';
 import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
+import { PrintCasaComponent } from './admin/photos/print-casa/print-casa.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -69,7 +70,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CasaComponent,
     NewCasaComponent,
     MainComponent,
-    EditCasaComponent
+    EditCasaComponent,
+    PrintCasaComponent
   ],
   imports: [
     BrowserModule,

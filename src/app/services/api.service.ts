@@ -38,6 +38,10 @@ export class ApiService {
     this.db.object('virami/client-list/' + key)
     .update(form);
   }
+  /* UpdateEstado(form: Form, key: string) {
+    this.db.object('virami/client-list/' + key)
+    .update(form);
+  } */
 
   UpdateLengthCalls(ncalls: number, key: string) {
     this.db.object('virami/client-list/' + key)

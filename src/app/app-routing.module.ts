@@ -11,6 +11,7 @@ import { CalendarComponent } from './admin/calendar/calendar.component';
 import { PhotosComponent } from './admin/photos/photos.component';
 import { MainComponent } from './admin/main/main.component';
 import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
+import { PrintCasaComponent } from './admin/photos/print-casa/print-casa.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'photos', component: PhotosComponent, canActivate: [AuthGuard]},
   {path: 'edit/:key', component: EditRegisterComponent, canActivate: [AuthGuard]},
   {path: 'edit-casa/:key', component: EditCasaComponent, canActivate: [AuthGuard]},
+  {path: 'pdf/:key', component: PrintCasaComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
  /*  {path: 'resetPass', component: ResetPassComponent, canActivate: [SecureInnerPagesGuard]} */
 ];

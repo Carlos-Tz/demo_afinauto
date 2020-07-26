@@ -58,7 +58,7 @@ export class EditRegisterComponent implements OnInit {
       credito: [''],
       mcredito: [''],
       observaciones: [''],
-      estado: ['Proceso'],
+      estado: [false],
       llamadas: [],
       nCalls: ['']
     });
@@ -69,6 +69,13 @@ export class EditRegisterComponent implements OnInit {
   }
 
   submitSurveyData = () => {
+    this.Api.UpdateForm(this.myForm.value, this.key);
+    this.toastr.success('Actualizado!');
+  }
+  estado = () => {
+    const estado = this.myForm.get('estado').value;
+    /* console.log(estado); */
+    this.myForm.patchValue({estado: !estado});
     this.Api.UpdateForm(this.myForm.value, this.key);
     this.toastr.success('Actualizado!');
   }
