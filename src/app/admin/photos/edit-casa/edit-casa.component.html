@@ -93,5 +93,6 @@
           <button type="button" class="btn btn-outline-success" (click)="submitSurveyData()"
             [disabled]="!myForm1.valid">Guardar</button>
             <button type="button" class="btn btn-outline-info" [routerLink]="['/pdf/', this.key]" (click)="closeDialog()">PDF</button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteCasa()">Eliminar</button>
           <button type="button" class="btn btn-outline-default" data-dismiss="modal" (click)="closeDialog()">Cancelar </button>
         </div>

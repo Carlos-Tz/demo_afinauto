@@ -52,6 +52,10 @@ export class ApiService {
     this.formObject = this.db.object('virami/client-list/' + key);
     this.formObject.remove();
   }
+  DeleteCasa(key: string) {
+    this.casaObject = this.db.object('virami/casas/' + key);
+    this.casaObject.remove();
+  }
 
   DeleteCita(key: string) {
     this.citaObject = this.db.object('virami/citas/' + key);

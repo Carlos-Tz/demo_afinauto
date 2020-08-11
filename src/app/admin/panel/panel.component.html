@@ -32,7 +32,7 @@
                             </ng-container>
                             <ng-container matColumnDef="nCalls">
                                 <mat-header-cell *matHeaderCellDef>Llamadas / Estado</mat-header-cell>
-                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nCalls }} <span *ngIf="element.estado"> / Completo</span><span *ngIf="!element.estado"> / Proceso</span></mat-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nCalls }} <span *ngIf="element.estado"> / Vendido</span><span *ngIf="!element.estado"> / Proceso</span></mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="action">

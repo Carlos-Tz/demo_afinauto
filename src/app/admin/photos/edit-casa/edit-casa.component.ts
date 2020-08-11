@@ -278,4 +278,84 @@ export class EditCasaComponent implements OnInit {
     const blob = new Blob(byteArrays, { type: contentType });
     return blob;
   }
+
+  deleteCasa() {
+    if (window.confirm('¿Esta seguro de eliminar el registro seleccionado?')) {
+      if (this.myForm1.get('photo1').value && this.myForm1.get('photo1').value.startsWith('https://firebasestorage') ) {
+        console.log(this.myForm1.get('photo1').value);
+        const f1 = this.myForm1.get('photo1').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo2').value && this.myForm1.get('photo2').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo2').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo3').value && this.myForm1.get('photo3').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo3').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo4').value && this.myForm1.get('photo4').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo4').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo5').value && this.myForm1.get('photo5').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo5').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo6').value && this.myForm1.get('photo6').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo6').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo7').value && this.myForm1.get('photo7').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo7').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo8').value && this.myForm1.get('photo8').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo8').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo9').value && this.myForm1.get('photo9').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo9').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      if (this.myForm1.get('photo10').value && this.myForm1.get('photo10').value.startsWith('https://firebasestorage') ) {
+        const f1 = this.myForm1.get('photo10').value.split('image_')[1];
+        const nf1 = f1.slice(0, 13);
+        const ref = this.storage.ref(`images_virami/image_${nf1}`);
+        ref.delete();
+      }
+      this.closeDialog();
+      this.Api.DeleteCasa(this.key);
+
+      /* this.data_ = false;
+      this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
+        this.Form = [];
+        data.forEach(item => {
+          const form_ = item.payload.toJSON();
+          form_['$key'] = item.key;
+          this.Form.push(form_ as Form);
+        });
+        this.data_ = true;
+      }); */
+      // this.toastr.success(student.firstName + ' successfully deleted!');
+    }
+  }
 }

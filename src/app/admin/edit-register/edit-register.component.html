@@ -92,7 +92,7 @@
                                     <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/']" [disabled]="!myForm.valid">Guardar</button>
                                 </div>
                                 <div class="col-sm-12 col-md-4">
-                                    <button class="btn btn-outline-info btn-block" (click)="estado()"><span *ngIf="myForm.value.estado">Completo</span><span *ngIf="!myForm.value.estado">Proceso</span></button>
+                                    <button class="btn btn-outline-info btn-block" (click)="estado()"><span *ngIf="myForm.value.estado">Vendido</span><span *ngIf="!myForm.value.estado">Proceso</span></button>
                                 </div>
                             </div>
                         </li>
