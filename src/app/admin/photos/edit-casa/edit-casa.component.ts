@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
@@ -14,7 +14,11 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class EditCasaComponent implements OnInit {
 
+  @ViewChild('modalCi') modalCi: TemplateRef<any>;
+  @ViewChild('vci', {read: ViewContainerRef}) vci: ViewContainerRef;
+  backdrop: any;
   myForm1: FormGroup;
+  acImg = '';
   @Input() public closeDialog: any;
   @Input() public key: string;
   uploadedImage: Blob;
@@ -71,6 +75,23 @@ export class EditCasaComponent implements OnInit {
     this.Api.UpdateCasa(this.myForm1.value);
     this.toastr.success('Guardado!');
     this.closeDialog();
+  }
+
+  showImg(url: string){
+    const view = this.modalCi.createEmbeddedView(null);
+    this.vci.insert(view);
+    this.modalCi.elementRef.nativeElement.previousElementSibling.classList.remove('fade');
+    this.modalCi.elementRef.nativeElement.previousElementSibling.classList.add('modal-open');
+    this.modalCi.elementRef.nativeElement.previousElementSibling.style.display = 'block';
+    this.backdrop = document.createElement('DIV');
+    this.backdrop.className = 'modal-backdrop';
+    document.body.appendChild(this.backdrop);
+    this.acImg = url;
+  }
+
+  closeImg = () => {
+    this.vci.clear();
+    document.body.removeChild(this.backdrop);
   }
 
   changeListener($event): void {

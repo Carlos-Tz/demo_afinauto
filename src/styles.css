@@ -21,6 +21,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .modal-dialog {
       max-width: 750px !important;
     }
+  .modal-img {
+    max-width: 90% !important;
+  }
 }
 .app {
   margin: 1.25rem;
@@ -53,10 +56,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @page {margin: 0;padding: 0;}
   .page {
     position: relative;
-    width: var(--page-width);
-    min-width: var(--page-width);
-    height: var(--page-height);
-    min-height: var(--page-height);
+    width: var(--page-width) !important;
+    min-width: var(--page-width) !important;
+    height: var(--page-height) !important;
+    min-height: var(--page-height) !important;
     background: var(--page-color);
     margin: 0 auto;
     box-shadow: 1px 5px 15px #707070;
@@ -70,7 +73,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       margin: 0 var(--page-inner-margin);
       top: var(--page-inner-top);
       overflow: hidden;
-      /* border: solid 1px red; */
+      border: solid 1px red;
     }
     .no-print { display: none !important; }
     nav {
@@ -86,6 +89,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
     .app {
       /* margin-bottom: 0 !important; */
+      border: solid 1px blue;
       margin: 0 !important;
     }
     .page, .page-landscape {

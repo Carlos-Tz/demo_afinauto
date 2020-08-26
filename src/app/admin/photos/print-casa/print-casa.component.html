@@ -3,7 +3,7 @@
     <button class="btn btn-outline-success btn-block" onclick="window.print()">Guardar PDF</button>
 </div>
 <div class="app">
-    <section>
+    <section style="border: solid 1px green;">
         <div class="page">
             <div class="inner">
                 <div class="row">
@@ -18,19 +18,12 @@
                         </ul>
                     </div>
                     <div class="row" *ngIf="myForm1">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo1" [src]="myForm1.photo1" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo2" [src]="myForm1.photo2" class="h-p">
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <img *ngIf="myForm1.photo3" [src]="myForm1.photo3" class="h-p">
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <img *ngIf="myForm1.photo4" [src]="myForm1.photo4" class="h-p">
-                        </div>
-                        
+                        </div>                                                
                     </div>
                 </div>
             </div>
@@ -38,27 +31,70 @@
     </section>
 </div>
 <div class="app" *ngIf="myForm1">
-    <section *ngIf="myForm1.photo5 || myForm1.photo6 || myForm1.photo7 || myForm1.photo8 || myForm1.photo9 || myForm1.photo10">
+    <section *ngIf="myForm1.photo3 || myForm1.photo4">
         <div class="page">
             <div class="inner">
                 <div class="row">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
+                            <img *ngIf="myForm1.photo3" [src]="myForm1.photo3" class="h-p">
+                        </div>
+                        <div class="col-sm-12">
+                            <img *ngIf="myForm1.photo4" [src]="myForm1.photo4" class="h-p">
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="app" *ngIf="myForm1">
+    <section *ngIf="myForm1.photo5 || myForm1.photo6">
+        <div class="page">
+            <div class="inner">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo5" [src]="myForm1.photo5" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo6" [src]="myForm1.photo6" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="app" *ngIf="myForm1">
+    <section *ngIf="myForm1.photo7 || myForm1.photo8">
+        <div class="page">
+            <div class="inner">
+                <div class="row">
+                    <div class="row">                        
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo7" [src]="myForm1.photo7" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo8" [src]="myForm1.photo8" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="app" *ngIf="myForm1">
+    <section *ngIf="myForm1.photo9 || myForm1.photo10">
+        <div class="page">
+            <div class="inner">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo9" [src]="myForm1.photo9" class="h-p">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <img *ngIf="myForm1.photo10" [src]="myForm1.photo10" class="h-p">
                         </div>
                     </div>
