@@ -50,9 +50,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 @media print{
-  /* .app {
+  .app {
     margin-bottom: var(--margin-last-page);
-  } */
+  }
   @page {margin: 0;padding: 0;}
   .page {
     position: relative;
@@ -61,7 +61,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: var(--page-height) !important;
     min-height: var(--page-height) !important;
     background: var(--page-color);
-    margin: 0 auto;
+    margin: 0 auto !important;
     box-shadow: 1px 5px 15px #707070;
   }
   .page:first-of-type { margin-top: var(--margin-first-page); }
@@ -73,7 +73,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       margin: 0 var(--page-inner-margin);
       top: var(--page-inner-top);
       overflow: hidden;
-      border: solid 1px red;
+      /* border: solid 1px red; */
     }
     .no-print { display: none !important; }
     nav {
@@ -89,7 +89,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
     .app {
       /* margin-bottom: 0 !important; */
-      border: solid 1px blue;
+      /* border: solid 1px blue; */
+      /* padding: 0 !important; */
       margin: 0 !important;
     }
     .page, .page-landscape {
