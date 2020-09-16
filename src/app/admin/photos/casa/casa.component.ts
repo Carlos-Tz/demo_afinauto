@@ -14,6 +14,7 @@ export class CasaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    /* console.log(this.casa); */
   }
 
   showDialog(){

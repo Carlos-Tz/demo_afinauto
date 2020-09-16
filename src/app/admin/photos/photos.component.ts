@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@an
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { Casa } from 'src/app/models/casa';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-photos',
@@ -13,7 +15,12 @@ export class PhotosComponent implements OnInit {
   casas: Casa[];
   @ViewChild('modalC') modalC: TemplateRef<any>;
   @ViewChild('vc', {read: ViewContainerRef}) vc: ViewContainerRef;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   backdrop: any;
+  public dataSource = new MatTableDataSource<Casa>();
+  displayedColumns: any[] = [
+    'title'
+  ];
   constructor(
     public toastr: ToastrService,
     public Api: ApiService
@@ -27,10 +34,18 @@ export class PhotosComponent implements OnInit {
         casa['$key'] = item.key;
         this.casas.push(casa as Casa);
       });
+      if (this.casas.length > 0) {
+        /* this.data = true; */
+        this.dataSource.data = this.casas.slice();
+        /* console.log(this.dataSource.data); */
+      }
+      /* Pagination */
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator;
+      }, 0);
     });
   }
 
-  
   showDialog(){
     const view = this.modalC.createEmbeddedView(null);
     this.vc.insert(view);
@@ -45,5 +60,9 @@ export class PhotosComponent implements OnInit {
   closeDialog = () => {
     this.vc.clear();
     document.body.removeChild(this.backdrop);
+  }
+
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 }
