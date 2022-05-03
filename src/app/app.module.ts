@@ -44,6 +44,9 @@ import { MainComponent } from './admin/main/main.component';
 import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
 import { PrintCasaComponent } from './admin/photos/print-casa/print-casa.component';
 import { ImgComponent } from './admin/photos/img/img.component';
+import { ClientesComponent } from './admin/clientes/clientes.component';
+import { NotasComponent } from './admin/notas/notas.component';
+import { OrdenesComponent } from './admin/ordenes/ordenes.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -73,7 +76,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MainComponent,
     EditCasaComponent,
     PrintCasaComponent,
-    ImgComponent
+    ImgComponent,
+    ClientesComponent,
+    NotasComponent,
+    OrdenesComponent
   ],
   imports: [
     BrowserModule,

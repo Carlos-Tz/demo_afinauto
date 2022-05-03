@@ -1,0 +1,17 @@
+nav {
+    background-color: #a4bc30;
+}
+a:hover {
+    background-color: #a4ac30;
+}
+
+a span {
+    vertical-align: middle;
+    font-size: 28px;
+}
+
+@media (min-width: 991px) {
+    #navbarNav a {
+        visibility: hidden;
+    }
+}

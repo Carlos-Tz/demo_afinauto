@@ -12,11 +12,17 @@ import { PhotosComponent } from './admin/photos/photos.component';
 import { MainComponent } from './admin/main/main.component';
 import { EditCasaComponent } from './admin/photos/edit-casa/edit-casa.component';
 import { PrintCasaComponent } from './admin/photos/print-casa/print-casa.component';
+import { ClientesComponent } from './admin/clientes/clientes.component';
+import { NotasComponent } from './admin/notas/notas.component';
+import { OrdenesComponent } from './admin/ordenes/ordenes.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: MainComponent},
+  {path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard]},
+  {path: 'notas', component: NotasComponent, canActivate: [AuthGuard]},
+  {path: 'ordenes', component: OrdenesComponent, canActivate: [AuthGuard]},
   {path: 'panel', component: PanelComponent, canActivate: [AuthGuard]},
   {path: 'spinner', component: SpinnerComponent},
   {path: 'new', component: NewRegisterComponent, canActivate: [AuthGuard]},

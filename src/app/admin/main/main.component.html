@@ -1,3 +1,27 @@
-<app-navbar></app-navbar>
-<div class="back"></div>
-<button class="btn btn-danger btn-sm" id="b_t" [routerLink]="['/panel']"> > </button>
+<app-navbar [save]="save"></app-navbar>
+<div class="back">
+    <div class="container pt-5">
+        <div class="row justify-content-sm-center">
+          <div class="col-sm-12 col-md-8 pt-5">
+              <h1>PERMORMANCE - AFINAUTO - SUSPENSIONES</h1>
+            <div class="card">
+              <div class="card-body">
+                <div class="row">              
+                  <div class="col-md-4">
+                    <a class="nav-link btn ml-auto" [routerLink]="['/ordenes']"><span class="material-icons">directions_car</span> Orden de servicio</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a class="nav-link btn ml-auto" [routerLink]="['/notas']"><span class="material-icons">note</span> Nota de venta</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a class="nav-link btn ml-auto" [routerLink]="['/clientes']"><span class="material-icons">group</span> Clientes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+

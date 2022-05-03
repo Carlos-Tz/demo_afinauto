@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">    
+  <nav class="navbar navbar-expand-lg navbar-light">    
     <a class="navbar-brand btn" [routerLink]="['/']">
-        <img src="assets/virami.png" style="height: 2rem;">
+        <!-- <img src="assets/logo1.jpg" style="height: 2rem;"> -->
+        <span class="material-icons">home</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,12 +15,12 @@
           <a class="nav-link btn" (click)='authService.SignOut()'>Salir</a>
         </li>
       </ul>  -->
-      <a class="nav-link btn ml-auto" [routerLink]="['/panel']">Panel</a>
-      <a class="nav-link btn" [routerLink]="['/new']">Nuevo</a>
-      <a class="nav-link btn" [routerLink]="['/calendar']">Calendario</a>
-      <a class="nav-link btn" [routerLink]="['/photos']">Propiedades</a>
-      <a *ngIf="save==2" class="nav-link btn" (click)='authService.SignOut()'>Salir </a>
-      <span *ngIf="this.authService.userName" class="nav-link btn" style="color: #28a745;">({{this.authService.userName}}) </span>           
+      <a class="nav-link btn ml-auto" [routerLink]="['/clientes']"><span class="material-icons">group</span> Clientes</a>
+      <a class="nav-link btn" [routerLink]="['/ordenes']"><span class="material-icons">feed</span> Ordenes</a>
+      <a class="nav-link btn" [routerLink]="['/notas']"><span class="material-icons">note</span> Notas</a>
+      <span *ngIf="this.authService.userName" class="nav-link btn" style="text-align: center;">{{this.authService.userName}} </span>           
+      <div *ngIf="save==2" class="nav-link btn" (click)='authService.SignOut()'><span class="material-icons">power_settings_new</span></div>
     </div>
   </nav>
+
 
