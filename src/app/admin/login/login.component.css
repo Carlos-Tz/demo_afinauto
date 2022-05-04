@@ -1,3 +1,14 @@
+.back {
+    background: linear-gradient(0deg,rgba(0,0,0,.5333333333333333) 30%,hsla(0,0%,100%,.26666666666666666)),no-repeat 50%/cover url('../../../assets/bg.png');
+    background-size: cover;
+    /* width: 100%; */
+    height: calc(100vh - 62px);
+    /* height: 100vh; */
+}
+h4 {
+    text-align: center;
+    color: black;
+}
 .card {
-    box-shadow: 0  10px  20px  rgba(0,0,0,0.19), 0  6px  6px  rgba(0,0,0,0.23);
+    background: hsla(0,0%,94.9%,.85);
 }

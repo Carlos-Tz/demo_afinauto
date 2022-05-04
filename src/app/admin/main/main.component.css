@@ -13,9 +13,13 @@ html, body {
 .back h1 {
     text-align: center;
     color: white;
+    text-shadow: 1.5px 1.5px 3px black;
 }
 .card {
     background: hsla(0,0%,94.9%,.55);
+}
+.card a:hover {
+    background: hsla(0,0%,94.9%,.85);
 }
 
 .back a span {

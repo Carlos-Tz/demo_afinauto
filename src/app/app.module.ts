@@ -47,6 +47,7 @@ import { ImgComponent } from './admin/photos/img/img.component';
 import { ClientesComponent } from './admin/clientes/clientes.component';
 import { NotasComponent } from './admin/notas/notas.component';
 import { OrdenesComponent } from './admin/ordenes/ordenes.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -100,7 +101,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ToastrModule.forRoot(),
     FullCalendarModule,
     Ng2ImgMaxModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
