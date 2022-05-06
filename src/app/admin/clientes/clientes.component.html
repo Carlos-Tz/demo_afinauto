@@ -1,6 +1,6 @@
 <app-navbar [save]="save"></app-navbar>
-<div style="height: calc(100vh - 62px); overflow: hidden; background-color: aliceblue;">
-    <div class="row justify-content-sm-center pt-2 pr-2 pl-2">
+<div style="overflow: hidden;">
+    <div class="row justify-content-sm-center pt-2 pr-2 pl-2 pb-2">
         <div class="col sm-12 md-8">
             <div class="card">
                 <div class="card-body">
@@ -23,25 +23,23 @@
                         <!-- <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear> -->
                         <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear (matSortChange)="sortData($event)">
 
-                            <ng-container matColumnDef="fecha">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header class="show-h">Fecha</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
-                            </ng-container>
-
                             <ng-container matColumnDef="nombre">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header class="pad-l">Nombre</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="pad-l" [ngClass]="{'com':element.estado}">{{element.nombre}}
+                                <mat-header-cell *matHeaderCellDef mat-sort-header >Nombre</mat-header-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nombre}}
                                 </mat-cell>
-
                             </ng-container>
 
                             <ng-container matColumnDef="tel">
-                                <mat-header-cell *matHeaderCellDef class="show-h">Teléfono</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.tel}}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef>Teléfono</mat-header-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.tel}}</mat-cell>
                             </ng-container>
-                            <ng-container matColumnDef="nCalls">
-                                <mat-header-cell *matHeaderCellDef>Llamadas / Estado</mat-header-cell>
-                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nCalls }} <span *ngIf="element.estado"> / Vendido</span><span *ngIf="!element.estado"> / Proceso</span></mat-cell>
+                            <ng-container matColumnDef="email">
+                                <mat-header-cell *matHeaderCellDef class="show-h">Correo</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.email }}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="fecha">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="pad-l">Fecha</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="pad-l" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="action">

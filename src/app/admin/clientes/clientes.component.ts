@@ -23,10 +23,10 @@ export class ClientesComponent implements OnInit, AfterViewInit {
   @ViewChild('input', {static: false}) input: ElementRef;
 
   displayedColumns: any[] = [
-    'fecha',
     'nombre',
     'tel',
-    'nCalls',
+    'email',
+    'fecha',
     'action'
   ];
   constructor(

@@ -32,15 +32,10 @@ export class NewRegisterComponent implements OnInit {
   sForm() {
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
-      curp: [''],
-      tel: [''],
+      domicilio: ['', [Validators.required]],
+      tel: ['', [Validators.required]],
       fecha: [''],
-      credito: [''],
-      mcredito: [''],
-      observaciones: [''],
-      estado: [false],
-      llamadas: [],
-      nCalls: [0]
+      email: ['', [Validators.required]]
     });
   }
 
@@ -52,6 +47,7 @@ export class NewRegisterComponent implements OnInit {
     this.Api.AddForm(this.myForm.value);
     this.toastr.success('Guardado!');
     this.ResetForm();
+    this.close();
   }
 
   close() {

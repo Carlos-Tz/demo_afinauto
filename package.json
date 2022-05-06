@@ -25,6 +25,8 @@
     "@fullcalendar/angular": "^5.1.0",
     "@fullcalendar/daygrid": "^5.1.0",
     "@fullcalendar/interaction": "^5.1.0",
+    "angular-gauge-chart": "^0.7.2",
+    "angular2-signaturepad": "^2.11.0",
     "bootstrap": "^4.5.0",
     "fecha": "^4.2.0",
     "firebase": "^7.15.1",

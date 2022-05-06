@@ -12,6 +12,10 @@ import { RegisterComponent } from './admin/register/register.component';
 import { VerifyEmailComponent } from './admin/verify-email/verify-email.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { Angular2SignaturepadModule } from 'angular2-signaturepad';
+import { GaugeChartModule } from 'angular-gauge-chart';
+import { CurrencyPipe } from '@angular/common';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -48,6 +52,8 @@ import { ClientesComponent } from './admin/clientes/clientes.component';
 import { NotasComponent } from './admin/notas/notas.component';
 import { OrdenesComponent } from './admin/ordenes/ordenes.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NewNotaComponent } from './admin/new-nota/new-nota.component';
+import { NewOrdenComponent } from './admin/new-orden/new-orden.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -80,7 +86,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ImgComponent,
     ClientesComponent,
     NotasComponent,
-    OrdenesComponent
+    OrdenesComponent,
+    NewNotaComponent,
+    NewOrdenComponent
   ],
   imports: [
     BrowserModule,
@@ -102,9 +110,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     Ng2ImgMaxModule,
     AngularFireStorageModule,
-    MatDialogModule
+    MatDialogModule,
+    Angular2SignaturepadModule,
+    GaugeChartModule
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

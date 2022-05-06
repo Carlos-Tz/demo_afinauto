@@ -15,6 +15,8 @@ import { PrintCasaComponent } from './admin/photos/print-casa/print-casa.compone
 import { ClientesComponent } from './admin/clientes/clientes.component';
 import { NotasComponent } from './admin/notas/notas.component';
 import { OrdenesComponent } from './admin/ordenes/ordenes.component';
+import { NewOrdenComponent } from './admin/new-orden/new-orden.component';
+import { NewNotaComponent } from './admin/new-nota/new-nota.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,8 @@ const routes: Routes = [
   {path: 'panel', component: PanelComponent, canActivate: [AuthGuard]},
   {path: 'spinner', component: SpinnerComponent},
   {path: 'new', component: NewRegisterComponent, canActivate: [AuthGuard]},
+  {path: 'nueva-orden', component: NewOrdenComponent, canActivate: [AuthGuard]},
+  {path: 'nueva-nota', component: NewNotaComponent, canActivate: [AuthGuard]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   {path: 'photos', component: PhotosComponent, canActivate: [AuthGuard]},
   {path: 'edit/:key', component: EditRegisterComponent, canActivate: [AuthGuard]},

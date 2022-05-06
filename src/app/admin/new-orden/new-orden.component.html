@@ -1,0 +1,834 @@
+<app-navbar [submitSurveyData]="submitSurveyData" [myForm]="myForm" [save]="save">
+</app-navbar>
+<div class="app">
+    <form [formGroup]="myForm" novalidate autocomplete="off">
+    <section>
+      <div class="page">
+        <div class="inner">
+          <div class="row">
+            <div class="col">
+              <img src="assets/logo1.jpg" alt="" class="img-fluid" style="padding-right: 7mm;">
+            </div>
+            <div class="col-6">
+              <div class="datos">
+                <h4>AFINAUTO</h4>
+                <h6>PERFORMANCE - SUSPENSIONES</h6>
+                <p>T. 222 570.47.17 | @topcargarage</p>
+                <p>www.topcargarage.com</p>
+              </div>
+            </div>
+            <div class="col">
+                <div>
+                <h5 class="center-align" style="margin: 0 !important;"><b>ORDEN DE REPARACIÓN</b></h5>
+                <input type="number" id="orden" autofocus tabindex="0" class="orden focusNext" placeholder="**" formControlName="orden" min="0" step="1">
+              </div>
+              <!-- <div>
+                <p class="right-align" style="margin: 0 !important;"><b>ORDEN DE TRABAJO</b>
+                <input type="number" tabindex="0" class="orden focusNext" placeholder="**" formControlName="orden" min="0" step="1" style="width: 3cm;">
+              </p>
+              </div> -->
+            </div>
+          </div>
+  
+          <div class="row" style="margin-top: .15rem !important;">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-2">
+                  <b>Marca:</b>
+                </div>
+                <div class="col-10 input-field ">
+                  <input type="text" autofocus tabindex="1" class="focusNext form-control-plaintext" formControlName="marca">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <b>Modelo:</b>
+                </div>
+                <div class="col-4 input-field">
+                  <input type="text" tabindex="2" class="focusNext" formControlName="modelo">
+                </div>
+                <div class="col-2">
+                  <b>Color:</b>
+                </div>
+                <div class="col-4 input-field">
+                  <input type="text" tabindex="3" class="focusNext" formControlName="color">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <b>Kilometraje:</b>
+                </div>
+                <div class="col-3 input-field">
+                  <input type="text" tabindex="4" class="focusNext" formControlName="km">
+                </div>
+                <div class="col-2">
+                  <b>Placas:</b>
+                </div>
+                <div class="col-4 input-field">
+                  <input type="text" tabindex="5" class="focusNext" formControlName="placas">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <b>No. de Serie:</b>
+                </div>
+                <div class="col-9 input-field ">
+                  <input type="text" tabindex="6" class="focusNext" formControlName="serie">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <b>Ingreso en grúa:</b>
+                </div>
+                <div class="col-8">
+                  <p>                  
+                    <b>Si</b>
+                    <input name="grua" type="radio" value="si" formControlName="grua">
+                    <b style="margin-left: 2rem;">No</b>
+                    <input name="grua" type="radio" value="no" formControlName="grua">                  
+                  </p>
+                </div>
+              </div>              
+            </div>
+            <div class="col-6">
+              <div class="row center-align">
+                <span>DATOS DEL CLIENTE</span>
+              </div>
+              <div class="row" style="margin-top: .8em;">
+                <div class="col-2">
+                  <b>Ingreso:</b>
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="fing" type="date" tabindex="7" class="focusNext" formControlName="ingreso">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <b>Salida:</b>
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="fsal" type="date" tabindex="8" class="focusNext" formControlName="salida">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <b>Nombre:</b>
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="nom" type="text" tabindex="9" class="focusNext" formControlName="nombre" placeholder="**">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <b>Teléfono:</b>
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="tel" type="text" tabindex="10" class="focusNext" formControlName="tel">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin: .25rem .75rem 0 .75rem;">          
+            <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
+              TRABAJO A REALIZAR              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+                <textarea name="" rows="3" tabindex="11" class="focusNext form-control txa" formControlName="trabajo"></textarea>
+            </div>
+          </div>
+          <div class="row" style="margin: .75rem .75rem 0 .75rem;">          
+            <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
+              OBSERVACIONES                   
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+                <textarea name="" rows="2" tabindex="12" class="focusNext form-control txa" formControlName="observ"></textarea>
+            </div>
+          </div>
+          <div class="row s12">
+            <!-- <div class="col d-flex"> -->
+              <div class="col" (click)="airbag()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!air" class="responsive-img" src="assets/airbag1.jpg" alt="">
+                <img *ngIf="air" class="responsive-img" src="assets/airbag2.jpg" alt="">
+              </div>
+              <div class="col" (click)="engine()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!eng" class="responsive-img" src="assets/engine1.jpg" alt="">
+                <img *ngIf="eng" class="responsive-img" src="assets/engine2.jpg" alt="">
+              </div>
+              <div class="col" (click)="abs_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!abs" class="responsive-img" src="assets/ABS1.jpg" alt="">
+                <img *ngIf="abs" class="responsive-img" src="assets/ABS2.jpg" alt="">
+              </div>
+              <div class="col" (click)="oil_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!oil" class="responsive-img" src="assets/oil1.jpg" alt="">
+                <img *ngIf="oil" class="responsive-img" src="assets/oil2.jpg" alt="">
+              </div>
+              <div class="col" (click)="battery_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!bat" class="responsive-img" src="assets/battery1.jpg" alt="">
+                <img *ngIf="bat" class="responsive-img" src="assets/battery2.jpg" alt="">
+              </div>
+              <div class="col" (click)="cintu_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!cin" class="responsive-img" src="assets/cinturon1.jpg" alt="">
+                <img *ngIf="cin" class="responsive-img" src="assets/cinturon2.jpg" alt="">
+              </div>
+              <div class="col" (click)="freno_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!fre" class="responsive-img" src="assets/frenodemano1.jpg" alt="">
+                <img *ngIf="fre" class="responsive-img" src="assets/frenodemano2.jpg" alt="">
+              </div>
+              <div class="col" (click)="lights_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!lig" class="responsive-img" src="assets/lights1.jpg" alt="">
+                <img *ngIf="lig" class="responsive-img" src="assets/lights2.jpg" alt="">
+              </div>
+              <div class="col" (click)="stabil_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!sta" class="responsive-img" src="assets/stability1.jpg" alt="">
+                <img *ngIf="sta" class="responsive-img" src="assets/stability2.jpg" alt="">
+              </div>
+              <div class="col" (click)="temper_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!tem" class="responsive-img" src="assets/temperatura1.jpg" alt="">
+                <img *ngIf="tem" class="responsive-img" src="assets/temperatura2.jpg" alt="">
+              </div>
+              <!-- <div class="col" (click)="tall_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!tal" class="responsive-img" src="assets/tall1.png" alt="">
+                <img *ngIf="tal" class="responsive-img" src="assets/tall2.png" alt="">
+              </div>
+              <div class="col" (click)="presion_()" style="padding-left: 0 !important; width: 7.7%;">
+                <img *ngIf="!pre" class="responsive-img" src="assets/presion1.png" alt="">
+                <img *ngIf="pre" class="responsive-img" src="assets/presion2.png" alt="">
+              </div>
+              <div class="col" (click)="volante_()" style="padding-left: 0 !important; width: 7.5%;">
+                <img *ngIf="!vol" class="responsive-img" src="assets/vola1.png" alt="">
+                <img *ngIf="vol" class="responsive-img" src="assets/vola2.png" alt="">
+              </div> -->
+            <!-- </div> -->
+          </div>
+          <div class="row">
+            <div class="col s8">
+              <table class="table">
+                <thead class="center-align grey" style="color: white;">
+                  <tr>
+                    <th colspan="4">
+                      INVENTARIO
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Gato
+                    </td>
+                    <td>        
+                      <input type="checkbox" formControlName="gato">    
+                    </td>
+                    <td>
+                      Antena
+                    </td>
+                    <td>       
+                      <input type="checkbox" formControlName="antena">                     
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Herramientas
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="herrami">
+                    </td>
+                    <td>
+                      Emblemas
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="emblemas">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Triangulos
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="triang">
+                    </td>
+                    <td>
+                      Tapones de Rueda
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="tapones">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tapetes
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="tapetes">
+                    </td>
+                    <td>
+                      Cables
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="cables">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Llanta Refacción
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="llantar">
+                    </td>
+                    <td>
+                      Stereo
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="stereo">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Extinguidor
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="exting">
+                    </td>
+                    <td>
+                      Encendedor
+                    </td>
+                    <td>
+                      <input type="checkbox" formControlName="encend">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col s4">
+              <div class="gauge_">
+                <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
+                  [options]="options" (onEndEvent)="drawComplete()" [name]="name" [bottomLabel]="bottomLabel">
+                </rg-gauge-chart>
+                <input id="slider" type="range" min="0" max="100" class="no-print w-100" (change)="combus($event)"
+                formControlName="gas" />
+                   <!-- formControlName="gas" [(ngModel)]="orden.gas" /> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s10 center-align" style="margin-top: 1rem;">
+              <span style="font-weight: 700;">Daños del Vehículo</span>
+            </div>
+            <div class="col s2 box_">
+              <select class="no-print" name="car" formControlName="tcar">            
+                <option value="sedan">SEDAN</option>
+                <option value="pickup">PICKUP</option>
+                <option value="suv">SUV</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 1rem !important;">
+            <!-- <div class="col d-flex"> -->
+              <div class="col s3 center-align">
+                <span (click)="clear1()" style="cursor: pointer;">Lado
+                  derecho</span>
+              </div>
+              <div class="col s3 center-align">
+                <span (click)="clear2()" style="cursor: pointer;">Frente</span>
+              </div>
+              <div class="col s3 center-align">
+                <span (click)="clear3()" style="cursor: pointer;">Detras</span>
+              </div>
+              <div class="col s3 center-align">
+                <span (click)="clear4()" style="cursor: pointer;">Lado
+                  izquierdo</span>
+              </div>
+            <!-- </div> -->
+          </div>
+          <div class="row" style="margin-bottom: 0.5rem !important;">
+            <!-- <div class="col d-flex"> -->
+              <div class="col s3" id="sig1"
+              [ngClass]="{'sedand':myForm.value.tcar=='sedan', 'pickupd':myForm.value.tcar=='pickup', 'suvd':myForm.value.tcar=='suv'}">
+                <signature-pad #sig1 [options]="signaturePadOptions" (onEndEvent)="drawComplete()">
+                </signature-pad>
+              </div>
+              <div class="col s3" id="sig2"
+              [ngClass]="{'sedanf':myForm.value.tcar=='sedan', 'pickupf':myForm.value.tcar=='pickup', 'suvf':myForm.value.tcar=='suv'}">
+                <signature-pad #sig2 [options]="signaturePadOptions" (onEndEvent)="drawComplete2()">
+                </signature-pad>
+              </div>
+              <div class="col s3" id="sig3"
+              [ngClass]="{'sedana':myForm.value.tcar=='sedan', 'pickupa':myForm.value.tcar=='pickup', 'suva':myForm.value.tcar=='suv'}">
+                <signature-pad #sig3 [options]="signaturePadOptions" (onEndEvent)="drawComplete3()">
+                </signature-pad>
+              </div>
+              <div class="col s3" id="sig4"
+              [ngClass]="{'sedani':myForm.value.tcar=='sedan', 'pickupi':myForm.value.tcar=='pickup', 'suvi':myForm.value.tcar=='suv'}">
+                <signature-pad #sig4 [options]="signaturePadOptions" (onEndEvent)="drawComplete4()">
+                </signature-pad>
+              </div>
+           <!--  </div> -->
+          </div>
+
+          
+  
+          
+  
+          <div class="foot_">
+            <div class="row" style="margin-bottom: 1.2rem !important;">
+            <div class="col s6">
+              <div class="signature">
+                <div id="contSign" onclick="btn_click()">
+                  <img src="" id="imgSign" (load)="imgChanged($event)">
+                  <!-- <img src="" id="imgSign"> -->
+                </div>
+                <hr>
+                {{ this.myForm.value.nombre }}
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="signature">
+                <div id="contSign2" onclick="btn_click2()">
+                  <img src="" id="imgSign2" (load)="imgChanged2($event)">
+                  <!-- <img src="" id="imgSign2"> -->
+                </div>
+                <hr>
+                RAMSA AUTOMOTRIZ
+              </div>
+            </div>
+          </div>
+            <div class="row valign-wrapper">
+              <div class="col s5">
+                <div class="row valign-wrapper">
+                  <div class="col s2" style="padding-right: 0 !important;">
+                    <img src="https://img.icons8.com/color/96/000000/facebook.png" style="height: 1cm !important;">
+                  </div>
+                  <div class="col s4" style="padding-left: 0 !important;">
+                    ramsa automotriz
+                  </div>
+                  <div class="col s2" style="padding-right: 0 !important;">
+                    <img src="https://img.icons8.com/color/96/000000/whatsapp.png" style="height: 1cm !important;">
+                  </div>
+                  <div class="col s4" style="padding-left: 0 !important;">
+                    443 528 1223
+                  </div>
+                </div>                
+              </div>
+              <div class="col s4 center-align">
+                <p>Cel. 443 528 1223</p>
+              </div>
+              <div class="col s3 center-align">
+                <p>ramsaautomotriz7827@gmail.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center-align">
+                <b>Baja California Norte #119c Col. Issac Arriaga</b>
+              </div>
+            </div>
+          </div>
+          
+  
+        </div>
+      </div>
+    </section>
+
+    <!-- <section>
+      <div class="page">
+        <div class="inner">
+          <div class="row">
+            <div class="col s3">
+              <img src="assets/logo.jpg" alt="" class="responsive-img" style="padding-right: 7mm;">
+            </div>
+            <div class="col s5 offset-s4">
+                <div>
+                <h5 class="center-align" style="margin: 0 !important;"><b>ORDEN DE REPARACIÓN</b></h5>
+                <p class="orden">{{ this.myForm.value.orden }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 1rem !important;">
+            <div class="col s12">
+              <table class="tt1" formArrayName="units">
+                <tr>
+                  <th style="width: 1.5cm;">CANT.</th>
+                  <th style="width: 2.5cm;">NO. DE PARTE</th>
+                  <th style="width: 10.5cm;">OPERACIONES A EFECTUAR Y ELEMENTOS A REPARAR</th>
+                  <th style="width: 2.5cm;">PRECIO</th>
+                  <th>IMPORTE</th>
+                </tr>
+                <tr [formGroupName]="0">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="13" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="14" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="15" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="16" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="1">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="17" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="18" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="19" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="20" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="2">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="21" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="22" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="23" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="24" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="3">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="25" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="26" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="27" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="28" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="4">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="29" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="30" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="31" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="32" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="5">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="33" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="34" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="35" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="36" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="6">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="37" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="38" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="39" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="40" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="7">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="41" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="42" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="43" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="44" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="8">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="45" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="46" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="47" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="48" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="9">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="49" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="50" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="51" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="52" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="10">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="53" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="54" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="55" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="56" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="11">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="57" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="58" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="59" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="60" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="12">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="61" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="62" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="63" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="64" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="13">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="65" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="66" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="67" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="68" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="14">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="69" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="70" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="71" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="72" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="15">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="73" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="74" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="75" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="76" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+                <tr [formGroupName]="16" style="border: 1px solid #9e9e9e;">
+                  <td><input type="number" min="0" formControlName="cantidad" tabindex="77" class="focusNext"></td>
+                  <td><input type="text" formControlName="noparte" tabindex="78" class="focusNext"></td>
+                  <td><input type="text" formControlName="desc" tabindex="79" class="focusNext"></td>
+                  <td><input type="number" formControlName="importe" tabindex="80" class="focusNext"></td>
+                  <td><input type="text" formControlName="subtotal"></td>
+                </tr>
+              </table>
+              <table id="total__">
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">REFACCIONES: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" value="{{totalr}}" style="color:#00649c;"></td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">MANO DE OBRA: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" name="obra" formControlName="manoo" (change)="updt()" tabindex="81"
+                    class="focusNext" > </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">CARGOS ADICIONALES: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" name="obra" formControlName="cargos" (change)="updt()" tabindex="82"
+                    class="focusNext" > </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">SEGURO: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" name="obra" formControlName="seguro" (change)="updt()" tabindex="83"
+                    class="focusNext" > </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">OTROS MATERIALES: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" name="otros" formControlName="otrosm" (change)="updt()"
+                    tabindex="84" class="focusNext" > </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">SUBTOTAL: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" value="{{subtotal}}" style="color:#00649c;"> </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; color: white;" class="right-align"> IVA: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" value="{{ iva}}" style="color:#00649c;"></td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; color: white;" class="right-align">TOTAL: $</td>
+                  <td style="border: 1px solid #9e9e9e; font-weight: 600; color: red;"><input type="number" value="{{total}}" style="color:red;"></td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">ANTICIPO: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" name="anticipo" formControlName="antici" (change)="updt()"
+                    tabindex="85" class="focusNext" > </td>
+                </tr>
+                <tr style="border-bottom: 0;">
+                  <td style="width: 1.5cm;"></td>
+                  <td style="width: 11.5cm;"></td>
+                  <td style="background-color: #9e9e9e; width: 4cm; color: white;" class="right-align">SALDO: $</td>
+                  <td style="border: 1px solid #9e9e9e;"><input type="number" value="{{saldo}}" style="color:red;"> </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          
+
+          
+          
+          <div class="foot_">
+          
+          <div class="row valign-wrapper">
+            <div class="col s5">
+              <div class="row valign-wrapper">
+                <div class="col s2" style="padding-right: 0 !important;">
+                  <img src="https://img.icons8.com/color/96/000000/facebook.png" style="height: 1cm !important;">
+                </div>
+                <div class="col s4" style="padding-left: 0 !important;">
+                  ramsa automotriz
+                </div>
+                <div class="col s2" style="padding-right: 0 !important;">
+                  <img src="https://img.icons8.com/color/96/000000/whatsapp.png" style="height: 1cm !important;">
+                </div>
+                <div class="col s4" style="padding-left: 0 !important;">
+                    443 528 1223
+                </div>
+              </div>                
+            </div>
+            <div class="col s4 center-align">
+              <p>Cel. 443 528 1223</p>
+            </div>
+            <div class="col s3 center-align">
+              <p>ramsaautomotriz7827@gmail.com</p>
+            </div>
+          </div> 
+         <div class="row">
+            <div class="col s12 center-align">
+              <b>Baja California Norte #119c Col. Issac Arriaga</b>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section>
+      <div class="page">
+        <div class="inner">
+          <div class="section6">
+            <h3 id="sub_title" style="margin-top: 0;">ESTADO DEL VEHÍCULO</h3><br>
+            <div class="table">
+              <div class="tr thead">
+                  <div class="td grey" style="color: white;">Imagen</div>
+                  <div class="td grey" style="color: white;">Descripción</div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci1" [ngStyle]="{'background-image': 'url('+myForm.value.img1+')'}">
+                        <input type="file" accept="image/*" name="img1" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img1d" rows="14" wrap="soft" tabindex="13" class="txa focusNext" formControlName="desc1"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci2" [ngStyle]="{'background-image': 'url('+myForm.value.img2+')'}">
+                        <input type="file" accept="image/*" name="img2" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img2d"  rows="14" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc2"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci3" [ngStyle]="{'background-image': 'url('+myForm.value.img3+')'}">
+                        <input type="file" accept="image/*" name="img3" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img3d"  rows="14" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc3"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td ">
+                    <div class="image-container" id="ci4" [ngStyle]="{'background-image': 'url('+myForm.value.img4+')'}">
+                        <input type="file" accept="image/*" name="img4" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td  "><textarea name="img4d" rows="14" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc4"></textarea></div>
+              </div>
+            </div>
+          </div>
+    
+    
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="page">
+        <div class="inner">
+          <div class="row">
+              <div class="col s3">
+                  <img src="assets/logo.jpg" alt="" class="responsive-img" style="padding-right: 7mm;">
+                </div>
+                <div class="col s6 offset-s3" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
+             
+          </div>
+          <div class="row" style="margin-top: 2rem;">
+            <div class="col s12">
+                <h6 style="font-size: 1.6em; font-weight: 700;">
+                  TÉRMINOS Y CONDICIONES 
+                </h6><br>
+                  <p style="font-size: 1.3em; text-align: justify;">
+                    Estoy de acuerdo en que la hoja de servicio anexa a este documento fue revisada detenidamente con claridad y
+                    firmada de conformidad en relación a los objetos y daños registrados que el vehículo puede presentar. <br><br>
+                    En <b>Servicios Generales</b> el cliente deberá de recoger su auto 2 días máximos a la fecha de entrega
+                    mencionada por la empresa, en caso de <b>NO CUMPLIR</b> se cobrará $100.00 (cien pesos 00/100 M.N.) por cada día de retraso por concepto de pensión<br><br>
+                    En <b>Servicios de Restauración</b> el cliente deberá de cumplir con los requerimientos especificados por la
+                    empresa para poder completar los trabajos a realizar, en caso de que se termine una etapa y el cliente no
+                    cumpla con la fecha establecida de entrega de dinero o piezas se cobrará $100.00 (cien pesos 00/100 M.N.) por cada día de retraso por concepto de pensión <br><br><br>
+          
+                    Acepto los términos establecidos en este documento. En Servicios Generalesel cliente deberá de recoger su auto
+                    dos días máximos a la fecha de entrega mencionada por la empresa, en caso de <b>NO CUMPLIR</b> se cobrará $100.00 (cien pesos 00/100 M.N.) por cada día de retraso por concepto de pensión <br>
+                    </p>
+            </div>
+          </div>
+  
+          <div class="foot_">
+            <div class="row" style="margin-bottom: 2rem !important;">
+                <div class="col s6">
+                  <div class="signature">
+                    <div id="contSign3" onclick="btn_click3()">
+                      <img src="" id="imgSign3" (load)="imgChanged3($event)">
+                      <!-- <img src="" id="imgSign3"> -->
+                    </div>
+                    <hr>
+                    {{ this.myForm.value.nombre }}
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="signature">
+                    <div id="contSign4" onclick="btn_click4()">
+                      <img src="" id="imgSign4" (load)="imgChanged4($event)">
+                      <!-- <img src="" id="imgSign4"> -->
+                    </div>
+                    <hr>
+                    RAMSA AUTOMOTRIZ             
+                  </div>
+                </div>
+              </div>
+              <div class="row valign-wrapper">
+                <div class="col s5">
+                  <div class="row valign-wrapper">
+                    <div class="col s2" style="padding-right: 0 !important;">
+                      <img src="https://img.icons8.com/color/96/000000/facebook.png" style="height: 1cm !important;">
+                    </div>
+                    <div class="col s4" style="padding-left: 0 !important;">
+                      ramsa automotriz
+                    </div>
+                    <div class="col s2" style="padding-right: 0 !important;">
+                      <img src="https://img.icons8.com/color/96/000000/whatsapp.png" style="height: 1cm !important;">
+                    </div>
+                    <div class="col s4" style="padding-left: 0 !important;">
+                        443 528 1223
+                    </div>
+                  </div>                
+                </div>
+                <div class="col s4 center-align">
+                  <p>Cel. 443 528 1223</p>
+                </div>
+                <div class="col s3 center-align">
+                  <p>ramsaautomotriz7827@gmail.com</p>
+                </div>
+              </div> 
+             <div class="row">
+                <div class="col s12 center-align">
+                  <b>Baja California Norte #119c Col. Issac Arriaga</b>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <div class="no-print" id="printBtn" onclick="window.print()">
+      <img src="assets/print.svg" alt="" width="55" height="55">
+    </div>
+    </form>
+  </div>
+
+
+
+
