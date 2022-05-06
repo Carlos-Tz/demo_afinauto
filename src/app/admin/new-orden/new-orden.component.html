@@ -7,9 +7,9 @@
         <div class="inner">
           <div class="row">
             <div class="col">
-              <img src="assets/logo1.jpg" alt="" class="img-fluid" style="padding-right: 7mm;">
+              <img src="assets/logo1.jpg" alt="" class="img-fluid" style="padding-right: 3rem;">
             </div>
-            <div class="col-6">
+            <div class="col">
               <div class="datos">
                 <h4>AFINAUTO</h4>
                 <h6>PERFORMANCE - SUSPENSIONES</h6>
@@ -18,9 +18,9 @@
               </div>
             </div>
             <div class="col">
-                <div>
-                <h5 class="center-align" style="margin: 0 !important;"><b>ORDEN DE REPARACIÓN</b></h5>
-                <input type="number" id="orden" autofocus tabindex="0" class="orden focusNext" placeholder="**" formControlName="orden" min="0" step="1">
+                <div style="margin-left: 3rem;">
+                  <h6 class="center-align" style="margin: 0 !important;"><b>ORDEN DE REPARACIÓN</b></h6>
+                  <input type="number" id="orden" autofocus tabindex="0" class="orden focusNext" placeholder="**" formControlName="orden" min="0" step="1">
               </div>
               <!-- <div>
                 <p class="right-align" style="margin: 0 !important;"><b>ORDEN DE TRABAJO</b>
@@ -30,126 +30,142 @@
             </div>
           </div>
   
-          <div class="row" style="margin-top: .15rem !important;">
-            <div class="col-6">
-              <div class="row">
-                <div class="col-2">
-                  <b>Marca:</b>
+          <div class="row ml0 mr0" style="margin-top: .15rem !important;">
+            <div class="col-6 pl0 pr0">
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="tel" type="text" tabindex="10" class="focusNext" readonly formControlName="tel" style="border: none !important;">
+                </div>
+              </div>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Marca:
                 </div>
                 <div class="col-10 input-field ">
                   <input type="text" autofocus tabindex="1" class="focusNext form-control-plaintext" formControlName="marca">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-2">
-                  <b>Modelo:</b>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Modelo:
                 </div>
                 <div class="col-4 input-field">
                   <input type="text" tabindex="2" class="focusNext" formControlName="modelo">
                 </div>
-                <div class="col-2">
-                  <b>Color:</b>
+                <div class="col-2 pl0 pr0">
+                  Color:
                 </div>
                 <div class="col-4 input-field">
                   <input type="text" tabindex="3" class="focusNext" formControlName="color">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-3">
-                  <b>Kilometraje:</b>
+              <div class="row ml0 mr0">
+                <div class="col-3 pl0 pr0">
+                  Kilometraje:
                 </div>
                 <div class="col-3 input-field">
                   <input type="text" tabindex="4" class="focusNext" formControlName="km">
                 </div>
-                <div class="col-2">
-                  <b>Placas:</b>
+                <div class="col-2 pl0 pr0">
+                  Placas:
                 </div>
                 <div class="col-4 input-field">
                   <input type="text" tabindex="5" class="focusNext" formControlName="placas">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-3">
-                  <b>No. de Serie:</b>
+              <div class="row ml0 mr0">
+                <div class="col-3 pl0 pr0">
+                  No. de Serie:
                 </div>
                 <div class="col-9 input-field ">
                   <input type="text" tabindex="6" class="focusNext" formControlName="serie">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-4">
-                  <b>Ingreso en grúa:</b>
+              <div class="row ml0 mr0">
+                <div class="col-4 pl0 pr0">
+                  Ingreso en grúa:
                 </div>
                 <div class="col-8">
-                  <p>                  
-                    <b>Si</b>
-                    <input name="grua" type="radio" value="si" formControlName="grua">
-                    <b style="margin-left: 2rem;">No</b>
+                  <div>                  
+                    Si
+                    <input name="grua" type="radio" value="si" formControlName="grua" style="margin-right: 2rem;">
+                    No
                     <input name="grua" type="radio" value="no" formControlName="grua">                  
-                  </p>
+                  </div>
                 </div>
               </div>              
             </div>
-            <div class="col-6">
-              <div class="row center-align">
-                <span>DATOS DEL CLIENTE</span>
+            <div class="col-6 pl0 pr0">
+              <div class="row ml0 mr0 center-align">
+                DATOS DEL CLIENTE
               </div>
-              <div class="row" style="margin-top: .8em;">
-                <div class="col-2">
-                  <b>Ingreso:</b>
+              <div class="row ml0 mr0" style="margin-top: .8em;">
+                <div class="col-2 pl0 pr0">
+                  Ingreso:
                 </div>
-                <div class="col-10 input-field ">
+                <div class="col-10 input-field pr0">
                   <input id="fing" type="date" tabindex="7" class="focusNext" formControlName="ingreso">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-2">
-                  <b>Salida:</b>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Salida:
                 </div>
                 <div class="col-10 input-field ">
                   <input id="fsal" type="date" tabindex="8" class="focusNext" formControlName="salida">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-2">
-                  <b>Nombre:</b>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Nombre:
                 </div>
                 <div class="col-10 input-field ">
                   <input id="nom" type="text" tabindex="9" class="focusNext" formControlName="nombre" placeholder="**">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-2">
-                  <b>Teléfono:</b>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Teléfono:
                 </div>
                 <div class="col-10 input-field ">
                   <input id="tel" type="text" tabindex="10" class="focusNext" formControlName="tel">
                 </div>
               </div>
+              <div class="row ml0 mr0">
+                <div class="col-2 pl0 pr0">
+                  Correo:
+                </div>
+                <div class="col-10 input-field ">
+                  <input id="correo" type="text" tabindex="11" class="focusNext" formControlName="correo">
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="row" style="margin: .25rem .75rem 0 .75rem;">          
+          <div class="row ml0 mr0" style="margin: .25rem .75rem 0 .75rem;">          
             <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
               TRABAJO A REALIZAR              
             </div>
           </div>
-          <div class="row">
+          <div class="row ml0 mr0">
             <div class="col s12">
-                <textarea name="" rows="3" tabindex="11" class="focusNext form-control txa" formControlName="trabajo"></textarea>
+                <textarea name="" rows="2" tabindex="12" class="focusNext form-control txa" formControlName="trabajo"></textarea>
             </div>
           </div>
-          <div class="row" style="margin: .75rem .75rem 0 .75rem;">          
+          <div class="row" style="margin: .75rem 0 0 0;">          
             <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
               OBSERVACIONES                   
             </div>
           </div>
-          <div class="row">
+          <div class="row ml0 mr0">
             <div class="col s12">
-                <textarea name="" rows="2" tabindex="12" class="focusNext form-control txa" formControlName="observ"></textarea>
+                <textarea name="" rows="2" tabindex="13" class="focusNext form-control txa" formControlName="observ"></textarea>
             </div>
           </div>
-          <div class="row s12">
+          <div class="row ml0 mr0 s12">
             <!-- <div class="col d-flex"> -->
               <div class="col" (click)="airbag()" style="padding-left: 0 !important; width: 7.7%;">
                 <img *ngIf="!air" class="responsive-img" src="assets/airbag1.jpg" alt="">
@@ -345,7 +361,7 @@
               </div>
             <!-- </div> -->
           </div>
-          <div class="row" style="margin-bottom: 0.5rem !important;">
+          <div class="row ml0 mr0" style="margin-bottom: 0.5rem !important;">
             <!-- <div class="col d-flex"> -->
               <div class="col s3" id="sig1"
               [ngClass]="{'sedand':myForm.value.tcar=='sedan', 'pickupd':myForm.value.tcar=='pickup', 'suvd':myForm.value.tcar=='suv'}">
@@ -370,10 +386,6 @@
            <!--  </div> -->
           </div>
 
-          
-  
-          
-  
           <div class="foot_">
             <div class="row" style="margin-bottom: 1.2rem !important;">
             <div class="col s6">
@@ -393,11 +405,13 @@
                   <!-- <img src="" id="imgSign2"> -->
                 </div>
                 <hr>
-                RAMSA AUTOMOTRIZ
+                <p>
+                  RAMSA AUTOMOTRIZ
+                </p>
               </div>
             </div>
           </div>
-            <div class="row valign-wrapper">
+            <!-- <div class="row valign-wrapper">
               <div class="col s5">
                 <div class="row valign-wrapper">
                   <div class="col s2" style="padding-right: 0 !important;">
@@ -425,7 +439,7 @@
               <div class="col s12 center-align">
                 <b>Baja California Norte #119c Col. Issac Arriaga</b>
               </div>
-            </div>
+            </div> -->
           </div>
           
   
@@ -702,7 +716,7 @@
                         <input type="file" accept="image/*" name="img1" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img1d" rows="14" wrap="soft" tabindex="13" class="txa focusNext" formControlName="desc1"></textarea></div>
+                <div class="td "><textarea name="img1d" rows="14" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc1"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td">
@@ -710,7 +724,7 @@
                         <input type="file" accept="image/*" name="img2" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img2d"  rows="14" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc2"></textarea></div>
+                <div class="td "><textarea name="img2d"  rows="14" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc2"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td">
@@ -718,7 +732,7 @@
                         <input type="file" accept="image/*" name="img3" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img3d"  rows="14" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc3"></textarea></div>
+                <div class="td "><textarea name="img3d"  rows="14" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc3"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td ">
@@ -726,7 +740,7 @@
                         <input type="file" accept="image/*" name="img4" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td  "><textarea name="img4d" rows="14" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc4"></textarea></div>
+                <div class="td  "><textarea name="img4d" rows="14" wrap="soft" tabindex="17" class="txa focusNext" formControlName="desc4"></textarea></div>
               </div>
             </div>
           </div>

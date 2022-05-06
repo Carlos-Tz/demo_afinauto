@@ -18,3 +18,27 @@
     text-align: center;
     border-bottom: 0 !important;
 }
+
+/* .col-6, .col-2, .col-10, .col-3, .col-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+} */
+.inner {
+    font-size: 0.85rem;
+}
+
+.pr0 {
+    padding-right: 0 !important;
+}
+
+.pl0 {
+    padding-left: 0 !important;
+}
+
+.ml0 {
+    margin-left: 0.1rem !important;
+}
+
+.mr0 {
+    margin-right: 0 !important;
+}
