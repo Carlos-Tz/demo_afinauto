@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { CurrencyPipe } from '@angular/common';
+import { Form } from 'src/app/models/form';
 
 @Component({
   selector: 'app-new-orden',
@@ -59,6 +60,7 @@ export class NewOrdenComponent implements OnInit {
   public tal = false;
   public pre = false;
   public vol = false;
+  public lock = false;
   public fecha = '';
   public nameC = '';
   idiomaA = 'espaniol';
@@ -83,7 +85,9 @@ export class NewOrdenComponent implements OnInit {
     canvasWidth: 180, // 189
     canvasHeight: 125 // 125
   };
-  save = 0;
+  save = 2;
+  forms: Form[];
+  ff = new Date;
   myForm: FormGroup;
   orden = {
     tcar: 'sedan',
@@ -106,13 +110,21 @@ export class NewOrdenComponent implements OnInit {
 
   ngOnInit() {
     this.sForm();
-    this.formApi.GetFormsList();
-    /* this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
+    //this.formApi.GetFormsList();
+    this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
       this.ord = data.length + 1;
       this.myForm.patchValue({orden: this.ord});
-    }); */
+      this.forms = [];
+      data.forEach(item => {
+        const form = item.payload.toJSON();
+        form['$key'] = item.key;
+        this.forms.push(form as Form);
+      });
+    });
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
+    /* this.myForm.patchValue({ ingreso: new Date() }); */
+    this.myForm.patchValue({ ingreso: this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2) });
     /* this.generRow();
     this.myformValuesChanges$ = this.myForm.controls['units'].valueChanges;
     this.myformValuesChanges$.subscribe(units => {
@@ -183,6 +195,7 @@ export class NewOrdenComponent implements OnInit {
       ingreso: [''],
       salida: [''],
       tel: [''],
+      correo: [''],
       trabajo: [''],
       observ: [''],
       bolsa: [false],
@@ -198,6 +211,7 @@ export class NewOrdenComponent implements OnInit {
       tall: [false],
       presion: [false],
       volante: [false],
+      lock: [false],
       gato: [false],
       antena: [false],
       herrami: [false],
@@ -283,6 +297,7 @@ export class NewOrdenComponent implements OnInit {
     this.tal = false;
     this.pre = false;
     this.vol = false;
+    this.lock = false;
   }
 
   combus(ev) {
@@ -345,6 +360,21 @@ export class NewOrdenComponent implements OnInit {
     this.vol = !this.vol;
     this.myForm.patchValue({volante: this.vol});
   }
+  lock_() {
+    this.lock = !this.lock;
+    if (this.lock){
+      this.signaturePad.off();
+      this.signaturePad2.off();
+      this.signaturePad3.off();
+      this.signaturePad4.off();
+    }else{
+      this.signaturePad.on();
+      this.signaturePad2.on();
+      this.signaturePad3.on();
+      this.signaturePad4.on();
+    }
+    this.myForm.patchValue({lock: this.lock});
+  }
 
   drawComplete() {
     this.myForm.patchValue({dere: this.signaturePad.toData()});
@@ -359,11 +389,13 @@ export class NewOrdenComponent implements OnInit {
     this.myForm.patchValue({izq: this.signaturePad4.toData()});
   }
   clear1() {
-    this.signaturePad.clear();
+    this.signaturePad.off();
+    /* this.signaturePad.clear(); */
     this.myForm.patchValue({dere: []});
   }
 
   clear2() {
+    this.signaturePad.on();
     this.signaturePad2.clear();
     this.myForm.patchValue({frente: []});
   }

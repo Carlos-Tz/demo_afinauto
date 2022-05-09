@@ -4,9 +4,17 @@
         <div class="col sm-12 md-8">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title h5" style="text-align: center;">
-                        Clientes
-                    </p>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p class="card-title h5" style="text-align: center;">
+                                Clientes
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <button mat-button class="btn btn-outline-success btn-sm btn-block mb-2" [routerLink]="['/nuevo-cliente']"><span class="material-icons" style="vertical-align: middle;">add</span> Nuevo cliente</button>
+                        </div>
+                    </div>
                     <div class="container" *ngIf="data">
                         <div class="row">
                             <div class="col-md-4">
@@ -14,10 +22,7 @@
                                   <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Buscar">
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <button mat-button class="btn btn-outline-success btn-sm btn-block mb-2" (click)="openDialog()"><span class="material-icons" style="vertical-align: middle;">add</span> Nuevo cliente</button>
-                            </div>
+                            <!-- <div class="col-md-4"></div> -->
                         </div>
                         <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
                         <!-- <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear> -->
@@ -45,7 +50,9 @@
                             <ng-container matColumnDef="action">
                                 <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
                                 <mat-cell *matCellDef="let element; let i = index;" [ngClass]="{'com':element.estado}">
-                                    <button class="btn btn-outline-success btn-sm " [routerLink]="['/edit/', element.$key]"><span class="material-icons">edit</span></button>
+                                    <!-- <button class="btn btn-outline-success btn-sm" (click)="editCliente(element.$key)"><span class="material-icons">edit</span></button> -->
+
+                                    <button class="btn btn-outline-success btn-sm " [routerLink]="['/editar-cliente/', element.$key]"><span class="material-icons">edit</span></button>
                                     <button class="btn btn-outline-danger btn-sm " [routerLink]="['/edit/', element.$key]"><span class="material-icons">delete</span></button>
                                     <!-- <button mat-raised-button color="accent">Ver</button> -->
                                     <!-- <button mat-raised-button color="accent" (click)="deleteBook(i, element)">Delete</button> -->

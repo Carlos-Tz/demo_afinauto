@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
 
   @Input() public save: number;
+  @Input() public btns: string;
   @Input() public submitSurveyData: any;
   @Input() public myForm: FormGroup;
   @Input() public goBack: any;

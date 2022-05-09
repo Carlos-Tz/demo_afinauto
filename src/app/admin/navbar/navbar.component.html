@@ -1,26 +1,16 @@
-  <nav class="navbar navbar-expand-lg navbar-light">    
-    <a class="navbar-brand btn" [routerLink]="['/']">
-        <!-- <img src="assets/logo1.jpg" style="height: 2rem;"> -->
-        <span class="material-icons">home</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link btn" [routerLink]="['/panel']">Panel</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn" (click)='authService.SignOut()'>Salir</a>
-        </li>
-      </ul>  -->
-      <a class="nav-link btn ml-auto" [routerLink]="['/clientes']"><span class="material-icons">group</span> Clientes</a>
-      <a class="nav-link btn" [routerLink]="['/ordenes']"><span class="material-icons">feed</span> Ordenes</a>
-      <a class="nav-link btn" [routerLink]="['/notas']"><span class="material-icons">note</span> Notas</a>
-      <span *ngIf="this.authService.userName" class="nav-link btn" style="text-align: center;">{{this.authService.userName}} </span>           
-      <div *ngIf="save==2" class="nav-link btn" (click)='authService.SignOut()'><span class="material-icons">power_settings_new</span></div>
-    </div>
-  </nav>
-
-
+<nav class="navbar navbar-expand-lg navbar-light">    
+  <a class="navbar-brand" [routerLink]="['/']">
+      <span class="material-icons">home</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <a [ngStyle]="{'visibility': btns}" class="nav-link btn ml-auto" [routerLink]="['/clientes']"><span class="material-icons">group</span> Clientes</a>
+    <a [ngStyle]="{'visibility': btns}" class="nav-link btn" [routerLink]="['/ordenes']"><span class="material-icons">feed</span> Ordenes</a>
+    <a [ngStyle]="{'visibility': btns}" class="nav-link btn" [routerLink]="['/notas']"><span class="material-icons">note</span> Notas</a>
+    <a *ngIf="this.authService.userName" class="nav-link btn" style="text-align: center;">{{this.authService.userName}} </a>           
+    <a *ngIf="save==2" class="nav-link btn" (click)='authService.SignOut()'><span class="material-icons">power_settings_new</span></a>
+    <!-- <div *ngIf="save==2" class="nav-link" style="cursor: pointer;" (click)='authService.SignOut()'><span class="material-icons">power_settings_new</span></div> -->
+  </div>
+</nav>  

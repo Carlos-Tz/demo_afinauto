@@ -13,8 +13,8 @@
               <div class="datos">
                 <h4>AFINAUTO</h4>
                 <h6>PERFORMANCE - SUSPENSIONES</h6>
-                <p>T. 222 570.47.17 | @topcargarage</p>
-                <p>www.topcargarage.com</p>
+                <p style="margin: 0;">Tel. 443 256 5230 | afinautos@yahoo.com</p>
+                <p>Raza Azteca 89-A, Lomas de Santiaguito</p>
               </div>
             </div>
             <div class="col">
@@ -114,7 +114,7 @@
                 <div class="col-2 pl0 pr0">
                   Salida:
                 </div>
-                <div class="col-10 input-field ">
+                <div class="col-10 input-field pr0">
                   <input id="fsal" type="date" tabindex="8" class="focusNext" formControlName="salida">
                 </div>
               </div>
@@ -122,15 +122,27 @@
                 <div class="col-2 pl0 pr0">
                   Nombre:
                 </div>
-                <div class="col-10 input-field ">
+                <!-- <div class="col-10 input-field pr0">
                   <input id="nom" type="text" tabindex="9" class="focusNext" formControlName="nombre" placeholder="**">
+                </div> -->
+                <div class="col-10 input-field pr0">
+                  <select formControlName="nombre" name="nombre" id="nombre" style="height: 1.6rem !important; padding: 0 !important;">
+                    <option *ngFor="let form of forms" value="form.nombre">{{form.nombre}}</option>
+                  </select>
                 </div>
+                <!-- <mat-form-field appearance="fill">
+                  <mat-label>Nombre</mat-label>s
+                  <mat-select>
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let form of forms" [value]="form.nombre">{{form}}</mat-option>
+                  </mat-select>
+                </mat-form-field> -->
               </div>
               <div class="row ml0 mr0">
                 <div class="col-2 pl0 pr0">
                   Teléfono:
                 </div>
-                <div class="col-10 input-field ">
+                <div class="col-10 input-field pr0">
                   <input id="tel" type="text" tabindex="10" class="focusNext" formControlName="tel">
                 </div>
               </div>
@@ -138,7 +150,7 @@
                 <div class="col-2 pl0 pr0">
                   Correo:
                 </div>
-                <div class="col-10 input-field ">
+                <div class="col-10 input-field pr0">
                   <input id="correo" type="text" tabindex="11" class="focusNext" formControlName="correo">
                 </div>
               </div>
@@ -167,43 +179,43 @@
           </div>
           <div class="row ml0 mr0 s12">
             <!-- <div class="col d-flex"> -->
-              <div class="col" (click)="airbag()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="airbag()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!air" class="responsive-img" src="assets/airbag1.jpg" alt="">
                 <img *ngIf="air" class="responsive-img" src="assets/airbag2.jpg" alt="">
               </div>
-              <div class="col" (click)="engine()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="engine()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!eng" class="responsive-img" src="assets/engine1.jpg" alt="">
                 <img *ngIf="eng" class="responsive-img" src="assets/engine2.jpg" alt="">
               </div>
-              <div class="col" (click)="abs_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="abs_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!abs" class="responsive-img" src="assets/ABS1.jpg" alt="">
                 <img *ngIf="abs" class="responsive-img" src="assets/ABS2.jpg" alt="">
               </div>
-              <div class="col" (click)="oil_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="oil_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!oil" class="responsive-img" src="assets/oil1.jpg" alt="">
                 <img *ngIf="oil" class="responsive-img" src="assets/oil2.jpg" alt="">
               </div>
-              <div class="col" (click)="battery_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="battery_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!bat" class="responsive-img" src="assets/battery1.jpg" alt="">
                 <img *ngIf="bat" class="responsive-img" src="assets/battery2.jpg" alt="">
               </div>
-              <div class="col" (click)="cintu_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="cintu_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!cin" class="responsive-img" src="assets/cinturon1.jpg" alt="">
                 <img *ngIf="cin" class="responsive-img" src="assets/cinturon2.jpg" alt="">
               </div>
-              <div class="col" (click)="freno_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="freno_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!fre" class="responsive-img" src="assets/frenodemano1.jpg" alt="">
                 <img *ngIf="fre" class="responsive-img" src="assets/frenodemano2.jpg" alt="">
               </div>
-              <div class="col" (click)="lights_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="lights_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!lig" class="responsive-img" src="assets/lights1.jpg" alt="">
                 <img *ngIf="lig" class="responsive-img" src="assets/lights2.jpg" alt="">
               </div>
-              <div class="col" (click)="stabil_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="stabil_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!sta" class="responsive-img" src="assets/stability1.jpg" alt="">
                 <img *ngIf="sta" class="responsive-img" src="assets/stability2.jpg" alt="">
               </div>
-              <div class="col" (click)="temper_()" style="padding-left: 0 !important; width: 7.7%;">
+              <div class="col" (click)="temper_()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!tem" class="responsive-img" src="assets/temperatura1.jpg" alt="">
                 <img *ngIf="tem" class="responsive-img" src="assets/temperatura2.jpg" alt="">
               </div>
@@ -331,8 +343,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col s10 center-align" style="margin-top: 1rem;">
-              <span style="font-weight: 700;">Daños del Vehículo</span>
+            <div class="col s8 right-align" style="margin-top: 1rem;">
+              <span style="font-weight: 700;">Daños preexistentes del vehículo</span>
+            </div>
+            <div class="col s2 right-align no-print" (click)="lock_()" style="cursor: pointer;">
+              <span *ngIf="lock" class="material-icons">lock</span>
+              <span *ngIf="!lock" class="material-icons">lock_open</span>
             </div>
             <div class="col s2 box_">
               <select class="no-print" name="car" formControlName="tcar">            
@@ -406,7 +422,7 @@
                 </div>
                 <hr>
                 <p>
-                  RAMSA AUTOMOTRIZ
+                  AFINAUTO
                 </p>
               </div>
             </div>
@@ -713,10 +729,11 @@
               <div class="tr">
                 <div class="td">
                     <div class="image-container" id="ci1" [ngStyle]="{'background-image': 'url('+myForm.value.img1+')'}">
+                      <!-- <span class="material-icons">backup</span> -->
                         <input type="file" accept="image/*" name="img1" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img1d" rows="14" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc1"></textarea></div>
+                <div class="td "><textarea name="img1d" rows="11" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc1"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td">
@@ -724,7 +741,7 @@
                         <input type="file" accept="image/*" name="img2" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img2d"  rows="14" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc2"></textarea></div>
+                <div class="td "><textarea name="img2d"  rows="11" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc2"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td">
@@ -732,7 +749,7 @@
                         <input type="file" accept="image/*" name="img3" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td "><textarea name="img3d"  rows="14" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc3"></textarea></div>
+                <div class="td "><textarea name="img3d"  rows="11" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc3"></textarea></div>
               </div>
               <div class="tr">
                 <div class="td ">
@@ -740,7 +757,7 @@
                         <input type="file" accept="image/*" name="img4" onchange="showMyImage(this)" (change)="changeListener($event)">
                       </div>
                 </div>
-                <div class="td  "><textarea name="img4d" rows="14" wrap="soft" tabindex="17" class="txa focusNext" formControlName="desc4"></textarea></div>
+                <div class="td  "><textarea name="img4d" rows="11" wrap="soft" tabindex="17" class="txa focusNext" formControlName="desc4"></textarea></div>
               </div>
             </div>
           </div>
@@ -754,19 +771,20 @@
     <section>
       <div class="page">
         <div class="inner">
-          <div class="row">
-              <div class="col s3">
-                  <img src="assets/logo.jpg" alt="" class="responsive-img" style="padding-right: 7mm;">
-                </div>
-                <div class="col s6 offset-s3" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
+          <div class="row ml0 mr0">
+            <div class="col">
+              <img src="assets/logo1.jpg" alt="" class="img-fluid" style="padding-right: 3rem;">
+            </div>
+            <div class="col"></div>
+            <div class="col" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
              
           </div>
-          <div class="row" style="margin-top: 2rem;">
+          <div class="row ml0 mr0" style="margin-top: 2rem;">
             <div class="col s12">
-                <h6 style="font-size: 1.6em; font-weight: 700;">
+                <h6 style="font-size: 1.5em; font-weight: 700;">
                   TÉRMINOS Y CONDICIONES 
                 </h6><br>
-                  <p style="font-size: 1.3em; text-align: justify;">
+                  <p style="font-size: 0.9rem; text-align: justify;">
                     Estoy de acuerdo en que la hoja de servicio anexa a este documento fue revisada detenidamente con claridad y
                     firmada de conformidad en relación a los objetos y daños registrados que el vehículo puede presentar. <br><br>
                     En <b>Servicios Generales</b> el cliente deberá de recoger su auto 2 días máximos a la fecha de entrega
@@ -804,7 +822,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row valign-wrapper">
+              <!-- <div class="row valign-wrapper">
                 <div class="col s5">
                   <div class="row valign-wrapper">
                     <div class="col s2" style="padding-right: 0 !important;">
@@ -832,7 +850,7 @@
                 <div class="col s12 center-align">
                   <b>Baja California Norte #119c Col. Issac Arriaga</b>
                 </div>
-              </div>
+              </div> -->
             </div>
         </div>
       </div>

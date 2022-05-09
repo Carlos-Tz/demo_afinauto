@@ -1,8 +1,19 @@
 nav {
     background-color: #a4bc30;
 }
-a:hover {
+a:hover, button:hover {
     background-color: #a4ac30;
+}
+#navbarNav a {
+    margin: 0.7rem 0;
+}
+
+.navbar-brand {
+    padding-top: 0;
+}
+
+.navbar-brand:hover {
+    background-color: transparent;
 }
 
 a span {
@@ -10,8 +21,18 @@ a span {
     font-size: 28px;
 }
 
-@media (min-width: 991px) {
-    #navbarNav a {
-        visibility: hidden;
-    }
+#navbarNav {
+    background-color: #a4bc30;
+    z-index: 1000;
+}
+
+.nav-link {
+    padding: 0 1rem;
+    color: black;
+}
+
+.btn {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }

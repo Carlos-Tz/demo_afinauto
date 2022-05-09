@@ -4,30 +4,24 @@
         <div class="col-sm-12 col-md-8">
             <div class="card">
                 <div class="card-body" [formGroup]="myForm">
-                    <p class="card-title h6" style="text-align: center;">DATOS DEL CLIENTE</p>
+                    <p class="card-title h6" style="text-align: center;">EDITAR DATOS DEL CLIENTE</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <!-- <li class="list-group-item">
                             <span class="card-subtitle"> Fecha: {{myForm.value.fecha}}</span>
+                        </li> -->
+                        <li class="list-group-item">
+                            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre*">
                         </li>
                         <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del cliente **">
+                            <input type="text" class="form-control" formControlName="tel" placeholder="Teléfono*">
                         </li>
                         <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="tel" placeholder="Teléfono o Celular **">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Correo*" email>
                         </li>
                         <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="curp" placeholder="CURP">
+                            <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio*">
                         </li>
-                        <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="credito" placeholder="Crédito">
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="mcredito" placeholder="Monto del crédito">
-                        </li>
-                        <li class="list-group-item">
-                            <input type="text" class="form-control" formControlName="observaciones" placeholder="Observaciones">
-                        </li>
-                        <li class="list-group-item">
+                        <!-- <li class="list-group-item">
                             <p>Llamadas:</p>
                                 <app-btn-call *ngFor="let c of calls; let j=index;"
                                                 [call]="c">
@@ -66,33 +60,18 @@
                                     </div>
                                 </div>   
                             </ng-template>
-
-                            <!-- <ng-template #modalCall let-modal class="modal-dialog modal-dialog-centered">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">
-                                        <span>title</span>
-                                    </h4>
-                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p> <span>msg</span></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-
-                                </div>
-                            </ng-template>  -->
-
-                        </li>
+                        </li> -->
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-sm-12 col-md-8">
-                                    <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/']" [disabled]="!myForm.valid">Guardar</button>
+                                <div class="col-md-12">
+                                    <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/clientes']" [disabled]="!myForm.valid">Actualizar</button>
                                 </div>
-                                <div class="col-sm-12 col-md-4">
-                                    <button class="btn btn-outline-info btn-block" (click)="estado()"><span *ngIf="myForm.value.estado">Vendido</span><span *ngIf="!myForm.value.estado">Proceso</span></button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">                        
+                                <div class="col-md-12">
+                                    <button class="btn btn-outline-danger btn-block" type="button" [routerLink]="['/clientes']">Cancelar</button>
                                 </div>
                             </div>
                         </li>
@@ -103,3 +82,41 @@
     </div>
 </div>
 
+
+
+<!-- <h2 mat-dialog-title><p class="card-title h6" style="text-align: center;">Nuevo Cliente</p></h2>
+
+<div mat-dialog-content>
+    <div class="container pt-2">
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-body" [formGroup]="myForm">                        
+                        <ul class="list-group list-group-flush">                            
+                            <li class="list-group-item">
+                                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre*">
+                            </li>
+                            <li class="list-group-item">
+                                <input type="text" class="form-control" formControlName="tel" placeholder="Teléfono*">
+                            </li>
+                            <li class="list-group-item">
+                                <input type="email" class="form-control" formControlName="email" placeholder="Correo*" email>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio*">
+                            </li>
+                            <li class="list-group-item">
+                                <button class="btn btn-outline-success btn-block" type="button" (click)="submitSurveyData()" [routerLink]="['/clientes']" [disabled]="!myForm.valid">Guardar</button>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button class="mat-raised-button" (click)="close()">Cerrar</button>
+</div>
+ -->

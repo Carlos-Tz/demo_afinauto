@@ -25,40 +25,40 @@ export class ApiService {
   }
 
   GetFormsList() {
-    this.formsList = this.db.list('virami/client-list');
+    this.formsList = this.db.list('afinauto/client-list');
     return this.formsList;
   }
 
   GetForm(key: string) {
-    this.formObject = this.db.object('virami/client-list/' + key);
+    this.formObject = this.db.object('afinauto/client-list/' + key);
     return this.formObject;
   }
 
   UpdateForm(form: Form, key: string) {
-    this.db.object('virami/client-list/' + key)
+    this.db.object('afinauto/client-list/' + key)
     .update(form);
   }
   /* UpdateEstado(form: Form, key: string) {
-    this.db.object('virami/client-list/' + key)
+    this.db.object('afinauto/client-list/' + key)
     .update(form);
   } */
 
   UpdateLengthCalls(ncalls: number, key: string) {
-    this.db.object('virami/client-list/' + key)
+    this.db.object('afinauto/client-list/' + key)
     .update({ nCalls: ncalls });
   }
 
   DeleteForm(key: string) {
-    this.formObject = this.db.object('virami/client-list/' + key);
+    this.formObject = this.db.object('afinauto/client-list/' + key);
     this.formObject.remove();
   }
   DeleteCasa(key: string) {
-    this.casaObject = this.db.object('virami/casas/' + key);
+    this.casaObject = this.db.object('afinauto/casas/' + key);
     this.casaObject.remove();
   }
 
   DeleteCita(key: string) {
-    this.citaObject = this.db.object('virami/citas/' + key);
+    this.citaObject = this.db.object('afinauto/citas/' + key);
     this.citaObject.remove();
   }
 
@@ -67,7 +67,7 @@ export class ApiService {
   }
 
   GetCall(key: string) {
-    this.callList = this.db.list('virami/client-list/' + key + '/llamadas', ref =>
+    this.callList = this.db.list('afinauto/client-list/' + key + '/llamadas', ref =>
       ref.orderByChild('id_')
     );
     return this.callList;
@@ -80,24 +80,24 @@ export class ApiService {
   }
 
   GetCita() {
-    this.citaList = this.db.list('virami/citas', ref =>
+    this.citaList = this.db.list('afinauto/citas', ref =>
       ref.orderByChild('id_')
     );
     return this.citaList;
   }
   GetCasas() {
-    this.casasList = this.db.list('virami/casas', ref =>
+    this.casasList = this.db.list('afinauto/casas', ref =>
       ref.orderByChild('id_')
     );
     return this.casasList;
   }
 
   GetCurrentCall(key: string, key2: string) {
-    this.callObject = this.db.object('virami/client-list/' + key + '/llamadas/' + key2);
+    this.callObject = this.db.object('afinauto/client-list/' + key + '/llamadas/' + key2);
     return this.callObject;
   }
   GetCurrentCasa(key: string) {
-    this.casaObject = this.db.object('virami/casas/' + key);
+    this.casaObject = this.db.object('afinauto/casas/' + key);
     return this.casaObject;
   }
 

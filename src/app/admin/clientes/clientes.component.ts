@@ -7,6 +7,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatInput } from '@angular/material/input';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NewRegisterComponent } from '../new-register/new-register.component';
+import { EditRegisterComponent } from '../edit-register/edit-register.component';
 
 @Component({
   selector: 'app-clientes',
@@ -87,6 +88,18 @@ export class ClientesComponent implements OnInit, AfterViewInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     let dialogRef = this.matDialog.open(NewRegisterComponent, /* dialogConfig, */ {
+      width: '80%'
+    });
+    //this.matDialog.open(NewRegisterComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(value => {
+      console.log(`Dialog sent: ${value}`); 
+    });
+  }
+
+  editCliente(key: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = "some data";
+    let dialogRef = this.matDialog.open(EditRegisterComponent, /* dialogConfig, */ {
       width: '80%'
     });
     //this.matDialog.open(NewRegisterComponent, dialogConfig);

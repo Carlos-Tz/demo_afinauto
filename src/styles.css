@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+/* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .modal-backdrop
@@ -19,7 +19,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .modal-img {
     max-width: 90% !important;
   }
-}
+} */
 /* .app {
   margin: 1.25rem;
 } */
@@ -37,7 +37,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 } */
 
 
-@media print{
+/* @media print{
   .app {
     margin-bottom: var(--margin-last-page);
   }
@@ -88,7 +88,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .page:first-of-type, .page-landscape:first-of-type { margin-top: 0 !important; }
     .page:last-of-type, .page-landscape:last-of-type { margin-bottom: 0 !important; }
     
-  }
+  } */
 
   
 :root {
@@ -150,7 +150,7 @@ body {
   margin: 0 var(--page-inner-margin);
   top: var(--page-inner-top);
   overflow: hidden;
-  /* border: solid 1px red; */
+  border: solid 1px red;
 }
 
 @media print{
@@ -544,8 +544,8 @@ font-weight: 600;
 
 .foot_ {
 position: absolute;
-overflow: hidden;
-bottom: 50px;
+/*overflow: hidden;*/
+bottom: 45px;
 width: 100%;
 }
 .section6 .td:nth-child(1),
