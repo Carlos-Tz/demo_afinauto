@@ -3,20 +3,27 @@ html, body {
     height: auto;
     margin: 0;
 }
+
+.container {
+    padding: 3rem;
+}
 .back {
     background: linear-gradient(0deg,rgba(0,0,0,.5333333333333333) 30%,hsla(0,0%,100%,.26666666666666666)),no-repeat 50%/cover url('../../../assets/bg.png');
     background-size: cover;
     /* width: 100%; */
-    height: calc(100vh - 62px);
+    height: calc(100vh - 64px);
     /* height: 100vh; */
 }
-.back h1 {
+.back h3 {
     text-align: center;
     color: white;
     text-shadow: 1.5px 1.5px 3px black;
+    margin: 0;
+    padding: 3rem;
 }
 .card {
     background: hsla(0,0%,94.9%,.55);
+    padding-top: 3rem;
 }
 .card a:hover {
     background: hsla(0,0%,94.9%,.85);

@@ -30,6 +30,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 import { SpinnerComponent } from './admin/spinner/spinner.component';
 import { EditRegisterComponent } from './admin/edit-register/edit-register.component';
 import { BtnCallComponent } from './admin/edit-register/btn-call/btn-call.component';
@@ -112,7 +117,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AngularFireStorageModule,
     MatDialogModule,
     Angular2SignaturepadModule,
-    GaugeChartModule
+    GaugeChartModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

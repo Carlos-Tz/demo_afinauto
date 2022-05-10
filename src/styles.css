@@ -163,6 +163,10 @@ body {
     display: none;
     height: 0;
   }    
+  #toolbar {
+    display: none !important;
+    height: 0 !important;
+  }
   * {
     -webkit-print-color-adjust: exact !important;
   }

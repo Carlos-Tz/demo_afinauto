@@ -2,7 +2,7 @@
     text-align: center;
     /* background-color: #9e9e9e; */
     color: #222;
-    font-weight: 600;
+    /* font-weight: 600; */
     /* padding: 3mm; */
     border-radius: 1mm;
 }
@@ -41,4 +41,11 @@
 
 .mr0 {
     margin-right: 0 !important;
+}
+
+select {
+    border-bottom: 1px solid #9e9e9e !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
 }
