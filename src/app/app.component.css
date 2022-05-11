@@ -4,3 +4,13 @@
     max-width: 100%;
     margin: 0 auto;
 }
+
+#toolbar {
+    background-color: #a4bc30;
+}
+
+@media (max-width: 650px){
+    #nav_a {
+        display: none;
+    }
+}

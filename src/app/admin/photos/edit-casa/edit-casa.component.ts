@@ -43,9 +43,9 @@ export class EditCasaComponent implements OnInit {
 
   ngOnInit(): void {
     this.sForm();
-    this.Api.GetCurrentCasa(this.key).valueChanges().subscribe(data => {
+    /* this.Api.GetCurrentCasa(this.key).valueChanges().subscribe(data => {
       this.myForm1.patchValue(data);
-    });
+    }); */
   }
 
   sForm() {
@@ -72,7 +72,7 @@ export class EditCasaComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.Api.UpdateCasa(this.myForm1.value);
+    //this.Api.UpdateCasa(this.myForm1.value);
     this.toastr.success('Guardado!');
     this.closeDialog();
   }
@@ -364,7 +364,7 @@ export class EditCasaComponent implements OnInit {
         ref.delete();
       }
       this.closeDialog();
-      this.Api.DeleteCasa(this.key);
+      //this.Api.DeleteCasa(this.key);
 
       /* this.data_ = false;
       this.formApi.GetFormsList().snapshotChanges().subscribe(data => {

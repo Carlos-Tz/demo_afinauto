@@ -42,8 +42,8 @@ export class NewCallComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.Api.AddCall(this.myForm1.value, this.key);
-    this.Api.UpdateLengthCalls(this.folio, this.key);
+    //this.Api.AddCall(this.myForm1.value, this.key);
+    //this.Api.UpdateLengthCalls(this.folio, this.key);
     this.toastr.success('Llamada agregada!');
     this.ResetForm();
     this.closeDialog();

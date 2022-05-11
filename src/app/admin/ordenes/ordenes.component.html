@@ -1,23 +1,23 @@
-<app-navbar [save]="save"></app-navbar>
-<div style="overflow: hidden;">
-    <div class="row justify-content-sm-center pt-2 pr-2 pl-2 pb-2">
-        <div class="col sm-12 md-8">
+<!-- <app-navbar [save]="save"></app-navbar> -->
+<div style="overflow: hidden;" class="container">
+    <div class="row">
+        <div class="col s12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
+                    <div class="row" style="margin: 1rem;">
+                        <div class="col s12 l3"></div>
+                        <div class="col s12 l6" style="padding: 1rem;">
                             <p class="card-title h5" style="text-align: center;">
                                 Ordenes de servicio
                             </p>
                         </div>
-                        <div class="col-md-3">
-                            <button mat-button class="btn btn-outline-success btn-sm btn-block mb-2" [routerLink]="['/nueva-orden']"><span class="material-icons" style="vertical-align: middle;">add</span> Nueva orden</button>
+                        <div class="col s12 l3" style="padding: 1rem;">
+                            <button mat-button class="btn" [routerLink]="['/nueva-orden']"><span class="material-icons" style="vertical-align: middle;">add</span> Nueva orden</button>
                         </div>
                     </div>
-                    <div class="container" *ngIf="data">
+                    <div *ngIf="data" style="margin:1rem;">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col s4">
                                 <mat-form-field>
                                   <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Buscar">
                                 </mat-form-field>
@@ -43,17 +43,17 @@
                                 <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.email }}</mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="fecha">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header class="pad-l">Fecha</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="pad-l" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="show-h">Fecha</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="action">
-                                <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
-                                <mat-cell *matCellDef="let element; let i = index;" [ngClass]="{'com':element.estado}">
+                                <mat-header-cell *matHeaderCellDef class="pad-l"> Acción </mat-header-cell>
+                                <mat-cell *matCellDef="let element; let i = index;" class="pad-l" [ngClass]="{'com':element.estado}">
                                     <!-- <button class="btn btn-outline-success btn-sm" (click)="editCliente(element.$key)"><span class="material-icons">edit</span></button> -->
 
-                                    <button class="btn btn-outline-success btn-sm " [routerLink]="['/editar-cliente/', element.$key]"><span class="material-icons">edit</span></button>
-                                    <button class="btn btn-outline-danger btn-sm " [routerLink]="['/edit/', element.$key]"><span class="material-icons">delete</span></button>
+                                    <button class="btn  btn-small" [routerLink]="['/editar-cliente/', element.$key]"><span class="material-icons">edit</span></button>
+                                    <button class="btn red darken-1 btn-small" [routerLink]="['/edit/', element.$key]"><span class="material-icons">delete</span></button>
                                     <!-- <button mat-raised-button color="accent">Ver</button> -->
                                     <!-- <button mat-raised-button color="accent" (click)="deleteBook(i, element)">Delete</button> -->
                                 </mat-cell>

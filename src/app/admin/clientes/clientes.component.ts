@@ -52,7 +52,7 @@ export class ClientesComponent implements OnInit, AfterViewInit {
         this.dataSource.paginator = this.paginator;
       }, 0);
     });
-    this.api.GetCita();
+    //this.api.GetCita();
   }
 
   sortData(sort: Sort) {
@@ -77,7 +77,7 @@ export class ClientesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    /* this.dataSource.sort = this.sort; */
+    this.dataSource.sort = this.sort;
   }
 
   public doFilter = (value: string) => {
@@ -106,6 +106,12 @@ export class ClientesComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(value => {
       console.log(`Dialog sent: ${value}`); 
     });
+  }
+
+  deleteCliente(key: string){
+    if (window.confirm('¿Esta seguro de eliminar el registro seleccionado?')) {
+      this.api.DeleteForm(key);
+    }
   }
 
 }

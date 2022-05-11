@@ -10,6 +10,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { CurrencyPipe } from '@angular/common';
 import { Form } from 'src/app/models/form';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-new-orden',
@@ -57,13 +58,15 @@ export class NewOrdenComponent implements OnInit {
   public lig = false;
   public sta = false;
   public tem = false;
-  public tal = false;
+  /* public tal = false;
   public pre = false;
-  public vol = false;
+  public vol = false; */
   public lock = false;
   public fecha = '';
   public nameC = '';
-  idiomaA = 'espaniol';
+  public ingresoC = '';
+  public salidaC = '';
+  /* idiomaA = 'espaniol'; */
   uploadedImage: Blob;
   public filePathI1 = '';
   public filePathI2 = '';
@@ -113,7 +116,8 @@ export class NewOrdenComponent implements OnInit {
     //this.formApi.GetFormsList();
     this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
       this.ord = data.length + 1;
-      this.myForm.patchValue({orden: this.ord});
+      /* this.myForm.patchValue({orden: this.ord}); */
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
       this.forms = [];
       data.forEach(item => {
         const form = item.payload.toJSON();
@@ -124,7 +128,8 @@ export class NewOrdenComponent implements OnInit {
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
     /* this.myForm.patchValue({ ingreso: new Date() }); */
-    this.myForm.patchValue({ ingreso: this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2) });
+    //this.myForm.patchValue({ ingreso: this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2) });
+    this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
     /* this.generRow();
     this.myformValuesChanges$ = this.myForm.controls['units'].valueChanges;
     this.myformValuesChanges$.subscribe(units => {
@@ -132,12 +137,12 @@ export class NewOrdenComponent implements OnInit {
     }); */
   }
 
-  private generRow() {
+  /* private generRow() {
     for (let i = 1; i < 17; i++) {
       this.addUnit();
     }
-  }
-  private getUnit() {
+  } */
+  /* private getUnit() {
     return this.fb.group({
       cantidad: [''],
       importe: [''],
@@ -145,19 +150,19 @@ export class NewOrdenComponent implements OnInit {
       subtotal: [''],
       noparte: ['']
     });
-  }
+  } */
 
-  private updateTotalUnitPrice(units: any) {
+  /* private updateTotalUnitPrice(units: any) {
     const control = this.myForm.controls['units'] as FormArray;
     this.totalr = 0;
     // tslint:disable-next-line: forin
     for (let i in units) {
       let totalUnitPrice = 0;
       totalUnitPrice = ((units[i].cantidad > 0 && units[i].importe > 0) ? units[i].cantidad * units[i].importe : 0);
-     /*  totalUnitPrice += (units[i].cantidad ? units[i].cantidad : 0);
-      totalUnitPrice += (units[i].importe ? units[i].importe : 0);
-      totalUnitPrice += (units[i].pintura ? units[i].pintura : 0);
-      totalUnitPrice += (units[i].glo ? units[i].glo : 0); */
+      //totalUnitPrice += (units[i].cantidad ? units[i].cantidad : 0);
+      //totalUnitPrice += (units[i].importe ? units[i].importe : 0);
+      //totalUnitPrice += (units[i].pintura ? units[i].pintura : 0);
+      //totalUnitPrice += (units[i].glo ? units[i].glo : 0);
       const totalUnitPriceFormatted = this.currencyPipe.transform(totalUnitPrice, 'USD', 'symbol-narrow', '1.2-2');
 
       if (totalUnitPrice !== 0) {
@@ -171,20 +176,19 @@ export class NewOrdenComponent implements OnInit {
     this.iva = Math.round(this.subtotal * 0.16);
     this.total = this.subtotal + this.iva;
     this.saldo = this.total - this.anticipo;
-    /* this.iva = Math.round(this.totalr * 0.16);
-    this.total = this.totalr + this.iva; */
-  }
+    //this.iva = Math.round(this.totalr * 0.16);
+    //this.total = this.totalr + this.iva;
+  } */
 
-  private addUnit() {
+  /* private addUnit() {
     const control = this.myForm.controls['units'] as FormArray;
     control.push(this.getUnit());
-  }
+  } */
 
   sForm() {
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
       orden: ['', [Validators.required]],
-      idioma: [this.idiomaA],
       marca: [''],
       modelo: [''],
       color: [''],
@@ -208,9 +212,9 @@ export class NewOrdenComponent implements OnInit {
       luces: [false],
       estabi: [false],
       temper: [false],
-      tall: [false],
+      /* tall: [false],
       presion: [false],
-      volante: [false],
+      volante: [false], */
       lock: [false],
       gato: [false],
       antena: [false],
@@ -242,8 +246,8 @@ export class NewOrdenComponent implements OnInit {
       desc4: [''],
       firma3: [''],
       firma4: [''],
-      fecha: [''],
-      dato1: [''],
+      fecha: ['']
+      /* dato1: [''],
       dato2: [''],
       dato3: [''],
       dato4: [''],
@@ -256,7 +260,7 @@ export class NewOrdenComponent implements OnInit {
       iva: [false],
       units: this.fb.array([
         this.getUnit()
-      ])
+      ]) */
     });
   }
 
@@ -283,7 +287,7 @@ export class NewOrdenComponent implements OnInit {
     this.myForm.patchValue({frente: []});
     this.myForm.patchValue({detras: []});
     this.myForm.patchValue({izq: []});
-    this.myForm.patchValue({idioma: this.idiomaA});
+    /* this.myForm.patchValue({idioma: this.idiomaA}); */
     this.air = false;
     this.eng = false;
     this.abs = false;
@@ -294,9 +298,9 @@ export class NewOrdenComponent implements OnInit {
     this.lig = false;
     this.sta = false;
     this.tem = false;
-    this.tal = false;
+    /* this.tal = false;
     this.pre = false;
-    this.vol = false;
+    this.vol = false; */
     this.lock = false;
   }
 
@@ -348,7 +352,7 @@ export class NewOrdenComponent implements OnInit {
     this.tem = !this.tem;
     this.myForm.patchValue({temper: this.tem});
   }
-  tall_() {
+  /* tall_() {
     this.tal = !this.tal;
     this.myForm.patchValue({tall: this.tal});
   }
@@ -359,7 +363,7 @@ export class NewOrdenComponent implements OnInit {
   volante_() {
     this.vol = !this.vol;
     this.myForm.patchValue({volante: this.vol});
-  }
+  } */
   lock_() {
     this.lock = !this.lock;
     if (this.lock){
@@ -414,13 +418,13 @@ export class NewOrdenComponent implements OnInit {
     this.readThis($event.target);
   }
 
-  updt() {
-    /* this.subtotal = this.totalRef + this.obra + this.otros; */
+  /* updt() {
+    //this.subtotal = this.totalRef + this.obra + this.otros;
     this.subtotal = this.totalr + this.myForm.get('manoo').value + this.myForm.get('cargos').value + this.myForm.get('otrosm').value + this.myForm.get('seguro').value;
     this.iva = Math.round(this.subtotal * 0.16);
     this.total = this.subtotal + this.iva;
     this.saldo = this.total - this.myForm.get('antici').value;
-  }
+  } */
 
   readThis(inputValue: any): void {
     const ima = inputValue.files[0]; 

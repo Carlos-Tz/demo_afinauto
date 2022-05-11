@@ -20,9 +20,9 @@ export class PrintCasaComponent implements OnInit {
 
   ngOnInit(): void {
     this.key = this.actRouter.snapshot.paramMap.get('key');
-    this.Api.GetCurrentCasa(this.key).valueChanges().subscribe(data => {
+    /* this.Api.GetCurrentCasa(this.key).valueChanges().subscribe(data => {
       this.myForm1 = data;
-    });
+    }); */
   }
 
 }

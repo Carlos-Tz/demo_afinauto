@@ -4,6 +4,8 @@ import { Form } from '../models/form';
 import { Call } from '../models/call';
 import { Cita } from '../models/cita';
 import { Casa } from '../models/casa';
+import { Orden } from '../models/orden';
+import { Nota } from '../models/nota';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +14,24 @@ export class ApiService {
 
   formsList: AngularFireList<any>;
   formObject: AngularFireObject<any>;
-  citaObject: AngularFireObject<any>;
-  public callList: AngularFireList<any>;
-  public citaList: AngularFireList<any>;
-  public casasList: AngularFireList<any>;
-  public callObject: AngularFireObject<any>;
-  public casaObject: AngularFireObject<any>;
+  /* citaObject: AngularFireObject<any>; */
+  /* public callList: AngularFireList<any>; */
+  public ordenList: AngularFireList<any>;
+  public notaList: AngularFireList<any>;
+  public ordenObject: AngularFireObject<any>;
+  public notaObject: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) { }
 
   AddForm(form: object) {
     this.formsList.push(form as Form);
+  }
+
+  AddOrden(orden: object) {
+    this.ordenList.push(orden as Orden);
+  }
+
+  AddNota(nota: object) {
+    this.notaList.push(nota as Nota);
   }
 
   GetFormsList() {
@@ -29,40 +39,80 @@ export class ApiService {
     return this.formsList;
   }
 
+  GetOrdenesList() {
+    this.ordenList = this.db.list('afinauto/orden-list');
+    return this.ordenList;
+  }
+
+  GetNotasList() {
+    this.notaList = this.db.list('afinauto/nota-list');
+    return this.notaList;
+  }
+
   GetForm(key: string) {
     this.formObject = this.db.object('afinauto/client-list/' + key);
     return this.formObject;
+  }
+
+  GetOrden(key: string) {
+    this.ordenObject = this.db.object('afinauto/orden-list/' + key);
+    return this.ordenObject;
+  }
+
+  GetNota(key: string) {
+    this.notaObject = this.db.object('afinauto/nota-list/' + key);
+    return this.notaObject;
   }
 
   UpdateForm(form: Form, key: string) {
     this.db.object('afinauto/client-list/' + key)
     .update(form);
   }
+
+  UpdateOrden(orden: Orden, key: string) {
+    this.db.object('afinauto/orden-list/' + key)
+    .update(orden);
+  }
+
+  UpdateNota(nota: Nota, key: string) {
+    this.db.object('afinauto/nota-list/' + key)
+    .update(nota);
+  }
   /* UpdateEstado(form: Form, key: string) {
     this.db.object('afinauto/client-list/' + key)
     .update(form);
   } */
 
-  UpdateLengthCalls(ncalls: number, key: string) {
+  /* UpdateLengthCalls(ncalls: number, key: string) {
     this.db.object('afinauto/client-list/' + key)
     .update({ nCalls: ncalls });
-  }
+  } */
 
   DeleteForm(key: string) {
     this.formObject = this.db.object('afinauto/client-list/' + key);
     this.formObject.remove();
   }
-  DeleteCasa(key: string) {
+
+  DeleteOrden(key: string) {
+    this.ordenObject = this.db.object('afinauto/orden-list/' + key);
+    this.ordenObject.remove();
+  }
+
+  DeleteNota(key: string) {
+    this.notaObject = this.db.object('afinauto/nota-list/' + key);
+    this.notaObject.remove();
+  }
+  /* DeleteCasa(key: string) {
     this.casaObject = this.db.object('afinauto/casas/' + key);
     this.casaObject.remove();
-  }
+  } */
 
-  DeleteCita(key: string) {
+  /* DeleteCita(key: string) {
     this.citaObject = this.db.object('afinauto/citas/' + key);
     this.citaObject.remove();
-  }
+  } */
 
-  async AddCall(call: any, key: string) {
+  /* async AddCall(call: any, key: string) {
       this.callList.push(call as Call);
   }
 
@@ -77,9 +127,9 @@ export class ApiService {
   }
   async AddCasa(casa: any) {
       this.casasList.push(casa as Casa);
-  }
+  } */
 
-  GetCita() {
+  /* GetCita() {
     this.citaList = this.db.list('afinauto/citas', ref =>
       ref.orderByChild('id_')
     );
@@ -106,5 +156,5 @@ export class ApiService {
   }
   UpdateCasa(casa: Casa) {
     this.casaObject.update(casa);
-  }
+  } */
 }

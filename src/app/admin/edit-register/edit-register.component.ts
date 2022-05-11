@@ -34,7 +34,7 @@ export class EditRegisterComponent implements OnInit {
     this.Api.GetForm(this.key).valueChanges().subscribe(data => {
       this.myForm.patchValue(data);
     });
-    this.Api.GetCall(this.key).snapshotChanges().subscribe(re => {
+    /* this.Api.GetCall(this.key).snapshotChanges().subscribe(re => {
       this.calls = [];
       re.forEach(item => {
         const call = item.payload.toJSON();
@@ -46,7 +46,7 @@ export class EditRegisterComponent implements OnInit {
       } else {
         this.folio = 1;
       }
-    });
+    }); */
   }
 
   sForm() {

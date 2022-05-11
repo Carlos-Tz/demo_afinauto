@@ -24,9 +24,9 @@ export class EditCallComponent implements OnInit {
   ngOnInit(): void {
     this.sForm();
     this.key = this.actRouter.snapshot.paramMap.get('key');
-    this.Api.GetCurrentCall(this.key, this.key2).valueChanges().subscribe(data => {
+    /* this.Api.GetCurrentCall(this.key, this.key2).valueChanges().subscribe(data => {
       this.myForm1.patchValue(data);
-    });
+    }); */
   }
 
   sForm() {
@@ -42,7 +42,7 @@ export class EditCallComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.Api.UpdateCall(this.myForm1.value);
+    //this.Api.UpdateCall(this.myForm1.value);
     /* this.Api.UpdateLengthCalls(this.folio, this.key); */
     this.toastr.success('Guardado!');
     /* this.ResetForm(); */

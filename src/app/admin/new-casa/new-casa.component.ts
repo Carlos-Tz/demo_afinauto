@@ -45,7 +45,7 @@ export class NewCasaComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.Api.AddCasa(this.myForm1.value);
+    //this.Api.AddCasa(this.myForm1.value);
     this.toastr.success('Propiedad agregada!');
     this.ResetForm();
     this.closeDialog();

@@ -49,7 +49,7 @@ export class PanelComponent implements OnInit, AfterViewInit {
         this.dataSource.paginator = this.paginator;
       }, 0);
     });
-    this.api.GetCita();
+    //this.api.GetCita();
   }
 
   sortData(sort: Sort) {

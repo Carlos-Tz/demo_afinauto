@@ -59,6 +59,8 @@ import { OrdenesComponent } from './admin/ordenes/ordenes.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NewNotaComponent } from './admin/new-nota/new-nota.component';
 import { NewOrdenComponent } from './admin/new-orden/new-orden.component';
+import { EditOrdenComponent } from './admin/edit-orden/edit-orden.component';
+import { EditNotaComponent } from './admin/edit-nota/edit-nota.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -93,7 +95,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NotasComponent,
     OrdenesComponent,
     NewNotaComponent,
-    NewOrdenComponent
+    NewOrdenComponent,
+    EditOrdenComponent,
+    EditNotaComponent
   ],
   imports: [
     BrowserModule,

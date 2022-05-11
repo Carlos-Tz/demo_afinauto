@@ -45,7 +45,7 @@ export class NewCitaComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.Api.AddCita(this.myForm1.value);
+    //this.Api.AddCita(this.myForm1.value);
     /* this.Api.UpdateLengthCalls(this.folio, this.key); */
     this.toastr.success('Cita agregada!');
     this.ResetForm();

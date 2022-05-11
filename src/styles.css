@@ -150,7 +150,7 @@ body {
   margin: 0 var(--page-inner-margin);
   top: var(--page-inner-top);
   overflow: hidden;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 
 @media print{
@@ -186,29 +186,31 @@ body {
   input[type=text], input[type=number], input[type=date], textarea {
     font-size: 0.8rem !important;
   }
-  /*
-  h1 {
-    font-size: 1.2em !important;
+
+  #nameC {
+    display: block !important;
   }
-  h6 {
-    font-size: 1.3em !important;
-  }*/
+
   body {
     font-size: 0.7em !important;
-  } 
+  }
+  
+  .datos p {
+    font-size: 0.7rem !important;
+  }
 }
 
 #printBtn {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  width: 75px;
+  width: 35px;
   height: 75px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-#printBtn img {
+#printBtn .iconos {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -336,7 +338,7 @@ background: #222 !important;
 pointer-events: all !important;
 }
 #iva:checked {
-background: red !important;
+background: black !important;
 }
 
 input[type=checkbox]:focus,input[type=radio]:focus {
@@ -489,7 +491,8 @@ width: 250px;
   height: auto !important;
   /* border: none !important; */
   padding: 0 .2em !important;
-  border-bottom:  1px solid rgba(0,0,0,0.12) !important;
+  /* border-bottom:  1px solid rgba(0,0,0,0.12) !important; */
+  border-bottom: none !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -538,7 +541,7 @@ display: block !important;
 height: 2rem !important;
 }
 
-#total__ input {
+#total__ input[type="number"] {
 height: 1.2rem !important;
 margin: 0 !important;
 text-align: center;
@@ -549,7 +552,7 @@ font-weight: 600;
 .foot_ {
 position: absolute;
 /*overflow: hidden;*/
-bottom: 45px;
+bottom: 35px;
 width: 100%;
 }
 .section6 .td:nth-child(1),

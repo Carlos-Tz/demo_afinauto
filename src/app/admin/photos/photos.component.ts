@@ -27,7 +27,7 @@ export class PhotosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.Api.GetCasas().snapshotChanges().subscribe(re => {
+    /* this.Api.GetCasas().snapshotChanges().subscribe(re => {
       this.casas = [];
       re.forEach(item => {
         const casa = item.payload.toJSON();
@@ -35,15 +35,14 @@ export class PhotosComponent implements OnInit {
         this.casas.push(casa as Casa);
       });
       if (this.casas.length > 0) {
-        /* this.data = true; */
+        ///* this.data = true;
         this.dataSource.data = this.casas.slice();
-        /* console.log(this.dataSource.data); */
       }
-      /* Pagination */
+      // Pagination 
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
-    });
+    }); */
   }
 
   showDialog(){

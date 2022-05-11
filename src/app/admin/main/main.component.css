@@ -20,10 +20,11 @@ html, body {
     text-shadow: 1.5px 1.5px 3px black;
     margin: 0;
     padding: 3rem;
+    font-size: 2.5rem;
 }
 .card {
     background: hsla(0,0%,94.9%,.55);
-    padding-top: 3rem;
+    padding: 3rem;
 }
 .card a:hover {
     background: hsla(0,0%,94.9%,.85);
@@ -37,4 +38,9 @@ html, body {
 a {
     color: black;
     text-align: center;
+}
+
+.btn-large {
+    background-color: transparent;
+    width: 100%;
 }

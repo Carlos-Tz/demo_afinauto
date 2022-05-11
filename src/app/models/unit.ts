@@ -3,5 +3,5 @@ export interface Unit {
     importe: number;
     desc: string;
     subtotal: string;
-    noparte: string;
+    /* noparte: string; */
 }

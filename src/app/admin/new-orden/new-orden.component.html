@@ -11,7 +11,7 @@
             </div>
             <div class="col s4">
               <div class="datos">
-                <h5>AFINAUTO</h5>
+                <h5 style="font-weight: 600;">AFINAUTO</h5>
                 <p>PERFORMANCE - SUSPENSIONES</p>
                 <p>Tel. 443 256 5230 | afinautos@yahoo.com</p>
                 <p>Raza Azteca 89-A, Lomas de Santiaguito</p>
@@ -20,7 +20,7 @@
             <div class="col s4">
                 <div>
                   <h6 class="center-align" style="margin: 0 !important;"><b>ORDEN DE REPARACIÓN</b></h6>
-                  <input type="number" id="orden" tabindex="0" class="orden focusNext" placeholder="**" formControlName="orden" min="0" step="1">
+                  <input type="text" id="orden" tabindex="0" placeholder="**" formControlName="orden" class="orden" readonly>
               </div>
               <!-- <div>
                 <p class="right-align" style="margin: 0 !important;"><b>ORDEN DE TRABAJO</b>
@@ -106,28 +106,35 @@
                 <div class="col s2">
                   Ingreso:
                 </div>
-                <div class="col s10 pr0">
-                  <input id="fing" type="date" tabindex="7" class="focusNext" formControlName="ingreso">
+                <div class="col s10 pr0" style="display: none;" id="nameC">
+                  <input type="text" value="{{ingresoC}}">
+                </div>
+                <div class="col s10 pr0 no-print">
+                  <input id="fing" type="date" tabindex="7" class="focusNext" formControlName="ingreso" [(ngModel)]="ingresoC">
                 </div>
               </div>
               <div class="row ml0 mr0">
                 <div class="col s2">
                   Salida:
                 </div>
-                <div class="col s10 pr0">
-                  <input id="fsal" type="date" tabindex="8" class="focusNext" formControlName="salida">
+                <div class="col s10 pr0" style="display: none;" id="nameC">
+                  <input type="text" value="{{salidaC}}">
+                </div>
+                <div class="col s10 pr0 no-print">
+                  <input id="fsal" type="date" tabindex="8" class="focusNext" formControlName="salida" [(ngModel)]="salidaC">
                 </div>
               </div>
               <div class="row ml0 mr0">
                 <div class="col s2">
                   Nombre:
                 </div>
-                <!-- <div class="col s10 pr0">
-                  <input id="nom" type="text" tabindex="9" class="focusNext" formControlName="nombre" placeholder="**">
-                </div> -->
-                <div class="col s10 pr0">
-                  <select formControlName="nombre" name="nombre" id="nombre" style="height: 1.6rem !important; padding: 0 !important;">
-                    <option *ngFor="let form of forms" value="form.nombre">{{form.nombre}}</option>
+                <div class="col s10 pr0" style="display: none;" id="nameC">
+                  <input type="text" value="{{nameC}}">
+                </div>
+                <div class="col s10 pr0 no-print">
+                  <select formControlName="nombre" name="nombre" id="nombre" style="height: 1rem !important; padding: 0 !important; margin: 0 0 8px 0;" [(ngModel)]="nameC" (change)="combus($event)">
+                    <option value=""></option>
+                    <option *ngFor="let form of forms" value="{{form.$key}}">{{form.nombre}}</option>
                   </select>
                 </div>
                 <!-- <mat-form-field appearance="fill">
@@ -157,27 +164,27 @@
             </div>
           </div>
 
-          <div class="row ml0 mr0" style="margin: .25rem .75rem 0 .75rem;">          
+          <div class="row" style="margin: .25rem .75rem 0 .75rem;">          
             <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
               TRABAJO A REALIZAR              
             </div>
           </div>
-          <div class="row ml0 mr0">
+          <div class="row">
             <div class="col s12">
                 <textarea name="" rows="2" tabindex="12" class="focusNext form-control txa" formControlName="trabajo"></textarea>
             </div>
           </div>
-          <div class="row" style="margin: .75rem 0 0 0;">          
+          <div class="row" style="margin: .75rem .75rem 0 .75rem;">          
             <div class="col s12 center-align grey" style="padding: .3em 0; font-weight: 700; color: white;">
               OBSERVACIONES                   
             </div>
           </div>
-          <div class="row ml0 mr0">
+          <div class="row">
             <div class="col s12">
                 <textarea name="" rows="2" tabindex="13" class="focusNext form-control txa" formControlName="observ"></textarea>
             </div>
           </div>
-          <div class="row ml0 mr0 s12">
+          <div class="row s12">
             <!-- <div class="col d-flex"> -->
               <div class="col" (click)="airbag()" style="padding-left: 0 !important; width: 10%;">
                 <img *ngIf="!air" class="responsive-img" src="assets/airbag1.jpg" alt="">
@@ -377,7 +384,7 @@
               </div>
             <!-- </div> -->
           </div>
-          <div class="row ml0 mr0" style="margin-bottom: 0.5rem !important;">
+          <div class="row" style="margin: 0 0.75rem 0.5rem .75rem !important;">
             <!-- <div class="col d-flex"> -->
               <div class="col s3" id="sig1"
               [ngClass]="{'sedand':myForm.value.tcar=='sedan', 'pickupd':myForm.value.tcar=='pickup', 'suvd':myForm.value.tcar=='suv'}">
@@ -771,20 +778,19 @@
     <section>
       <div class="page">
         <div class="inner">
-          <div class="row ml0 mr0">
-            <div class="col">
-              <img src="assets/logo1.jpg" alt="" class="img-fluid" style="padding-right: 3rem;">
+          <div class="row">
+            <div class="col s4">
+              <img src="assets/logo1.jpg" alt="" style="width: 100%;">
             </div>
-            <div class="col"></div>
-            <div class="col" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
-             
+            <div class="col s6"></div>
+            <div class="col s2" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
           </div>
-          <div class="row ml0 mr0" style="margin-top: 2rem;">
+          <div class="row" style="margin-top: 2rem;">
             <div class="col s12">
-                <h6 style="font-size: 1.5em; font-weight: 700;">
+                <h6 style="font-size: 1.3em; font-weight: 700;">
                   TÉRMINOS Y CONDICIONES 
                 </h6><br>
-                  <p style="font-size: 0.9rem; text-align: justify;">
+                  <p style="font-size: 0.85rem; text-align: justify;">
                     Estoy de acuerdo en que la hoja de servicio anexa a este documento fue revisada detenidamente con claridad y
                     firmada de conformidad en relación a los objetos y daños registrados que el vehículo puede presentar. <br><br>
                     En <b>Servicios Generales</b> el cliente deberá de recoger su auto 2 días máximos a la fecha de entrega
@@ -818,7 +824,7 @@
                       <!-- <img src="" id="imgSign4"> -->
                     </div>
                     <hr>
-                    RAMSA AUTOMOTRIZ             
+                    AFINAUTO             
                   </div>
                 </div>
               </div>
@@ -856,7 +862,11 @@
       </div>
     </section>
     <div class="no-print" id="printBtn" onclick="window.print()">
-      <img src="assets/print.svg" alt="" width="55" height="55">
+      <div class="iconos">
+        <span class="material-icons" style="font-size: 2.8rem;">print</span>
+        <span class="material-icons" style="font-size: 2.8rem; color: #0d47a1;">save</span>
+      </div>
+      <!-- <img src="assets/print.svg" alt="" width="35" height="35"> -->
     </div>
     </form>
   </div>

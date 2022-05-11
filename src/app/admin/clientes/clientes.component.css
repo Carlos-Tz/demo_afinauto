@@ -1,4 +1,4 @@
-@media (max-width: 520px) {
+/* @media (max-width: 520px) {
     .show-h {
       display: none;
     }
@@ -15,7 +15,14 @@
 }
 .com {
   background-color: #a6c7ae;
-  /* color: #fff; */
+} */
+@media (max-width: 520px) {
+  .show-h {
+    display: none;
+  }
+  .pad-l {
+      padding-left: 24px;
+  }
 }
 
 input:not(.browser-deafult) {
@@ -26,4 +33,14 @@ input:not(.browser-deafult):focus:not([readonly]){
   border-bottom: 0 !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+}
+
+.btn {
+  width: 100%;
+}
+
+.btn-small {
+  height: 25px;
+  width: 32px;
+  padding: 0;
 }

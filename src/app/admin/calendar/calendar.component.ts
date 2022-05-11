@@ -40,7 +40,7 @@ export class CalendarComponent implements OnInit {
 
 
   ngOnInit(): void {    
-    this.Api.GetCita().snapshotChanges().subscribe(re => {
+    /* this.Api.GetCita().snapshotChanges().subscribe(re => {
       this.citas = [];
       re.forEach(item => {
         const cita = item.payload.toJSON();
@@ -50,7 +50,7 @@ export class CalendarComponent implements OnInit {
       if (this.citas) {
         this.calendarOptions.events = this.citas;
       }
-    });
+    }); */
   }
   showDialog(){
     const view = this.modalE2.createEmbeddedView(null);
@@ -71,6 +71,6 @@ export class CalendarComponent implements OnInit {
   deleteData(key: string) {
     /* console.log('elminado'); */
     this.closeDialog();
-    this.Api.DeleteCita(key);
+    //this.Api.DeleteCita(key);
   }
 }
