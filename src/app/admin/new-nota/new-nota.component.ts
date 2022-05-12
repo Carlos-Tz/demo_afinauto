@@ -114,11 +114,7 @@ export class NewNotaComponent implements OnInit {
 
   ngOnInit() {
     this.sForm();
-    //this.formApi.GetFormsList();
     this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
-      this.ord = data.length + 1;
-      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
-      /* this.myForm.patchValue({orden: this.ord}); */
       this.forms = [];
       data.forEach(item => {
         const form = item.payload.toJSON();
@@ -126,11 +122,27 @@ export class NewNotaComponent implements OnInit {
         this.forms.push(form as Form);
       });
     });
+    this.formApi.GetNotasList().snapshotChanges().subscribe(data => {
+      this.ord = data.length + 1;
+      /* this.myForm.patchValue({orden: this.ord}); */
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+    });
+    //this.formApi.GetFormsList();
+    /* this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
+      this.ord = data.length + 1;
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+      this.forms = [];
+      data.forEach(item => {
+        const form = item.payload.toJSON();
+        form['$key'] = item.key;
+        this.forms.push(form as Form);
+      });
+    }); */
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
     /* this.myForm.patchValue({ ingreso: new Date() }); */
     //this.myForm.patchValue({ ingreso: this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2) });
-    this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
+    //this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
     this.generRow();
     this.myformValuesChanges$ = this.myForm.controls['units'].valueChanges;
     this.myformValuesChanges$.subscribe(units => {
@@ -205,14 +217,9 @@ export class NewNotaComponent implements OnInit {
       tarjeta: [false],
       efectivo: [false],
       transferencia: [false],
-      presupuesto: [true],
+      presupuesto: [false],
       firma1: [''],
       fecha: [''],
-      dato1: [''],
-      dato2: [''],
-      dato3: [''],
-      dato4: [''],
-      dato5: [''],
       antici: [0],
       iva: [false],
       units: this.fb.array([
@@ -226,18 +233,18 @@ export class NewNotaComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.formApi.AddForm(this.myForm.value);
+    this.formApi.AddNota(this.myForm.value);
     this.toastr.success('Guardado!');
-    this.needleValue = 50;
+    /* this.needleValue = 50; */
     this.ResetForm();
     /* this.clear1();
     this.clear2();
     this.clear3();
     this.clear4(); */
-    this.sForm2();
+    this.myForm.patchValue({fecha: this.fecha});
   }
   sForm2() {
-    this.myForm.patchValue({fecha: this.fecha});
+    /* this.myForm.patchValue({fecha: this.fecha}); */
     /* this.myForm.patchValue({tcar: 'sedan'});
     this.myForm.patchValue({gas: 50});
     this.myForm.patchValue({dere: []});
@@ -261,15 +268,15 @@ export class NewNotaComponent implements OnInit {
     this.lock = false; */
   }
 
-  combus(ev) {
+  /* combus(ev) {
     this.needleValue = ev.srcElement.value;
-  }
+  } */
 
-  airbag() {
+  /* airbag() {
     this.air = !this.air;
     this.myForm.patchValue({bolsa: this.air});
     //  this.form_.airbag = !this.form_.airbag;
-  }
+  } */
 
 
   updt() {
@@ -283,6 +290,21 @@ export class NewNotaComponent implements OnInit {
     }
     this.total = this.subtotal + this.iva;
     this.saldo = this.total - this.myForm.get('antici').value;
+  }
+
+  nameS(ev) {
+    /* this.needleValue = ev.srcElement.value; */
+    this.formApi.GetForm(ev.srcElement.value).valueChanges().subscribe(data => {
+      if (data.nombre && data.tel && data.domicilio){
+        this.myForm.patchValue({domicilio: data.domicilio});
+        this.myForm.patchValue({tel: data.tel});
+        this.myForm.patchValue({nombre: data.nombre});
+        this.nameC = data.nombre;
+        /* console.log(data.email);
+        console.log(data.tel); */
+      }
+      /* this.myForm.patchValue(data); */
+    });
   }
 
   /* presupuesto(){

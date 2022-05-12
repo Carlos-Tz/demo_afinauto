@@ -8,6 +8,7 @@ import { MatInput } from '@angular/material/input';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NewRegisterComponent } from '../new-register/new-register.component';
 import { EditRegisterComponent } from '../edit-register/edit-register.component';
+import { Orden } from 'src/app/models/orden';
 
 @Component({
   selector: 'app-ordenes',
@@ -15,18 +16,19 @@ import { EditRegisterComponent } from '../edit-register/edit-register.component'
   styleUrls: ['./ordenes.component.css']
 })
 export class OrdenesComponent implements OnInit, AfterViewInit {
-  public dataSource = new MatTableDataSource<Form>();
+  public dataSource = new MatTableDataSource<Orden>();
   save = 2;
-  Form: Form[];
+  Orden: Orden[];
   data = false;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild('input', {static: false}) input: ElementRef;
 
   displayedColumns: any[] = [
+    'orden',
     'nombre',
-    'tel',
-    'email',
+    'modelo',
+    'placas',
     'fecha',
     'action'
   ];
@@ -35,16 +37,16 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.api.GetFormsList().snapshotChanges().subscribe(data => {
-      this.Form = [];
+    this.api.GetOrdenesList().snapshotChanges().subscribe(data => {
+      this.Orden = [];
       data.forEach(item => {
         const f = item.payload.toJSON();
         f['$key'] = item.key;
-        this.Form.push(f as Form);
+        this.Orden.push(f as Orden);
       });
-      if (this.Form.length > 0) {
+      if (this.Orden.length > 0) {
         this.data = true;
-        this.dataSource.data = this.Form.slice();
+        this.dataSource.data = this.Orden.slice();
        /*  this.dataSource.sort = this.sort; */
       }
       /* Pagination */
@@ -56,7 +58,7 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
   }
 
   sortData(sort: Sort) {
-    const data = this.Form.slice();
+    const data = this.Orden.slice();
     if (!sort.active || sort.direction === '') {
       this.dataSource.data = data;
       return;
@@ -84,10 +86,16 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-  openDialog() {
+  deleteOrden(key: string){
+    if (window.confirm('¿Esta seguro de eliminar el registro seleccionado?')) {
+      this.api.DeleteOrden(key);
+    }
+  }
+
+  /* openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
-    let dialogRef = this.matDialog.open(NewRegisterComponent, /* dialogConfig, */ {
+    let dialogRef = this.matDialog.open(NewRegisterComponent, {
       width: '80%'
     });
     //this.matDialog.open(NewRegisterComponent, dialogConfig);
@@ -99,13 +107,13 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
   editCliente(key: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
-    let dialogRef = this.matDialog.open(EditRegisterComponent, /* dialogConfig, */ {
+    let dialogRef = this.matDialog.open(EditRegisterComponent, {
       width: '80%'
     });
     //this.matDialog.open(NewRegisterComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(value => {
       console.log(`Dialog sent: ${value}`); 
     });
-  }
+  } */
 
 }

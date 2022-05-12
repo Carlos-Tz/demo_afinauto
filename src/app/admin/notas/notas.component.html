@@ -28,19 +28,29 @@
                         <!-- <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear> -->
                         <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear (matSortChange)="sortData($event)">
 
+                            <ng-container matColumnDef="orden">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header >Orden</mat-header-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.orden}}
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="presupuesto">
+                                <mat-header-cell *matHeaderCellDef>Tipo</mat-header-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}"><span *ngIf="element.presupuesto">PRESUPUESTO</span><span *ngIf="!element.presupuesto">NOTA DE VENTA</span></mat-cell>
+                                <!-- <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}"><span *ngIf="!element.presupuesto">NOTA DE VENTA</span></mat-cell> -->
+                            </ng-container>
                             <ng-container matColumnDef="nombre">
                                 <mat-header-cell *matHeaderCellDef mat-sort-header >Nombre</mat-header-cell>
                                 <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nombre}}
                                 </mat-cell>
                             </ng-container>
 
-                            <ng-container matColumnDef="tel">
-                                <mat-header-cell *matHeaderCellDef>Teléfono</mat-header-cell>
-                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.tel}}</mat-cell>
+                            <ng-container matColumnDef="modelo">
+                                <mat-header-cell *matHeaderCellDef>Modelo</mat-header-cell>
+                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.modelo}}</mat-cell>
                             </ng-container>
-                            <ng-container matColumnDef="email">
-                                <mat-header-cell *matHeaderCellDef class="show-h">Correo</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.email }}</mat-cell>
+                            <ng-container matColumnDef="placas">
+                                <mat-header-cell *matHeaderCellDef class="show-h">Placas</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.placas }}</mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="fecha">
                                 <mat-header-cell *matHeaderCellDef mat-sort-header class="show-h">Fecha</mat-header-cell>
@@ -52,8 +62,8 @@
                                 <mat-cell *matCellDef="let element; let i = index;" class="pad-l" [ngClass]="{'com':element.estado}">
                                     <!-- <button class="btn btn-outline-success btn-sm" (click)="editCliente(element.$key)"><span class="material-icons">edit</span></button> -->
 
-                                    <button class="btn  btn-small" [routerLink]="['/editar-cliente/', element.$key]"><span class="material-icons">edit</span></button>
-                                    <button class="btn red darken-1 btn-small" [routerLink]="['/edit/', element.$key]"><span class="material-icons">delete</span></button>
+                                    <button class="btn  btn-small" [routerLink]="['/editar-nota/', element.$key]"><span class="material-icons">edit</span></button>
+                                    <button class="btn red darken-1 btn-small" (click)="deleteNota(element.$key)"><span class="material-icons">delete</span></button>
                                     <!-- <button mat-raised-button color="accent">Ver</button> -->
                                     <!-- <button mat-raised-button color="accent" (click)="deleteBook(i, element)">Delete</button> -->
                                 </mat-cell>

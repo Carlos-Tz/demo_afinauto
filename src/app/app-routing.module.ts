@@ -35,8 +35,8 @@ const routes: Routes = [
   /* {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]}, */
   /* {path: 'photos', component: PhotosComponent, canActivate: [AuthGuard]}, */
   {path: 'editar-cliente/:key', component: EditRegisterComponent, canActivate: [AuthGuard]},
-  {path: 'edit-orden/:key', component: EditOrdenComponent, canActivate: [AuthGuard]},
-  {path: 'edit-nota/:key', component: EditNotaComponent, canActivate: [AuthGuard]},
+  {path: 'editar-orden/:key', component: EditOrdenComponent, canActivate: [AuthGuard]},
+  {path: 'editar-nota/:key', component: EditNotaComponent, canActivate: [AuthGuard]},
   /* {path: 'pdf/:key', component: PrintCasaComponent, canActivate: [AuthGuard]}, */
   {path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
  /*  {path: 'resetPass', component: ResetPassComponent, canActivate: [SecureInnerPagesGuard]} */

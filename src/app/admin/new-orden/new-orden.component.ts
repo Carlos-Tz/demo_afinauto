@@ -113,17 +113,24 @@ export class NewOrdenComponent implements OnInit {
 
   ngOnInit() {
     this.sForm();
-    //this.formApi.GetFormsList();
     this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
-      this.ord = data.length + 1;
-      /* this.myForm.patchValue({orden: this.ord}); */
-      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
       this.forms = [];
       data.forEach(item => {
         const form = item.payload.toJSON();
         form['$key'] = item.key;
         this.forms.push(form as Form);
       });
+    });
+    this.formApi.GetOrdenesList().snapshotChanges().subscribe(data => {
+      this.ord = data.length + 1;
+      /* this.myForm.patchValue({orden: this.ord}); */
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+      /* this.forms = [];
+      data.forEach(item => {
+        const form = item.payload.toJSON();
+        form['$key'] = item.key;
+        this.forms.push(form as Form);
+      }); */
     });
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
@@ -151,7 +158,6 @@ export class NewOrdenComponent implements OnInit {
       noparte: ['']
     });
   } */
-
   /* private updateTotalUnitPrice(units: any) {
     const control = this.myForm.controls['units'] as FormArray;
     this.totalr = 0;
@@ -179,7 +185,6 @@ export class NewOrdenComponent implements OnInit {
     //this.iva = Math.round(this.totalr * 0.16);
     //this.total = this.totalr + this.iva;
   } */
-
   /* private addUnit() {
     const control = this.myForm.controls['units'] as FormArray;
     control.push(this.getUnit());
@@ -269,7 +274,7 @@ export class NewOrdenComponent implements OnInit {
   }
 
   submitSurveyData = () => {
-    this.formApi.AddForm(this.myForm.value);
+    this.formApi.AddOrden(this.myForm.value);
     this.toastr.success('Guardado!');
     this.needleValue = 50;
     this.ResetForm();
@@ -287,7 +292,7 @@ export class NewOrdenComponent implements OnInit {
     this.myForm.patchValue({frente: []});
     this.myForm.patchValue({detras: []});
     this.myForm.patchValue({izq: []});
-    /* this.myForm.patchValue({idioma: this.idiomaA}); */
+    this.myForm.patchValue({nombre: ''});
     this.air = false;
     this.eng = false;
     this.abs = false;
@@ -306,6 +311,21 @@ export class NewOrdenComponent implements OnInit {
 
   combus(ev) {
     this.needleValue = ev.srcElement.value;
+  }
+
+  nameS(ev) {
+    /* this.needleValue = ev.srcElement.value; */
+    this.formApi.GetForm(ev.srcElement.value).valueChanges().subscribe(data => {
+      if (data.nombre && data.tel && data.email){
+        this.myForm.patchValue({correo: data.email});
+        this.myForm.patchValue({tel: data.tel});
+        this.myForm.patchValue({nombre: data.nombre});
+        this.nameC = data.nombre;
+        /* console.log(data.email);
+        console.log(data.tel); */
+      }
+      /* this.myForm.patchValue(data); */
+    });
   }
 
   airbag() {
@@ -444,7 +464,7 @@ export class NewOrdenComponent implements OnInit {
           const ref = this.storage.ref(this.filePathI1);
           ref.delete();
         }
-        this.filePathI1 = `images_ramsa/image_${Date.now()}`;
+        this.filePathI1 = `images_afinauto/image_${Date.now()}`;
         const fileRef = this.storage.ref(this.filePathI1);
         this.storage.upload(this.filePathI1, this.uploadedImage).snapshotChanges().pipe(
           finalize(() => {
@@ -460,7 +480,7 @@ export class NewOrdenComponent implements OnInit {
             const ref = this.storage.ref(this.filePathI2);
             ref.delete();
           }
-          this.filePathI2 = `images_ramsa/image_${Date.now()}`;
+          this.filePathI2 = `images_afinauto/image_${Date.now()}`;
           const fileRef = this.storage.ref(this.filePathI2);
           this.storage.upload(this.filePathI2, this.uploadedImage).snapshotChanges().pipe(
             finalize(() => {
@@ -476,7 +496,7 @@ export class NewOrdenComponent implements OnInit {
           const ref = this.storage.ref(this.filePathI3);
           ref.delete();
         }
-        this.filePathI3 = `images_ramsa/image_${Date.now()}`;
+        this.filePathI3 = `images_afinauto/image_${Date.now()}`;
         const fileRef = this.storage.ref(this.filePathI3);
         this.storage.upload(this.filePathI3, this.uploadedImage).snapshotChanges().pipe(
           finalize(() => {
@@ -492,7 +512,7 @@ export class NewOrdenComponent implements OnInit {
           const ref = this.storage.ref(this.filePathI4);
           ref.delete();
         }
-        this.filePathI4 = `images_ramsa/image_${Date.now()}`;
+        this.filePathI4 = `images_afinauto/image_${Date.now()}`;
         const fileRef = this.storage.ref(this.filePathI4);
         this.storage.upload(this.filePathI4, this.uploadedImage).snapshotChanges().pipe(
           finalize(() => {
@@ -507,8 +527,6 @@ export class NewOrdenComponent implements OnInit {
 
   }
 
-  
-
   imgChanged($event) {
     if ($event.target.src) {
       const imgURL = $event.target.src;
@@ -517,7 +535,7 @@ export class NewOrdenComponent implements OnInit {
       const realData = block[1].split(',')[1];
       const blob = this.b64toBlob(realData, contentType);
       /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf1 = `signs_ramsa/image_${Date.now()}`;
+      this.filePathf1 = `signs_afinauto/image_${Date.now()}`;
       const fileRef = this.storage.ref(this.filePathf1);
       this.storage.upload(this.filePathf1, blob).snapshotChanges().pipe(
         finalize(() => {
@@ -537,7 +555,7 @@ export class NewOrdenComponent implements OnInit {
       const realData = block[1].split(',')[1];
       const blob = this.b64toBlob(realData, contentType);
       /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf2 = `signs_ramsa/image_${Date.now()}`;
+      this.filePathf2 = `signs_afinauto/image_${Date.now()}`;
       const fileRef = this.storage.ref(this.filePathf2);
       this.storage.upload(this.filePathf2, blob).snapshotChanges().pipe(
         finalize(() => {
@@ -557,7 +575,7 @@ export class NewOrdenComponent implements OnInit {
       const realData = block[1].split(',')[1];
       const blob = this.b64toBlob(realData, contentType);
       /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf3 = `signs_ramsa/image_${Date.now()}`;
+      this.filePathf3 = `signs_afinauto/image_${Date.now()}`;
       const fileRef = this.storage.ref(this.filePathf3);
       this.storage.upload(this.filePathf3, blob).snapshotChanges().pipe(
         finalize(() => {
@@ -577,7 +595,7 @@ export class NewOrdenComponent implements OnInit {
       const realData = block[1].split(',')[1];
       const blob = this.b64toBlob(realData, contentType);
       /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf4 = `signs_ramsa/image_${Date.now()}`;
+      this.filePathf4 = `signs_afinauto/image_${Date.now()}`;
       const fileRef = this.storage.ref(this.filePathf4);
       this.storage.upload(this.filePathf4, blob).snapshotChanges().pipe(
         finalize(() => {
@@ -589,7 +607,6 @@ export class NewOrdenComponent implements OnInit {
       ).subscribe();
     }
   }
-
   b64toBlob(b64Data, contentType, sliceSize?) {
     contentType = contentType || '';
     sliceSize = sliceSize || 512;

@@ -24,9 +24,11 @@ export class NotasComponent implements OnInit, AfterViewInit {
   @ViewChild('input', {static: false}) input: ElementRef;
 
   displayedColumns: any[] = [
+    'orden',
+    'presupuesto',
     'nombre',
-    'tel',
-    'email',
+    'modelo',
+    'placas',
     'fecha',
     'action'
   ];
@@ -35,7 +37,7 @@ export class NotasComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.api.GetFormsList().snapshotChanges().subscribe(data => {
+    this.api.GetNotasList().snapshotChanges().subscribe(data => {
       this.Form = [];
       data.forEach(item => {
         const f = item.payload.toJSON();
@@ -84,10 +86,16 @@ export class NotasComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-  openDialog() {
+  deleteNota(key: string){
+    if (window.confirm('¿Esta seguro de eliminar el registro seleccionado?')) {
+      this.api.DeleteNota(key);
+    }
+  }
+
+  /* openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
-    let dialogRef = this.matDialog.open(NewRegisterComponent, /* dialogConfig, */ {
+    let dialogRef = this.matDialog.open(NewRegisterComponent, {
       width: '80%'
     });
     //this.matDialog.open(NewRegisterComponent, dialogConfig);
@@ -99,13 +107,13 @@ export class NotasComponent implements OnInit, AfterViewInit {
   editCliente(key: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
-    let dialogRef = this.matDialog.open(EditRegisterComponent, /* dialogConfig, */ {
+    let dialogRef = this.matDialog.open(EditRegisterComponent, {
       width: '80%'
     });
     //this.matDialog.open(NewRegisterComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(value => {
       console.log(`Dialog sent: ${value}`); 
     });
-  }
+  } */
 
 }

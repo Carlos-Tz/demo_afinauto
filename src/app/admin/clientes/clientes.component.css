@@ -24,6 +24,14 @@
       padding-left: 24px;
   }
 }
+@media (max-width: 993px) {
+  .show-hh {
+    display: none;
+  }
+  .pad-ll {
+      padding-left: 24px;
+  }
+}
 
 input:not(.browser-deafult) {
   border-bottom: 0 !important;

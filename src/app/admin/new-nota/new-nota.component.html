@@ -62,14 +62,26 @@
                 <div class="col s1">
                   Nombre:
                 </div>
-                <div class="col s6">
-                  <input type="text" autofocus tabindex="1" class="focusNext form-control-plaintext" formControlName="nombre">
+                <div class="col s6 pr0" style="display: none;" id="nameC">
+                  <input type="text" value="{{nameC}}">
                 </div>
+                <div class="col s5 pr0 no-print">
+                  <input formControlName="nombre" type="text" readonly>
+                </div>
+                <div class="col s1 pr0 pl0 no-print box">
+                  <select name="nombre" id="nombre" style="height: 1rem !important; margin: 0 0 8px 0; border: none !important; background-color: #e4e6e5;" (change)="nameS($event)">
+                    <option value=""></option>
+                    <option *ngFor="let form of forms" value="{{form.$key}}">{{form.nombre}}</option>
+                  </select>
+                </div>
+                <!-- <div class="col s6">
+                  <input type="text" autofocus tabindex="1" class="focusNext form-control-plaintext" formControlName="nombre">
+                </div> -->
                 <div class="col s1">
                   Teléfono:
                 </div>
                 <div class="col s4">
-                  <input type="text" autofocus tabindex="2" class="focusNext form-control-plaintext" formControlName="tel">
+                  <input type="text" autofocus tabindex="2" class="focusNext form-control-plaintext" formControlName="tel" readonly>
                 </div>
               </div>
               <div class="row">
@@ -77,7 +89,7 @@
                   Domicilio:
                 </div>
                 <div class="col s11">
-                  <input type="text" tabindex="3" class="focusNext" formControlName="domicilio">                  
+                  <input type="text" tabindex="3" class="focusNext" formControlName="domicilio" readonly>                  
                 </div>
               </div>
               <div class="row">
@@ -336,12 +348,8 @@
                   <td style="background-color: #ededed; width: 3cm;" class="right-align">ANTICIPO: $</td>
                   <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="anticipo" formControlName="antici" (change)="updt()"
                     tabindex="85" class="focusNext" > </td>
-                </tr>
-                <tr style="border-bottom: 0;">
-                  <td style="width: 1.5cm;"></td>                  
-                  <td style="background-color: #ededed; width: 3cm;" class="right-align">SALDO: $</td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" value="{{saldo}}" style="color:red;"> </td>
-                </tr> -->
+                </tr>-->
+                
               </table>
             </div>
           </div>
@@ -351,7 +359,7 @@
             <div class="col s6">
               <div class="signature">
                 <div id="contSign" onclick="btn_click()">
-                  <img src="" id="imgSign" (load)="imgChanged($event)">
+                  <!-- <img src="" id="imgSign" (load)="imgChanged($event)"> -->
                   <!-- <img src="" id="imgSign"> -->
                 </div>
                 <hr>
@@ -398,10 +406,20 @@
         </div>
       </div>
     </section>
-    <div class="no-print" id="printBtn" onclick="window.print()">
+    <!-- <div class="no-print" id="printBtn" onclick="window.print()">
       <div class="iconos">
         <span class="material-icons" style="font-size: 2.8rem;">print</span>
         <span class="material-icons" style="font-size: 2.8rem; color: #0d47a1;">save</span>
+      </div>
+    </div> -->
+    <div class="no-print" id="printBtn">
+      <div class="iconos">
+        <button>
+          <span class="material-icons" style="font-size: 2.8rem;" onclick="window.print()">print</span>
+        </button>
+        <button (click)="submitSurveyData()" [routerLink]="['/notas']" [disabled]="!myForm.valid" style="cursor: pointer;">
+          <span class="material-icons" style="font-size: 2.8rem; color: #0d47a1;">save</span>
+        </button>
       </div>
       <!-- <img src="assets/print.svg" alt="" width="35" height="35"> -->
     </div>
