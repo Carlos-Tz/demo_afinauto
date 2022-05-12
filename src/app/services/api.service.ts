@@ -6,15 +6,18 @@ import { Cita } from '../models/cita';
 import { Casa } from '../models/casa';
 import { Orden } from '../models/orden';
 import { Nota } from '../models/nota';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  lastOrden: number = 0;
   formsList: AngularFireList<any>;
   formObject: AngularFireObject<any>;
-  /* citaObject: AngularFireObject<any>; */
+  lastOrdenRef: Observable<any[]>;
+  lastNotaRef: Observable<any[]>;
   /* public callList: AngularFireList<any>; */
   public ordenList: AngularFireList<any>;
   public notaList: AngularFireList<any>;
@@ -157,4 +160,14 @@ export class ApiService {
   UpdateCasa(casa: Casa) {
     this.casaObject.update(casa);
   } */
+
+  getLastOrden(){
+    this.lastOrdenRef = this.db.list('afinauto/orden-list/', ref => ref.limitToLast(1)).valueChanges();
+    return this.lastOrdenRef;
+  }
+
+  getLastNota(){
+    this.lastNotaRef = this.db.list('afinauto/nota-list/', ref => ref.limitToLast(1)).valueChanges();
+    return this.lastNotaRef;
+  }
 }

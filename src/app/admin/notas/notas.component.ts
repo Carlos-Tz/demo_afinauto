@@ -8,6 +8,7 @@ import { MatInput } from '@angular/material/input';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NewRegisterComponent } from '../new-register/new-register.component';
 import { EditRegisterComponent } from '../edit-register/edit-register.component';
+import { Nota } from 'src/app/models/nota';
 
 @Component({
   selector: 'app-notas',
@@ -15,9 +16,9 @@ import { EditRegisterComponent } from '../edit-register/edit-register.component'
   styleUrls: ['./notas.component.css']
 })
 export class NotasComponent implements OnInit, AfterViewInit {
-  public dataSource = new MatTableDataSource<Form>();
+  public dataSource = new MatTableDataSource<Nota>();
   save = 2;
-  Form: Form[];
+  Nota: Nota[];
   data = false;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -38,27 +39,28 @@ export class NotasComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.api.GetNotasList().snapshotChanges().subscribe(data => {
-      this.Form = [];
+      this.Nota = [];
       data.forEach(item => {
         const f = item.payload.toJSON();
         f['$key'] = item.key;
-        this.Form.push(f as Form);
+        this.Nota.push(f as Nota);
       });
-      if (this.Form.length > 0) {
+      if (this.Nota.length > 0) {
         this.data = true;
-        this.dataSource.data = this.Form.slice();
-       /*  this.dataSource.sort = this.sort; */
+        this.dataSource.data = this.Nota.slice();
+        /* this.dataSource.sort = this.sort; */
       }
       /* Pagination */
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
     });
+    /* this.sortData() */
     //this.api.GetCita();
   }
 
   sortData(sort: Sort) {
-    const data = this.Form.slice();
+    const data = this.Nota.slice();
     if (!sort.active || sort.direction === '') {
       this.dataSource.data = data;
       return;
@@ -67,7 +69,7 @@ export class NotasComponent implements OnInit, AfterViewInit {
     this.dataSource.data = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'nombre': return this.compare(a.nombre.trim().toLocaleLowerCase(), b.nombre.trim().toLocaleLowerCase(), isAsc);
+        case 'orden': return this.compare(a.orden, b.orden, isAsc);
         case 'fecha': return this.compare(a.fecha, b.fecha, isAsc);
         default: return 0;
       }

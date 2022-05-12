@@ -18,6 +18,6 @@ export interface Nota {
     tarjeta: boolean;
     efectivo: boolean;
     transferencia: boolean;
-    firma: string;
+    firma1: string;
     units: Unit[];
 }

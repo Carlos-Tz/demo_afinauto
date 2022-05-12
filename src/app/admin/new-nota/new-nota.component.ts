@@ -122,11 +122,16 @@ export class NewNotaComponent implements OnInit {
         this.forms.push(form as Form);
       });
     });
-    this.formApi.GetNotasList().snapshotChanges().subscribe(data => {
-      this.ord = data.length + 1;
-      /* this.myForm.patchValue({orden: this.ord}); */
-      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+    this.formApi.getLastNota().subscribe(res=> {
+      if(res[0]){
+        this.ord = Number(res[0].orden);
+        this.myForm.patchValue({orden: String(this.ord + 1).padStart(6, '0')});      
+      }
     });
+    /* this.formApi.GetNotasList().snapshotChanges().subscribe(data => {
+      this.ord = data.length + 1;
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+    }); */
     //this.formApi.GetFormsList();
     /* this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
       this.ord = data.length + 1;
@@ -192,7 +197,7 @@ export class NewNotaComponent implements OnInit {
       this.iva = 0;
     }
     this.total = this.subtotal + this.iva;
-    //this.saldo = this.total - this.anticipo;
+    this.saldo = this.total - this.anticipo;
     /* this.iva = Math.round(this.totalr * 0.16);
     this.total = this.totalr + this.iva; */
   }
@@ -310,6 +315,51 @@ export class NewNotaComponent implements OnInit {
   /* presupuesto(){
     this.myForm.patchValue({presupuesto: })
   } */
+
+  imgChanged($event) {
+    if ($event.target.src) {
+      const imgURL = $event.target.src;
+      const block = imgURL.split(';');
+      const contentType = block[0].split(':')[1];
+      const realData = block[1].split(',')[1];
+      const blob = this.b64toBlob(realData, contentType);
+      /* const filePath = `signs/image_${Date.now()}`; */
+      this.filePathf1 = `signs_afinauto/image_${Date.now()}`;
+      const fileRef = this.storage.ref(this.filePathf1);
+      this.storage.upload(this.filePathf1, blob).snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            this.myForm.patchValue({firma1: url});
+            this.toastr.success('Firma Actualizada!');
+          });
+        })
+      ).subscribe();
+    }
+  }
+
+  b64toBlob(b64Data, contentType, sliceSize?) {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, {type: contentType});
+    return blob;
+  }
 
 }
 

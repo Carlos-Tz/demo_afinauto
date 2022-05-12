@@ -121,27 +121,20 @@ export class NewOrdenComponent implements OnInit {
         this.forms.push(form as Form);
       });
     });
-    this.formApi.GetOrdenesList().snapshotChanges().subscribe(data => {
-      this.ord = data.length + 1;
-      /* this.myForm.patchValue({orden: this.ord}); */
-      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
-      /* this.forms = [];
-      data.forEach(item => {
-        const form = item.payload.toJSON();
-        form['$key'] = item.key;
-        this.forms.push(form as Form);
-      }); */
+    this.formApi.getLastOrden().subscribe(res=> {
+      if(res[0]){
+        this.ord = Number(res[0].orden);
+        this.myForm.patchValue({orden: String(this.ord + 1).padStart(6, '0')});      
+      }
     });
+
+    /* this.formApi.GetOrdenesList().snapshotChanges().subscribe(data => {
+      this.ord = data.length + 1;
+      this.myForm.patchValue({orden: String(this.ord).padStart(6, '0')});
+    }); */
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
-    /* this.myForm.patchValue({ ingreso: new Date() }); */
-    //this.myForm.patchValue({ ingreso: this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2) });
     this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
-    /* this.generRow();
-    this.myformValuesChanges$ = this.myForm.controls['units'].valueChanges;
-    this.myformValuesChanges$.subscribe(units => {
-      this.updateTotalUnitPrice(units);
-    }); */
   }
 
   /* private generRow() {

@@ -274,27 +274,29 @@
                   <!-- <td style="width: 11.5cm;"></td> -->
                   <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">REFACCIONES: $</td>
                   <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" value="{{totalr}}" style="color:#00649c;"></td> -->
-                  <td style="background-color: #ededed; width: 3cm;" class="right-align">SUBTOTAL: $ </td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" value="{{subtotal}}" style="color:#00649c;"> </td>
+                  <td style="background-color: #ededed; width: 3cm;" class="right-align">SUBTOTAL:  </td>
+                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="text" value="{{subtotal | currency}}" readonly style="color:#00649c;"> </td>
                 </tr>
                 <tr style="border-bottom: 0;">
                   <td style="width: 1.5cm;">
                     <p style="text-align: left;">Métodos de pago:</p>
                   </td>
                   <!-- <td style="width: 11.5cm;"></td> -->
-                  <td style="background-color: #ededed; width: 3cm;" class="right-align"><input type="checkbox" name="iva" id="iva" formControlName="iva" style="margin-right: 0.5rem;" (change)="updt()">  IVA: $ </td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" value="{{ iva}}" style="color:#00649c;"></td>
+                  <td style="background-color: #ededed; width: 3cm;" class="right-align"><input type="checkbox" name="iva" id="iva" formControlName="iva" style="margin-right: 0.5rem;" (change)="updt()">  IVA:  </td>
+                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="text" value="{{ iva | currency}}" readonly style="color:#00649c;"></td>
                 </tr>
                 <tr style="border-bottom: 0;" *ngIf="!myForm.value.presupuesto">
                   <td style="width: 1.5cm;">                    
                   </td>
                   <!-- <td style="width: 11.5cm;"></td> -->
-                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">CARGOS ADICIONALES: $</td>
+                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">CARGOS ADICIONALES: </td>
                   <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="obra" formControlName="cargos" (change)="updt()" tabindex="82"
                     class="focusNext" > </td> -->
-                    <td style="background-color: #ededed; width: 3cm;" class="right-align">ANTICIPO: $ </td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="anticipo" formControlName="antici" (change)="updt()"
-                    tabindex="85" class="focusNext" > </td>
+                    <td style="background-color: #ededed; width: 3cm;" class="right-align">ANTICIPO:  </td>
+                  <!-- <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="anticipo" formControlName="antici" (change)="updt()"
+                    tabindex="85" class="focusNext" > </td> -->
+                    <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="anticipo" formControlName="antici" (change)="updt()"
+                      tabindex="85" class="focusNext no-print" ><input type="text" value="{{myForm.value.antici | currency}}" id="anticipo" style="display: none;" > </td>
                 </tr>
                 <tr style="border-bottom: 0;">
                   <td style="width: 1.5cm;">
@@ -307,20 +309,20 @@
                       <div class="col s2" style="padding-left: 0; text-align:left">Transferencia</div>
                     </div></td>
                   <!-- <td style="width: 11.5cm;"></td> -->
-                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">SEGURO: $</td>
+                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">SEGURO: </td>
                   <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="obra" formControlName="seguro" (change)="updt()" tabindex="83"
                     class="focusNext" > </td> -->
-                    <td style="background-color: #ededed; width: 3cm;" class="right-align">TOTAL: $ </td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12); font-weight: 600; color: red;"><input type="number" value="{{total}}" style="color:red;"></td>
+                    <td style="background-color: #ededed; width: 3cm;" class="right-align">TOTAL:  </td>
+                  <td style="border: 1px solid rgba(0,0,0,0.12); font-weight: 600; color: red;"><input type="text" value="{{total | currency}}" readonly style="color:red;"></td>
                 </tr>
                 <tr style="border-bottom: 0;" *ngIf="!myForm.value.presupuesto">
                   <td style="width: 1.5cm;"></td>
                   <!-- <td style="width: 11.5cm;"></td> -->
-                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">SEGURO: $</td>
+                  <!-- <td style="background-color: #ededed; width: 3cm;" class="right-align">SEGURO: </td>
                   <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" name="obra" formControlName="seguro" (change)="updt()" tabindex="83"
                     class="focusNext" > </td> -->
-                    <td style="background-color: #ededed; width: 3cm;" class="right-align">SALDO: $ </td>
-                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="number" value="{{saldo}}" style="color:red;"> </td>
+                    <td style="background-color: #ededed; width: 3cm;" class="right-align">SALDO:  </td>
+                  <td style="border: 1px solid rgba(0,0,0,0.12);"><input type="text" value="{{saldo | currency}}" readonly style="color:red;"> </td>
                 </tr>
                 <!-- <tr style="border-bottom: 0;">
                   <td style="width: 1.5cm;"></td>                  
@@ -359,7 +361,7 @@
             <div class="col s6">
               <div class="signature">
                 <div id="contSign" onclick="btn_click()">
-                  <!-- <img src="" id="imgSign" (load)="imgChanged($event)"> -->
+                  <img src="" id="imgSign" (load)="imgChanged($event)">
                   <!-- <img src="" id="imgSign"> -->
                 </div>
                 <hr>

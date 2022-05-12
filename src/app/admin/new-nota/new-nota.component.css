@@ -26,8 +26,9 @@
     border-right: 1px solid rgba(0,0,0,0.12);
 }
 
-#total__ input[type="number"]{
+#total__ input[type="number"], #total__ input[type="text"]{
     border: 0 !important;
+    text-align: center;
 }
 
 .switch label input[type=checkbox]:checked+.lever:after {

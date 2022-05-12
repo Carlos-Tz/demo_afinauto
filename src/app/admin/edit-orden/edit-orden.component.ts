@@ -580,81 +580,89 @@ export class EditOrdenComponent implements OnInit {
   imgChanged($event) {
     if ($event.target.src) {
       const imgURL = $event.target.src;
-      const block = imgURL.split(';');
-      const contentType = block[0].split(':')[1];
-      const realData = block[1].split(',')[1];
-      const blob = this.b64toBlob(realData, contentType);
-      /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf1 = `signs_afinauto/image_${Date.now()}`;
-      const fileRef = this.storage.ref(this.filePathf1);
-      this.storage.upload(this.filePathf1, blob).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            this.myForm.patchValue({firma1: url});
-            this.toastr.success('Firma Actualizada!');
-          });
-        })
-      ).subscribe();
+      if (imgURL.startsWith('data:image') ) {
+        const block = imgURL.split(';');
+        const contentType = block[0].split(':')[1];
+        const realData = block[1].split(',')[1];
+        const blob = this.b64toBlob(realData, contentType);
+        /* const filePath = `signs/image_${Date.now()}`; */
+        this.filePathf1 = `signs_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathf1);
+        this.storage.upload(this.filePathf1, blob).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({firma1: url});
+              this.toastr.success('Firma Actualizada!');
+            });
+          })
+        ).subscribe();
+      }
     }
   }
   imgChanged2($event) {
     if ($event.target.src) {
       const imgURL = $event.target.src;
-      const block = imgURL.split(';');
-      const contentType = block[0].split(':')[1];
-      const realData = block[1].split(',')[1];
-      const blob = this.b64toBlob(realData, contentType);
-      /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf2 = `signs_afinauto/image_${Date.now()}`;
-      const fileRef = this.storage.ref(this.filePathf2);
-      this.storage.upload(this.filePathf2, blob).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            this.myForm.patchValue({firma2: url});
-            this.toastr.success('Firma Actualizada!');
-          });
-        })
-      ).subscribe();
+      if (imgURL.startsWith('data:image') ) {
+        const block = imgURL.split(';');
+        const contentType = block[0].split(':')[1];
+        const realData = block[1].split(',')[1];
+        const blob = this.b64toBlob(realData, contentType);
+        /* const filePath = `signs/image_${Date.now()}`; */
+        this.filePathf2 = `signs_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathf2);
+        this.storage.upload(this.filePathf2, blob).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({firma2: url});
+              this.toastr.success('Firma Actualizada!');
+            });
+          })
+        ).subscribe();
+      }
     }
   }
   imgChanged3($event) {
     if ($event.target.src) {
       const imgURL = $event.target.src;
-      const block = imgURL.split(';');
-      const contentType = block[0].split(':')[1];
-      const realData = block[1].split(',')[1];
-      const blob = this.b64toBlob(realData, contentType);
-      /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf3 = `signs_afinauto/image_${Date.now()}`;
-      const fileRef = this.storage.ref(this.filePathf3);
-      this.storage.upload(this.filePathf3, blob).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            this.myForm.patchValue({firma3: url});
-            this.toastr.success('Firma Actualizada!');
-          });
-        })
-      ).subscribe();
+      if (imgURL.startsWith('data:image') ) {
+        const block = imgURL.split(';');
+        const contentType = block[0].split(':')[1];
+        const realData = block[1].split(',')[1];
+        const blob = this.b64toBlob(realData, contentType);
+        /* const filePath = `signs/image_${Date.now()}`; */
+        this.filePathf3 = `signs_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathf3);
+        this.storage.upload(this.filePathf3, blob).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({firma3: url});
+              this.toastr.success('Firma Actualizada!');
+            });
+          })
+        ).subscribe();
+      }
     }
   }
   imgChanged4($event) {
     if ($event.target.src) {
       const imgURL = $event.target.src;
-      const block = imgURL.split(';');
-      const contentType = block[0].split(':')[1];
-      const realData = block[1].split(',')[1];
-      const blob = this.b64toBlob(realData, contentType);
-      /* const filePath = `signs/image_${Date.now()}`; */
-      this.filePathf4 = `signs_afinauto/image_${Date.now()}`;
-      const fileRef = this.storage.ref(this.filePathf4);
-      this.storage.upload(this.filePathf4, blob).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            this.myForm.patchValue({firma4: url});
-            this.toastr.success('Firma Actualizada!');
-          });
-        })
-      ).subscribe();
+      if (imgURL.startsWith('data:image') ) {
+        const block = imgURL.split(';');
+        const contentType = block[0].split(':')[1];
+        const realData = block[1].split(',')[1];
+        const blob = this.b64toBlob(realData, contentType);
+        /* const filePath = `signs/image_${Date.now()}`; */
+        this.filePathf4 = `signs_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathf4);
+        this.storage.upload(this.filePathf4, blob).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({firma4: url});
+              this.toastr.success('Firma Actualizada!');
+            });
+          })
+        ).subscribe();
+      }
     }
   }
   b64toBlob(b64Data, contentType, sliceSize?) {

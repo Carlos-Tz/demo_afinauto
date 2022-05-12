@@ -26,7 +26,7 @@
                         </div>
                         <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
                         <!-- <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear> -->
-                        <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="fecha" matSortDirection="desc" matSortDisableClear (matSortChange)="sortData($event)">
+                        <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="orden" matSortDirection="desc" matSortDisableClear (matSortChange)="sortData($event)">
 
                             <ng-container matColumnDef="orden">
                                 <mat-header-cell *matHeaderCellDef mat-sort-header >Orden</mat-header-cell>
@@ -34,27 +34,27 @@
                                 </mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="nombre">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header >Nombre</mat-header-cell>
-                                <mat-cell *matCellDef="let element" [ngClass]="{'com':element.estado}">{{element.nombre}}
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="pad-l">Nombre</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="pad-l" [ngClass]="{'com':element.estado}">{{element.nombre}}
                                 </mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="modelo">
-                                <mat-header-cell *matHeaderCellDef class="show-h">Modelo</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.modelo}}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef class="pad-l">Modelo</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="pad-l" [ngClass]="{'com':element.estado}">{{element.modelo}}</mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="placas">
-                                <mat-header-cell *matHeaderCellDef class="show-h">Placas</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.placas }}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef class="show-h show-hh pad-l">Placas</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="show-h show-hh pad-l" [ngClass]="{'com':element.estado}">{{element.placas }}</mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="fecha">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header class="show-h">Fecha</mat-header-cell>
-                                <mat-cell *matCellDef="let element" class="show-h" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="show-h pad-l">Fecha</mat-header-cell>
+                                <mat-cell *matCellDef="let element" class="show-h pad-l" [ngClass]="{'com':element.estado}">{{element.fecha}}</mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="action">
-                                <mat-header-cell *matHeaderCellDef class="pad-l"> Acción </mat-header-cell>
-                                <mat-cell *matCellDef="let element; let i = index;" class="pad-l" [ngClass]="{'com':element.estado}">
+                                <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
+                                <mat-cell *matCellDef="let element; let i = index;" [ngClass]="{'com':element.estado}">
                                     <!-- <button class="btn btn-outline-success btn-sm" (click)="editCliente(element.$key)"><span class="material-icons">edit</span></button> -->
 
                                     <button class="btn  btn-small" [routerLink]="['/editar-orden/', element.$key]"><span class="material-icons">edit</span></button>

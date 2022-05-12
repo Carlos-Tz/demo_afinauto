@@ -55,6 +55,7 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
       }, 0);
     });
     //this.api.GetCita();
+    this.api.getLastOrden();
   }
 
   sortData(sort: Sort) {
@@ -67,6 +68,7 @@ export class OrdenesComponent implements OnInit, AfterViewInit {
     this.dataSource.data = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
+        case 'orden': return this.compare(a.orden, b.orden, isAsc);
         case 'nombre': return this.compare(a.nombre.trim().toLocaleLowerCase(), b.nombre.trim().toLocaleLowerCase(), isAsc);
         case 'fecha': return this.compare(a.fecha, b.fecha, isAsc);
         default: return 0;
