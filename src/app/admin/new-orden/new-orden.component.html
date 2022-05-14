@@ -13,8 +13,9 @@
               <div class="datos">
                 <h5 style="font-weight: 600;">AFINAUTO</h5>
                 <p>PERFORMANCE - SUSPENSIONES</p>
-                <p>Tel. 443 256 5230 | afinautos@yahoo.com</p>
                 <p>Raza Azteca 89-A, Lomas de Santiaguito</p>
+                <p>Tel. 443 256 5230 | 443 104 0686</p>
+                <p>afinautos@yahoo.com</p>
               </div>
             </div>
             <div class="col s4">
@@ -768,6 +769,56 @@
                       </div>
                 </div>
                 <div class="td  "><textarea name="img4d" rows="11" wrap="soft" tabindex="17" class="txa focusNext" formControlName="desc4"></textarea></div>
+              </div>
+            </div>
+          </div>
+    
+    
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="page">
+        <div class="inner">
+          <div class="section6">
+            <h3 id="sub_title" style="margin-top: 0;">ESTADO DEL VEHÍCULO</h3><br>
+            <div class="table">
+              <div class="tr thead">
+                  <div class="td grey" style="color: white;">Imagen</div>
+                  <div class="td grey" style="color: white;">Descripción</div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci5" [ngStyle]="{'background-image': 'url('+myForm.value.img5+')'}">
+                      <!-- <span class="material-icons">backup</span> -->
+                        <input type="file" accept="image/*" name="img5" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img5d" rows="11" wrap="soft" tabindex="14" class="txa focusNext" formControlName="desc5"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci6" [ngStyle]="{'background-image': 'url('+myForm.value.img6+')'}">
+                        <input type="file" accept="image/*" name="img6" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img6d"  rows="11" wrap="soft" tabindex="15" class="txa focusNext" formControlName="desc6"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td">
+                    <div class="image-container" id="ci7" [ngStyle]="{'background-image': 'url('+myForm.value.img7+')'}">
+                        <input type="file" accept="image/*" name="img7" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td "><textarea name="img7d"  rows="11" wrap="soft" tabindex="16" class="txa focusNext" formControlName="desc7"></textarea></div>
+              </div>
+              <div class="tr">
+                <div class="td ">
+                    <div class="image-container" id="ci8" [ngStyle]="{'background-image': 'url('+myForm.value.img8+')'}">
+                        <input type="file" accept="image/*" name="img8" onchange="showMyImage(this)" (change)="changeListener($event)">
+                      </div>
+                </div>
+                <div class="td  "><textarea name="img8d" rows="11" wrap="soft" tabindex="17" class="txa focusNext" formControlName="desc8"></textarea></div>
               </div>
             </div>
           </div>

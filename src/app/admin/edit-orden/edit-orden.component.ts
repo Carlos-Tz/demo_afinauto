@@ -73,6 +73,10 @@ export class EditOrdenComponent implements OnInit {
   public filePathI2 = '';
   public filePathI3 = '';
   public filePathI4 = '';
+  public filePathI5 = '';
+  public filePathI6 = '';
+  public filePathI7 = '';
+  public filePathI8 = '';
   public filePathf1 = '';
   public filePathf2 = '';
   public filePathf3 = '';
@@ -297,10 +301,18 @@ export class EditOrdenComponent implements OnInit {
       img2: [''],
       img3: [''],
       img4: [''],
+      img5: [''],
+      img6: [''],
+      img7: [''],
+      img8: [''],
       desc1: [''],
       desc2: [''],
       desc3: [''],
       desc4: [''],
+      desc5: [''],
+      desc6: [''],
+      desc7: [''],
+      desc8: [''],
       firma3: [''],
       firma4: [''],
       fecha: ['']
@@ -568,6 +580,70 @@ export class EditOrdenComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               this.myForm.patchValue({img4: url});
+              this.toastr.success('Imagen cargada correctamente!');
+            });
+          })
+        ).subscribe();
+      }
+      if (inputValue.name === 'img5') {
+        if (this.filePathI5 !== '') {
+          const ref = this.storage.ref(this.filePathI5);
+          ref.delete();
+        }
+        this.filePathI5 = `images_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathI5);
+        this.storage.upload(this.filePathI5, this.uploadedImage).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({img5: url});
+              this.toastr.success('Imagen cargada correctamente!');
+            });
+          })
+        ).subscribe();
+      }
+      if (inputValue.name === 'img6') {
+        if (this.filePathI6 !== '') {
+          const ref = this.storage.ref(this.filePathI6);
+          ref.delete();
+        }
+        this.filePathI6 = `images_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathI6);
+        this.storage.upload(this.filePathI6, this.uploadedImage).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({img6: url});
+              this.toastr.success('Imagen cargada correctamente!');
+            });
+          })
+        ).subscribe();
+      }
+      if (inputValue.name === 'img7') {
+        if (this.filePathI7 !== '') {
+          const ref = this.storage.ref(this.filePathI7);
+          ref.delete();
+        }
+        this.filePathI7 = `images_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathI7);
+        this.storage.upload(this.filePathI7, this.uploadedImage).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({img7: url});
+              this.toastr.success('Imagen cargada correctamente!');
+            });
+          })
+        ).subscribe();
+      }
+      if (inputValue.name === 'img8') {
+        if (this.filePathI8 !== '') {
+          const ref = this.storage.ref(this.filePathI8);
+          ref.delete();
+        }
+        this.filePathI8 = `images_afinauto/image_${Date.now()}`;
+        const fileRef = this.storage.ref(this.filePathI8);
+        this.storage.upload(this.filePathI8, this.uploadedImage).snapshotChanges().pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.myForm.patchValue({img8: url});
               this.toastr.success('Imagen cargada correctamente!');
             });
           })
