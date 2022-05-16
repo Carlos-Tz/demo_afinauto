@@ -2,15 +2,16 @@ import { Component, OnInit, ViewChild, HostListener, AfterViewInit } from '@angu
 import { SignaturePad } from 'angular2-signaturepad/angular2-signaturepad';
 import 'fecha';
 import fechaObj from 'fecha';
-import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { ToastrService } from 'ngx-toastr';
 // import { Ng2ImgMaxService } from 'ng2-img-max';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from 'rxjs/operators';
+import { finalize, map, startWith } from 'rxjs/operators';
 import { CurrencyPipe } from '@angular/common';
 import { Form } from 'src/app/models/form';
 import {NgForm} from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-orden',
@@ -18,6 +19,10 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./new-orden.component.css']
 })
 export class NewOrdenComponent implements OnInit, AfterViewInit {
+  myControl = new FormControl();
+  options1: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<Form[]>;
+
 
   public canvasWidth = 180;
   public needleValue = 50;
@@ -124,6 +129,10 @@ export class NewOrdenComponent implements OnInit, AfterViewInit {
         form['$key'] = item.key;
         this.forms.push(form as Form);
       });
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value)),
+      );
     });
     this.formApi.getLastOrden().subscribe(res=> {
       if(res[0]){
@@ -139,6 +148,13 @@ export class NewOrdenComponent implements OnInit, AfterViewInit {
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
     this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
+  }
+
+  private _filter(value: string): Form[] {
+    const filterValue = value.toLowerCase();
+
+    //return this.options1.filter(option => option.toLowerCase().includes(filterValue));
+    return this.forms.filter(option => option.nombre.toLowerCase().includes(filterValue));
   }
 
   ngAfterViewInit() {

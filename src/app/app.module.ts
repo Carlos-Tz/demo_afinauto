@@ -35,6 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { SpinnerComponent } from './admin/spinner/spinner.component';
 import { EditRegisterComponent } from './admin/edit-register/edit-register.component';
 import { BtnCallComponent } from './admin/edit-register/btn-call/btn-call.component';
@@ -126,7 +127,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatAutocompleteModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

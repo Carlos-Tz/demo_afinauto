@@ -135,19 +135,27 @@
                 <div class="col s8 pr0 no-print">
                   <input formControlName="nombre" type="text" readonly>
                 </div>
-                <div class="col s2 pr0 pl0 no-print box">
+                <!-- <div class="col s2 pr0 pl0 no-print box">
                   <select name="nombre" id="nombre" style="height: 1rem !important; margin: 0 0 8px 0; border: none !important; background-color: #e4e6e5;" (change)="nameS($event)">
                     <option value=""></option>
                     <option *ngFor="let form of forms" value="{{form.$key}}">{{form.nombre}}</option>
                   </select>
+                </div> -->
+                <div class="col s2 pr0 pl0">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <input type="text"
+                          placeholder="**"
+                          aria-label="Nombre"
+                          matInput
+                          [formControl]="myControl"
+                          [matAutocomplete]="auto" (change)="nameS($event)">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.$key">
+                        {{option.nombre}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
                 </div>
-                <!-- <mat-form-field appearance="fill">
-                  <mat-label>Nombre</mat-label>s
-                  <mat-select>
-                    <mat-option></mat-option>
-                    <mat-option *ngFor="let form of forms" [value]="form.nombre">{{form}}</mat-option>
-                  </mat-select>
-                </mat-form-field> -->
               </div>
               <div class="row ml0 mr0">
                 <div class="col s2">
