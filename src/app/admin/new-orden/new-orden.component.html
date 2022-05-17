@@ -129,12 +129,12 @@
                 <div class="col s2">
                   Nombre:
                 </div>
-                <div class="col s10 pr0" style="display: none;" id="nameC">
+                <div class="col s10 pr0" id="nameC">
+                  <input type="text" formControlName="nombre">
+                </div>
+                <!-- <div class="col s10 pr0" style="display: none;" id="nameC">
                   <input type="text" value="{{nameC}}">
-                </div>
-                <div class="col s8 pr0 no-print">
-                  <input formControlName="nombre" type="text" readonly>
-                </div>
+                </div> -->
                 <!-- <div class="col s2 pr0 pl0 no-print box">
                   <select name="nombre" id="nombre" style="height: 1rem !important; margin: 0 0 8px 0; border: none !important; background-color: #e4e6e5;" (change)="nameS($event)">
                     <option value=""></option>
@@ -142,13 +142,19 @@
                   </select>
                 </div> -->
                 <div class="col s2 pr0 pl0">
-                  <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-form-field appearance="fill" style="padding-bottom: 0 !important;">
                     <input type="text"
                           placeholder="**"
                           aria-label="Nombre"
                           matInput
                           [formControl]="myControl"
-                          [matAutocomplete]="auto" (change)="nameS($event)">
+                          [matAutocomplete]="auto" formControlName="nombre">
+                    <!-- <input type="text"
+                          placeholder="**"
+                          aria-label="Nombre2"
+                          matInput
+                          [formControl]="myControl"
+                          [matAutocomplete]="auto" formControlName="id_cliente"> -->
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                       <mat-option *ngFor="let option of filteredOptions | async" [value]="option.$key">
                         {{option.nombre}}
@@ -446,35 +452,6 @@
               </div>
             </div>
           </div>
-            <!-- <div class="row valign-wrapper">
-              <div class="col s5">
-                <div class="row valign-wrapper">
-                  <div class="col s2" style="padding-right: 0 !important;">
-                    <img src="https://img.icons8.com/color/96/000000/facebook.png" style="height: 1cm !important;">
-                  </div>
-                  <div class="col s4" style="padding-left: 0 !important;">
-                    ramsa automotriz
-                  </div>
-                  <div class="col s2" style="padding-right: 0 !important;">
-                    <img src="https://img.icons8.com/color/96/000000/whatsapp.png" style="height: 1cm !important;">
-                  </div>
-                  <div class="col s4" style="padding-left: 0 !important;">
-                    443 528 1223
-                  </div>
-                </div>                
-              </div>
-              <div class="col s4 center-align">
-                <p>Cel. 443 528 1223</p>
-              </div>
-              <div class="col s3 center-align">
-                <p>ramsaautomotriz7827@gmail.com</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12 center-align">
-                <b>Baja California Norte #119c Col. Issac Arriaga</b>
-              </div>
-            </div> -->
           </div>
           
   
@@ -845,7 +822,7 @@
               <img src="assets/logo1.jpg" alt="" style="width: 100%;">
             </div>
             <div class="col s6"></div>
-            <div class="col s2" style="font-size: 1.3em; text-align: right;">{{ this.fecha }} </div>
+            <div class="col s2" style="font-size: 1.3em; text-align: right;">{{ this.myForm.value.fecha }} </div>
           </div>
           <div class="row" style="margin-top: 2rem;">
             <div class="col s12">

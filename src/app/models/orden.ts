@@ -1,5 +1,6 @@
 export interface Orden {
     nombre: string;
+    id_cliente: string;
     orden: number;
     correo: string;
     marca: string;

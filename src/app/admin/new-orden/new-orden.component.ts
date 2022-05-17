@@ -148,6 +148,9 @@ export class NewOrdenComponent implements OnInit, AfterViewInit {
     this.fecha = fechaObj.format(new Date(), 'D [/] MM [/] YYYY');
     this.myForm.patchValue({ fecha: this.fecha });
     this.ingresoC = this.ff.getFullYear() + '-' + ('0' + (this.ff.getMonth() + 1)).slice(-2) + '-' + ('0' + this.ff.getDate()).slice(-2);
+
+    this.myForm
+    .get('id_cliente').valueChanges.subscribe(value => this.nameS(value));
   }
 
   private _filter(value: string): Form[] {
@@ -213,6 +216,7 @@ export class NewOrdenComponent implements OnInit, AfterViewInit {
   sForm() {
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
+      id_cliente: [''],
       orden: ['', [Validators.required]],
       marca: [''],
       modelo: [''],
@@ -345,18 +349,21 @@ export class NewOrdenComponent implements OnInit, AfterViewInit {
     this.needleValue = ev.srcElement.value;
   }
 
-  nameS(ev) {
+  nameS(id) {
     /* this.needleValue = ev.srcElement.value; */
-    this.formApi.GetForm(ev.srcElement.value).valueChanges().subscribe(data => {
-      if (data.nombre && data.tel && data.email){
-        this.myForm.patchValue({correo: data.email});
-        this.myForm.patchValue({tel: data.tel});
-        this.myForm.patchValue({nombre: data.nombre});
-        this.nameC = data.nombre;
-        /* console.log(data.email);
-        console.log(data.tel); */
+    /* this.formApi.GetForm(ev.srcElement.value).valueChanges().subscribe(data => { */
+    this.formApi.GetForm(id).valueChanges().subscribe(data => {
+      if(data){
+        if (data.nombre && data.tel && data.email){
+          this.myForm.patchValue({correo: data.email});
+          this.myForm.patchValue({tel: data.tel});
+          this.myForm.patchValue({nombre: data.nombre});
+          this.nameC = data.nombre;
+          console.log(data);
+          /* console.log(data.email);
+          console.log(data.tel); */
+        }
       }
-      /* this.myForm.patchValue(data); */
     });
   }
 
